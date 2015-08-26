@@ -154,7 +154,7 @@ void removeOldPngSplash(const char *filename) {
         [self addPath: [m_storyMainViewController resourceGamePath]];
         [self addPath: [m_storyMainViewController storyGamePath]];
         
-        m_defaultThumb = [UIImage imageNamed: @"compass-small.png"];
+        m_defaultThumb = [UIImage imageNamed: @"compass-small"];
         
         
 #ifdef NO_SANDBOX
@@ -201,7 +201,7 @@ void removeOldPngSplash(const char *filename) {
         } else
 #endif
         {
-            UIImage *img = [UIImage imageNamed: @"nowplaying.png"];
+            UIImage *img = [UIImage imageNamed: @"nowplaying"];
             [m_nowPlayingButtonView setImage: img forState: UIControlStateNormal];
             [m_nowPlayingButtonView setFrame: CGRectMake(0,0,[img size].width, [img size].height)];
             [m_nowPlayingButtonView addTarget:self action:@selector(resumeStory) forControlEvents: UIControlEventTouchDown];
