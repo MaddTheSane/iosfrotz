@@ -105,8 +105,8 @@
 	m_text.text = @"West of House\nThis is an open field west of a white house, with a boarded front door.\nThere is a small mailbox here.\n";
 	m_text.numberOfLines = 0;
 	[self addSubview: m_text];
-	m_flipFgImg = [UIImage imageNamed: @"colorflipfg.png"];
-	m_flipBgImg = [UIImage imageNamed: @"colorflipbg.png"];
+	m_flipFgImg = [UIImage imageNamed: @"colorflipfg"];
+	m_flipBgImg = [UIImage imageNamed: @"colorflipbg"];
 	m_imgView = [[UIImageView alloc] initWithImage: m_flipFgImg];
 	m_imgView.frame=CGRectMake(frame.size.width - m_flipFgImg.size.width - 1, frame.size.height - m_flipFgImg.size.height-1, m_flipFgImg.size.width, m_flipFgImg.size.height);
 	m_imgView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleTopMargin;
