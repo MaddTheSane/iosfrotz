@@ -621,7 +621,7 @@ void HSVtoRGB(CGFloat *r, CGFloat *g, CGFloat *b, CGFloat h, CGFloat s, CGFloat 
 
 - (void)loadView {
     CGRect frame = [[UIScreen mainScreen] applicationFrame];
-    BOOL fullScreenLarge = (frame.size.width > 760);
+    //BOOL fullScreenLarge = (frame.size.width > 760);
     m_background = [[UIView alloc] initWithFrame: frame];
     self.view = m_background;
 
@@ -651,12 +651,9 @@ void HSVtoRGB(CGFloat *r, CGFloat *g, CGFloat *b, CGFloat h, CGFloat s, CGFloat 
     [m_valuePicker setAutoresizingMask: UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin];
     [m_valuePicker setLeftMargin: 16];
 
-    UIImage *hsvCursorImage = [[UIImage alloc]
-	initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"hsv-crosshair" ofType:@"png" inDirectory: @"/"]];
+    UIImage *hsvCursorImage = [UIImage imageNamed:@"hsv-crosshair"];
     m_hsvCursor = [[UIImageView alloc] initWithImage: hsvCursorImage];
-    UIImage *valCursorImage = [[UIImage alloc]
-                               initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:
-                             (fullScreenLarge ? @"val-crosshair-ipad":@"val-crosshair") ofType:@"png" inDirectory: @"/"]];
+    UIImage *valCursorImage = [UIImage imageNamed:@"val-crosshair"];
     m_valueCursor = [[UIImageView alloc] initWithImage: valCursorImage];
     
     CGRect cursFrame = [m_hsvCursor frame];
