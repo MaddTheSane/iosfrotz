@@ -71,7 +71,7 @@ extern StoryBrowser *theStoryBrowser;
     FrotzInfo *m_frotzInfoController;
    
     NSMutableString *m_currentStory;    
-    NSMutableString *m_fontname;
+    NSString *m_fontname;
     NSInteger m_fontSize;
     CGFloat topWinSize;
     
@@ -154,11 +154,6 @@ extern StoryBrowser *theStoryBrowser;
 -(void) savePrefs;
 -(void) loadPrefs;
 @property (nonatomic, getter=isLandscape) BOOL landscape;
--(void) setFont: (NSString*)font withSize:(NSInteger)size;
-@property (nonatomic, readonly, copy) NSMutableString *font;
--(void) setFixedFont: (NSString*)font;
--(NSMutableString*) fixedFont;
-@property (nonatomic, readonly) NSInteger fontSize;
 -(void) setBackgroundColor: (UIColor*)color makeDefault:(BOOL)makeDefault;
 -(void) setTextColor: (UIColor*)color makeDefault:(BOOL)makeDefault;
 @property (nonatomic, readonly, copy) UIColor *backgroundColor;

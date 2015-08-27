@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy) NSString *title;
 
 @property(nonatomic,copy) NSString *path;
-@property(nonatomic,weak) StoryBrowser *browser;
+@property(nonatomic,weak,nullable) StoryBrowser *browser;
 @end
 
 @interface StoryBrowser : UITableViewController <UIActionSheetDelegate, UISplitViewControllerDelegate, UIPopoverControllerDelegate,UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource> {

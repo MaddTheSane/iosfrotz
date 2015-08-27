@@ -30,8 +30,6 @@ NS_ASSUME_NONNULL_BEGIN
     FrotzSettingsController *m_settings;
     UINavigationItem *m_navItem;
     id m_prevResponder;
-
-    id <KeyboardOwner> m_kbdOwner;
 }
 
 -(instancetype)initWithSettingsController:(FrotzSettingsController*)settings navController:(UINavigationController*)navController navItem: (UINavigationItem*) navItem NS_DESIGNATED_INITIALIZER;
