@@ -1077,6 +1077,10 @@ static void setColorTable(RichTextView *v) {
 @end
 
 @implementation StoryMainViewController 
+@synthesize font = m_fontname;
+@synthesize fontSize = m_fontSize;
+@synthesize completionEnabled = m_completionEnabled;
+@synthesize canEditStoryInfo = m_canEditStoryInfo;
 
 - (instancetype)init {
     return [self initWithNibName:nil bundle:nil];
@@ -2683,10 +2687,6 @@ static UIImage *GlkGetImageCallback(int imageNum) {
     [m_inputLine setFont: font];
 }
 
--(NSString*) font {
-    return m_fontname;
-}
-
 -(void) setFixedFont: (NSString*)font {
     NSInteger fixedFontSize = gLargeScreenDevice ? m_fontSize : (m_fontSize > 12 ? (m_fontSize+5)/2:8);
     [m_storyView setFixedFont: [UIFont fontWithName: font size: fixedFontSize]];
@@ -2694,10 +2694,6 @@ static UIImage *GlkGetImageCallback(int imageNum) {
 
 -(NSString*) fixedFont {
     return [[m_storyView fixedFont] fontName];
-}
-
--(NSInteger) fontSize {
-    return m_fontSize;
 }
 
 -(StoryView*) storyView {
@@ -4354,22 +4350,6 @@ static void setScreenDims(char *storyNameBuf) {
     }
 #endif
     
-}
-
--(BOOL)isCompletionEnabled {
-    return m_completionEnabled;
-}
-
--(void)setCompletionEnabled:(BOOL)on {
-    m_completionEnabled = on;
-}
-
--(BOOL)canEditStoryInfo {
-    return m_canEditStoryInfo;
-}
-
--(void)setCanEditStoryInfo: (BOOL)on {
-    m_canEditStoryInfo = on;
 }
 
 -(StoryInputLine*)inputLine {

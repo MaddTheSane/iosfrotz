@@ -10,10 +10,9 @@
 
 @protocol FrotzFontDelegate <NSObject>
 -(void) setFont: (NSString*)font withSize:(NSInteger)size;
--(void) setFixedFont: (NSString*)font;
--(NSMutableString*) font;
--(NSMutableString*) fixedFont;
--(NSInteger) fontSize;
+@property (nonatomic, readonly, copy) NSString *font;
+@property (nonatomic, copy) NSString *fixedFont;
+@property (nonatomic, readonly) NSInteger fontSize;
 @end
 
 @interface FrotzFontInfo : NSObject {
@@ -31,11 +30,9 @@
 @interface FontPicker : UITableViewController {
     NSMutableArray *m_fonts;
     NSMutableArray *m_fixedFonts;
-    BOOL m_fixedFontsOnly;
 }
 @property (nonatomic, weak) id<FrotzFontDelegate> delegate;
 @property (nonatomic, assign) BOOL fixedFontsOnly;
 
 - (instancetype)init;
-- (void)setFixedFontsOnly:(BOOL)fixed;
 @end

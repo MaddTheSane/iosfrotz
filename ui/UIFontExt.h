@@ -12,7 +12,7 @@
 // app store.  The font trait method lamely just looks for substrings in the font name to
 // identify bold, italic, etc. and returns those bits, so if Apple ever makes this
 // method available again, I can switch back to using it with no effort.
-typedef NS_OPTIONS(int, UIFontTraits) {
+typedef NS_OPTIONS(unsigned int, UIFontTraits) {
     UINormalFontMask = 0,
     UIItalicFontMask = 0x00000001, 
     UIBoldFontMask = 0x00000002, 

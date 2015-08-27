@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol URLPromptDelegate
+@protocol URLPromptDelegate <NSObject>
 -(void)promptURL;
 -(void)enterURL:(NSString*)url;
 -(void)dismissURLPrompt;
