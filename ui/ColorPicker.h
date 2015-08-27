@@ -26,7 +26,6 @@
     BOOL m_changeTextColor;
 }
 - (instancetype)init;
-- (void)dealloc;
 @property (nonatomic, readonly) CGColorSpaceRef colorSpace CF_RETURNS_NOT_RETAINED;
 - (void)setTextColor:(UIColor*)textColor bgColor:(UIColor*)bgColor changeText:(BOOL)changeTextColor;
 - (void)setColor: (UIColor *)color;

@@ -28,8 +28,8 @@
 @implementation NotesViewController
 
 - (NotesViewController*)initWithFrame:(CGRect)frame {
-    m_frame = frame;
-    if ((self = [super init])) {
+    if ((self = [super initWithNibName:nil bundle:nil])) {
+        m_frame = frame;
         // Initialization code
     }
     return self;

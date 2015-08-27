@@ -22,7 +22,6 @@
 {
     BOOL transitioning;
     BOOL wasEnabled;
-    id<TransitionViewDelegate> __weak delegate;
 }
 @property (weak) id<TransitionViewDelegate> delegate;
 @property (readonly, getter=isTransitioning) BOOL transitioning;

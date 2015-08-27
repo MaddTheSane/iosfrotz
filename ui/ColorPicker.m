@@ -54,7 +54,6 @@
 }
 - (instancetype) initWithFrame:(CGRect)frame withColorPicker: colorPicker;
 @property (nonatomic, readonly) unsigned int *hsvData;
-- (void)dealloc;
 - (void)drawRect:(CGRect)rect;
 - (void)mousePositionToColor:(CGPoint)point;
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event;

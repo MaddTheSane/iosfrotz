@@ -12,6 +12,6 @@
 @interface FrotzCommonWebViewController : UIViewController {
 }
 
-+(UIWebView*)sharedWebView;
++(nonnull UIWebView*)sharedWebView;
 +(void)releaseSharedWebView;
 @end

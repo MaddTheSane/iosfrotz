@@ -144,7 +144,6 @@ typedef UIImage *(*RichDataGetImageCallback)(int imageNum);
 - (void)reflowText;
 - (void)repositionAfterReflow;
 - (void)reloadImages;
-- (void)dealloc;
 @property (nonatomic, weak) UIViewController<UIScrollViewDelegate> *delegate;
 @property (nonatomic, copy) UIFont *font;
 @property (nonatomic, copy) UIFont *fixedFont;
