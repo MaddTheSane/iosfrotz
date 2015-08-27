@@ -9,7 +9,7 @@
 #include <CoreFoundation/CFBase.h>
 
 
-typedef CF_OPTIONS(unsigned short, RichTextStyle) { RichTextStyleNormal=0, RichTextStyleBold=1,
+typedef CF_OPTIONS(unsigned int, RichTextStyle) { RichTextStyleNormal=0, RichTextStyleBold=1,
     RichTextStyleItalic=2, RichTextStyleFixedWidth=4, RichTextStyleFontStyleMask=7,
     RichTextStyleReverse=8, RichTextStyleNoWrap=16, RichTextStyleRightJustification=32,
     RichTextStyleCentered=64, RichTextStyleImage=512, RichTextStyleInMargin=1024 };
