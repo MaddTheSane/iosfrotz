@@ -22,7 +22,7 @@
 
 @class FileInfo;
 
-typedef NS_ENUM(unsigned int, FileBrowserState)  { kFBHidden, kFBShown, kFBDoShowRestore, kFBDoShowSave, kFBDoShowScript, kFBDoShowViewScripts, kFBDoShowRecord, kFBDoShowPlayback  };
+typedef NS_ENUM(int, FileBrowserState)  { kFBHidden, kFBShown, kFBDoShowRestore, kFBDoShowSave, kFBDoShowScript, kFBDoShowViewScripts, kFBDoShowRecord, kFBDoShowPlayback  };
 
 @protocol TextFileBrowser
 -(NSString*)textFileBrowserPath;

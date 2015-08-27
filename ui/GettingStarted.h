@@ -10,7 +10,12 @@
 #import "FrotzCommonWebView.h"
 
 
-@interface GettingStarted : FrotzCommonWebViewController {
-}
-- (instancetype)init NS_DESIGNATED_INITIALIZER;
+NS_ASSUME_NONNULL_BEGIN
+
+@interface GettingStarted : FrotzCommonWebViewController
+- (instancetype)init;
+- (instancetype)initWithNibName:(nullable NSString *)nibNameOrNil bundle:(nullable NSBundle *)nibBundleOrNil NS_DESIGNATED_INITIALIZER;
+
 @end
+
+NS_ASSUME_NONNULL_END

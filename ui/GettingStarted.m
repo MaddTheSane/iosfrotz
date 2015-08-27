@@ -14,7 +14,15 @@
 @implementation GettingStarted
 
 - (instancetype)init {
-    if ((self = [super init])) {
+    if ((self = [self initWithNibName:nil bundle:nil])) {
+        //self.title = NSLocalizedString(@"Getting Started", @"");
+    }
+    return self;
+}
+
+-(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         self.title = NSLocalizedString(@"Getting Started", @"");
     }
     return self;

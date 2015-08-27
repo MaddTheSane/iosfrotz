@@ -299,7 +299,7 @@ static NSInteger indexOfBytes(NSData *data, NSInteger offset, const char *search
                 [outdata appendString: @"<tr height=\"1\"><td colspan=\"6\"><hr/></td></tr>\n"];
             }		
         }
-        NSMutableArray *unsupportedNames = [sb unsupportedStoryNames];
+        NSMutableArray *unsupportedNames = [[sb unsupportedStoryNames] mutableCopy];
         if (unsupportedNames && [unsupportedNames count] > 0) {
             [outdata appendString: @"<td colspan=\"6\"><b><span style='color:red;'>The following items have file extensions not currently supported by Frotz</span></b></td>\n"];
             int ucount = 0;
@@ -569,7 +569,7 @@ static NSInteger indexOfBytes(NSData *data, NSInteger offset, const char *search
                 NSString *destPath = [[[config server] documentRoot] stringByAppendingPathComponent: [[uri relativeString] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
                 BOOL isDir = NO;
                 if (![[NSFileManager defaultManager] fileExistsAtPath: destPath isDirectory: &isDir] && [destPath hasSuffix: @".d"])
-                    [[NSFileManager defaultManager] createDirectoryAtPath: destPath attributes:nil];
+                    [[NSFileManager defaultManager] createDirectoryAtPath: destPath attributes:@{}];
                 filename = [destPath stringByAppendingPathComponent:[postInfoComponents lastObject]];
                 NSRange fileDataRange = {dataStartIndex, postDataLen - dataStartIndex};
                 

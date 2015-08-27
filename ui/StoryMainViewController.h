@@ -115,6 +115,9 @@ extern StoryBrowser *theStoryBrowser;
     BOOL m_dbActive;
 }
 
+-(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil NS_DESIGNATED_INITIALIZER;
+-(instancetype) init;
+
 @property (nonatomic, strong) UINavigationController* storyNavController;
 @property (nonatomic, strong) StoryBrowser *storyBrowser;
 @property (nonatomic, readonly, copy) NSString *storyGamePath;
@@ -127,7 +130,6 @@ extern StoryBrowser *theStoryBrowser;
 -(void) showKeyboardLockStateInView:(UIView*)kbdToggleItemView;
 -(void) showKeyboardLockState;
 -(void) addKeyBoardLockGesture;
--(StoryMainViewController*) init NS_DESIGNATED_INITIALIZER;
 -(void) loadView;
 @property (nonatomic, readonly, strong) StoryView *storyView;
 @property (nonatomic, copy) NSString *currentStory;

@@ -12,4 +12,6 @@
 @interface AboutFrotz : FrotzCommonWebViewController {
 }
 - (instancetype)init NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil NS_DESIGNATED_INITIALIZER;
+
 @end

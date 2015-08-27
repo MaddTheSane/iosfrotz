@@ -15,7 +15,15 @@
 @implementation AboutFrotz
 
 - (instancetype)init {
-    if ((self = [super init])) {
+    if ((self = [super initWithNibName:nil bundle:nil])) {
+        self.title = NSLocalizedString(@"About Frotz", @"");
+    }
+    return self;
+}
+
+-(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         self.title = NSLocalizedString(@"About Frotz", @"");
     }
     return self;

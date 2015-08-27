@@ -27,6 +27,8 @@
 @class StoryDetailsController;
 @class StoryBrowser;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface StoryInfo : NSObject {
     NSString *path;
 }
@@ -38,13 +40,13 @@
 @property(nonatomic,weak) StoryBrowser *browser;
 @end
 
-@interface StoryBrowser : UITableViewController <UIActionSheetDelegate, UISplitViewControllerDelegate, UIPopoverControllerDelegate,UISearchBarDelegate, UISearchDisplayDelegate> {
+@interface StoryBrowser : UITableViewController <UIActionSheetDelegate, UISplitViewControllerDelegate, UIPopoverControllerDelegate,UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource> {
     NSMutableArray *m_paths;
 
     int m_numStories;
     NSMutableArray<StoryInfo*> *m_storyNames;
-    NSMutableArray *m_recents;
-    NSMutableArray *m_unsupportedNames;
+    NSMutableArray<StoryInfo*> *m_recents;
+    NSMutableArray<NSString*> *m_unsupportedNames;
     
     NSArray *m_filteredNames;
 
@@ -80,10 +82,10 @@
 - (instancetype)init;
 @property (nonatomic, copy) NSString *launchPath;
 @property (nonatomic, readonly, strong) UIView *navTitleView;
-@property (nonatomic, readonly, copy) NSMutableArray *storyNames;
+@property (nonatomic, readonly, copy) NSArray<StoryInfo*> *storyNames;
 - (BOOL)storyIsInstalled:(NSString*)story;
-- (NSString*)canonicalStoryName:(NSString*)story;
-@property (nonatomic, readonly, copy) NSMutableArray *unsupportedStoryNames;
+- (nullable NSString*)canonicalStoryName:(NSString*)story;
+@property (nonatomic, readonly, copy) NSArray<NSString*> *unsupportedStoryNames;
 - (void)addRecentStoryInfo:(StoryInfo*)storyInfo;
 - (void)addRecentStory:(NSString*)storyInfo;
 - (void)addPath: (NSString *)path;
@@ -91,7 +93,7 @@
 - (void)refresh;
 - (void)reloadData;
 - (void)updateNavButton;
-@property (nonatomic, readonly, strong) UIBarButtonItem *nowPlayingNavItem;
+@property (nonatomic, readonly, strong, nullable) UIBarButtonItem *nowPlayingNavItem;
 @property (nonatomic, readonly, strong) StoryMainViewController *storyMainViewController;
 @property (nonatomic, readonly, strong) FrotzInfo *frotzInfoController;
 @property (nonatomic, readonly, strong) FrotzSettingsController *settings;
@@ -109,7 +111,7 @@
 - (void)addDescript: (NSString*)descript forStory:(NSString*)story;
 @property (nonatomic, readonly) BOOL canEditStoryInfo;
 - (NSString*)fullTitleForStory:(NSString*)story;
-- (NSString*)customTitleForStory:(NSString*)story storyKey:(NSString**)storyKey;
+- (NSString*)customTitleForStory:(NSString*)story storyKey:(NSString*__nonnull*__nullable)storyKey;
 - (NSString*)tuidForStory:(NSString*)story;
 - (NSString*)authorsForStory:(NSString*)story;
 - (NSString*)descriptForStory:(NSString*)story;
@@ -121,11 +123,11 @@
 - (NSString*)splashPathForStory:(NSString*)story;
 - (NSString*)cacheSplashPathForBuiltinStory:(NSString*)story;
 - (NSString*)userSplashPathForStory:(NSString*)story;
-@property (nonatomic, readonly, copy) NSArray *builtinSplashes;
+@property (nonatomic, readonly, copy) NSArray<NSString*> *builtinSplashes;
 - (void)hideStory: (NSString*)story withState:(BOOL)hide;
 - (void)unHideAll;
 - (BOOL)isHidden: (NSString*)story;
-- (NSString*)getNotesForStory:(NSString*)story;
+- (nullable NSString*)getNotesForStory:(NSString*)story;
 - (void)saveNotes:(NSString*)notesText forStory:(NSString*)story;
 - (void)saveRecents;
 - (void)saveStoryInfoDict;
@@ -138,20 +140,16 @@
 @property (nonatomic, readonly, copy) NSString *currentStory;
 - (void)launchBrowserWithURL:(NSString*)url;
 - (void)launchBrowser;
-- (NSInteger)numberOfSectionsInTableView: (UITableView*)tableView;
 - (NSUInteger)indexRowFromStoryInfo:(StoryInfo*)recentStory;
 - (NSUInteger)recentRowFromStoryInfo:(StoryInfo*)storyInfo;
-- (NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section;
-- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section;
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath;
-- (StoryInfo *)storyInfoForIndexPath:(NSIndexPath*)indexPath tableView:(UITableView*)tableView;
+- (nullable StoryInfo *)storyInfoForIndexPath:(NSIndexPath*)indexPath tableView:(UITableView*)tableView;
 - (NSString *)storyForIndexPath:(NSIndexPath*)indexPath tableView:(UITableView*)tableView;
 - (void)storyInfoChanged;
 - (void)updateAccessibility;
 
-@property(nonatomic,strong) UIPopoverController *popoverController;
-@property(nonatomic,strong) UIBarButtonItem *popoverBarButton;
+@property(nonatomic,strong,nullable) UIPopoverController *popoverController;
+@property(nonatomic,strong,nullable) UIBarButtonItem *popoverBarButton;
 @property(nonatomic,strong) UISearchDisplayController *searchDisplayController;
 @end
 
@@ -160,3 +158,5 @@ extern NSString *storyGamePath;
 @interface NSString (storyKey)
 @property (nonatomic, readonly, copy) NSString *storyKey;
 @end
+
+NS_ASSUME_NONNULL_END

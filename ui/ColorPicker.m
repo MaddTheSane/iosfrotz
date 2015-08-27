@@ -22,7 +22,7 @@
     UIImage *m_flipFgImg, *m_flipBgImg;
     UIImageView *m_imgView;
 }
-- (instancetype) initWithFrame:(CGRect)frame withColorPicker: colorPicker NS_DESIGNATED_INITIALIZER;
+- (instancetype) initWithFrame:(CGRect)frame withColorPicker:(ColorPicker*) colorPicker NS_DESIGNATED_INITIALIZER;
 - (void) setFrame:(CGRect)frame;
 - (void) setTextColor: (UIColor *)color;
 - (void) setBGColor: (UIColor *)color;
@@ -54,7 +54,6 @@
 }
 - (instancetype) initWithFrame:(CGRect)frame withColorPicker: colorPicker;
 @property (nonatomic, readonly) unsigned int *hsvData;
-- (void)dealloc;
 - (void)drawRect:(CGRect)rect;
 - (void)mousePositionToColor:(CGPoint)point;
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event;
@@ -63,7 +62,9 @@
 - (void)touchesCancelled:(NSSet*)touches withEvent:(UIEvent*)event;
 @end
 
-@implementation ColorPickerView 
+@implementation ColorPickerView
+@synthesize width = m_width;
+@synthesize height = m_height;
 - (instancetype)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])!=nil) {
         m_width = frame.size.width;
@@ -79,19 +80,16 @@
 }
 
 
-- (int)width {
-    return m_width;
-}
-
-- (int)height {
-    return m_height;
-}
 @end
 
 
 @implementation ColorTile
 
-- (instancetype) initWithFrame:(CGRect)frame withColorPicker: colorPicker {
+- (instancetype) initWithFrame:(CGRect)frame {
+    return [self initWithFrame:frame withColorPicker:nil];
+}
+
+- (instancetype) initWithFrame:(CGRect)frame withColorPicker:(ColorPicker*) colorPicker {
     if ((self = [super initWithFrame: frame]) != nil) {
 	m_colorPicker = colorPicker;
 	self.autoresizesSubviews = YES;
@@ -242,6 +240,7 @@ void HSVtoRGB(CGFloat *r, CGFloat *g, CGFloat *b, CGFloat h, CGFloat s, CGFloat 
 
 
 @implementation HSVValuePicker
+@synthesize barWidth = m_barWidth;
 
 - (instancetype) initWithFrame:(CGRect)frame withColorPicker: colorPicker {
     if (!(self = [super initWithFrame: frame])) return nil;
@@ -251,14 +250,6 @@ void HSVtoRGB(CGFloat *r, CGFloat *g, CGFloat *b, CGFloat h, CGFloat s, CGFloat 
 
 - (void)setLeftMargin: (int)margin {
     m_leftMargin = margin;
-}
-
-- (void)setBarWidth : (int)width {
-    m_barWidth = width;
-}
-
--(int)barWidth {
-    return m_barWidth;
 }
 
 -(void)mousePositionToValue:(CGPoint)point {
@@ -594,6 +585,11 @@ void HSVtoRGB(CGFloat *r, CGFloat *g, CGFloat *b, CGFloat h, CGFloat s, CGFloat 
 @end
 
 @implementation ColorPicker
+@synthesize hue = m_hue;
+@synthesize saturation = m_saturation;
+@synthesize value = m_value;
+@synthesize delegate = m_delegate;
+
 - (instancetype)init {
     if ((self = [super init])!=nil) {
     	self.title = NSLocalizedString(@"Select Color", @"");
@@ -843,15 +839,6 @@ void HSVtoRGB(CGFloat *r, CGFloat *g, CGFloat *b, CGFloat h, CGFloat s, CGFloat 
 	[m_delegate colorPicker: self selectedColor: m_changeTextColor ? m_textColor : m_bgColor];
 }
 
--(float)hue {
-    return m_hue;
-}
--(float)saturation {
-    return m_saturation;
-}
--(float)value {
-    return m_value;
-}
 -(UIColor *) textColor {
     return m_textColor;
 }
@@ -869,11 +856,4 @@ void HSVtoRGB(CGFloat *r, CGFloat *g, CGFloat *b, CGFloat h, CGFloat s, CGFloat 
     return m_colorTile;
 }
 
-- (id<ColorPickerDelegate>)delegate {
-    return m_delegate;
-}
-
-- (void)setDelegate: (id<ColorPickerDelegate>)delegate {
-    m_delegate = delegate;
-}
 @end

@@ -21,8 +21,8 @@
 
 @implementation ReleaseNotes
 
-- (instancetype)init {
-    if ((self = [super init])) {
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
         self.title = NSLocalizedString(@"Release Notes", @"");
         NSArray *array = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true);
         NSString *docPath = array[0];
@@ -32,6 +32,10 @@
     return self;
 }
 
+- (instancetype)init
+{
+    return [self initWithNibName:nil bundle:nil];
+}
 
 -(void)loadView {
     [super loadView];

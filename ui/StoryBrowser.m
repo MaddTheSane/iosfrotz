@@ -63,7 +63,10 @@ const long kMinimumRequiredSpace = 2;
     return title;
 }
 -(BOOL)isEqual:(id)object {
-    return [path isEqualToString: [object path]];
+    if ([object isKindOfClass:[StoryInfo class]]) {
+        return [path isEqualToString: [(StoryInfo*)object path]];
+    }
+    return false;
 }
 
 @end
@@ -577,10 +580,10 @@ static NSInteger sortPathsByFilename(id a, id b, void *context) {
     return [str1 caseInsensitiveCompare: str2];
 }
 
-- (NSMutableArray*)storyNames {
+- (NSArray*)storyNames {
     if (!m_numStories)
         [self refresh];
-    return m_storyNames;
+    return [m_storyNames copy];
 }
 
 -(BOOL)storyIsInstalled:(NSString*)story {
@@ -598,8 +601,8 @@ static NSInteger sortPathsByFilename(id a, id b, void *context) {
     return nil;
 }
 
-- (NSMutableArray*)unsupportedStoryNames {
-    return m_unsupportedNames;
+- (NSArray*)unsupportedStoryNames {
+    return [m_unsupportedNames copy];
 }
 
 -(void)refresh {

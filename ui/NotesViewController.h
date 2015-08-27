@@ -26,8 +26,7 @@
     UIViewController<TextFileBrowser,FileSelected, LockableKeyboard> *m_delegate;
 }
 
--(NotesViewController*)initWithFrame:(CGRect)frame NS_DESIGNATED_INITIALIZER;
--(void)dealloc;
+-(instancetype)initWithFrame:(CGRect)frame NS_DESIGNATED_INITIALIZER;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *text;
 -(void)setFrame:(CGRect)frame;

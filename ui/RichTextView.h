@@ -110,8 +110,8 @@ typedef UIImage *(*RichDataGetImageCallback)(int imageNum);
 @property(nonatomic, assign, getter=displayFrozen) BOOL freezeDisplay;
 @property(nonatomic, assign) RichDataGetImageCallback richDataGetImageCallback;
 
-- (RichTextView*)initWithFrame: (CGRect)frame NS_DESIGNATED_INITIALIZER;
-- (RichTextView*)initWithFrame: (CGRect)frame border:(BOOL)border;
+- (instancetype)initWithFrame: (CGRect)frame NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithFrame: (CGRect)frame border:(BOOL)border;
 - (void)clearSelection;
 - (UIFont*)fontForStyle: (RichTextStyle)style;
 - (void) drawRect:(CGRect)rect inView:(RichTextTile*)view;
@@ -144,7 +144,6 @@ typedef UIImage *(*RichDataGetImageCallback)(int imageNum);
 - (void)reflowText;
 - (void)repositionAfterReflow;
 - (void)reloadImages;
-- (void)dealloc;
 @property (nonatomic, weak) UIViewController<UIScrollViewDelegate> *delegate;
 @property (nonatomic, copy) UIFont *font;
 @property (nonatomic, copy) UIFont *fixedFont;

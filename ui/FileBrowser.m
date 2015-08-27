@@ -55,7 +55,7 @@ static NSString *kSaveExt = @".sav", *kAltSaveExt = @".qut";
 
 @implementation FileBrowser 
 - (instancetype)initWithDialogType:(FileBrowserState)dialogType {
-    if ((self = [super init]) != nil) {
+    if ((self = [super initWithNibName:nil bundle:nil]) != nil) {
         m_tableViewController = [[UITableViewController alloc] init];
         m_dialogType = dialogType;
         NSString *title = @"";

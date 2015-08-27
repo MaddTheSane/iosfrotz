@@ -13,7 +13,7 @@
 
 
 -(CompletionLabel*)initWithFont:(UIFont*)font {
-    if ((self = [super init])) {
+    if ((self = [super initWithFrame:CGRectZero])) {
         [self setBackgroundColor: [UIColor colorWithWhite:1.0 alpha:0.0]];
         m_label = [[UILabel alloc] init];
         [m_label setFont: font];
