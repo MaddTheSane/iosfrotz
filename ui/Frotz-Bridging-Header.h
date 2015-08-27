@@ -6,6 +6,8 @@
 #import "UIFontExt.h"
 #import "RichTextStyle.h"
 #import "iosfrotz.h"
+#import "StoryBrowser.h"
+#import "ColorPicker.h"
 
 @class UIView;
 

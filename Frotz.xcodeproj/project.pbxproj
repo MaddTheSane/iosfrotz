@@ -408,8 +408,8 @@
 		44FA76C20E4A5D89007DCC99 /* BookmarkListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FA76C10E4A5D89007DCC99 /* BookmarkListController.m */; };
 		44FB393D0E612A3D00142D85 /* FrotzSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FB393B0E612A3D00142D85 /* FrotzSettings.m */; };
 		44FB393E0E612A3D00142D85 /* DisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FB393C0E612A3D00142D85 /* DisplayCell.m */; };
-		44FB39FA0E62406C00142D85 /* ColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FB39F90E62406C00142D85 /* ColorPicker.m */; };
 		44FC54D41120006400CF11E9 /* url.png in Resources */ = {isa = PBXBuildFile; fileRef = 44FC54D31120006400CF11E9 /* url.png */; };
+		557763151B8FA2AA0067BF83 /* StoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5599DB2D1B8EF75A00B8166E /* StoryInfo.swift */; settings = {ASSET_TAGS = (); }; };
 		5599DAFA1B8ECF2C00B8166E /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5599DAF91B8ECF2C00B8166E /* ColorPicker.swift */; settings = {ASSET_TAGS = (); }; };
 		5599DB021B8EEDCA00B8166E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5599DB011B8EEDCA00B8166E /* AppDelegate.swift */; };
 		5599DB041B8EEDCA00B8166E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5599DB031B8EEDCA00B8166E /* Assets.xcassets */; };
@@ -417,8 +417,75 @@
 		5599DB0E1B8EEDFA00B8166E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 445484C71B1D04C200E8EE7B /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
 		5599DB0F1B8EEDFA00B8166E /* Frotz-2048x2048F.png in Resources */ = {isa = PBXBuildFile; fileRef = 44D3F4D819C147BB00BFF014 /* Frotz-2048x2048F.png */; settings = {ASSET_TAGS = (); }; };
 		5599DB101B8EEDFA00B8166E /* Frotz-2048x2048B.png in Resources */ = {isa = PBXBuildFile; fileRef = 44D3F4D719C147BB00BFF014 /* Frotz-2048x2048B.png */; settings = {ASSET_TAGS = (); }; };
+		5599DB1B1B8EF26600B8166E /* libfrotzlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44F7B1FE1B22CFF100DDD2A3 /* libfrotzlib.a */; };
+		5599DB1C1B8EF26600B8166E /* libminizip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44F7B14F1B202A0800DDD2A3 /* libminizip.a */; };
+		5599DB1D1B8EF26600B8166E /* libtads.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4454850C1B1FBAB900E8EE7B /* libtads.a */; };
+		5599DB2A1B8EF30A00B8166E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5599DB291B8EF30A00B8166E /* main.m */; settings = {ASSET_TAGS = (); }; };
+		5599DB2C1B8EF73700B8166E /* StoryBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5599DB2B1B8EF73700B8166E /* StoryBrowser.swift */; settings = {ASSET_TAGS = (); }; };
+		5599DB2E1B8EF75A00B8166E /* StoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5599DB2D1B8EF75A00B8166E /* StoryInfo.swift */; settings = {ASSET_TAGS = (); }; };
+		5599DB2F1B8F5D4000B8166E /* locale in Resources */ = {isa = PBXBuildFile; fileRef = 44AF586A19491BB900E3EF8A /* locale */; settings = {ASSET_TAGS = (); }; };
+		5599DB301B8F5D4000B8166E /* Games in Resources */ = {isa = PBXBuildFile; fileRef = 446B9D960E2059E3002BDD65 /* Games */; settings = {ASSET_TAGS = (); }; };
 		55A50A501B8E7EA700E70F53 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A50A4F1B8E7EA700E70F53 /* libz.dylib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5599DB151B8EF24700B8166E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 44F7B1FD1B22CFF100DDD2A3;
+			remoteInfo = frotzlib;
+		};
+		5599DB171B8EF24700B8166E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4454850B1B1FBAB900E8EE7B;
+			remoteInfo = tads;
+		};
+		5599DB191B8EF24700B8166E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 44F7B19F1B20D4BD00DDD2A3;
+			remoteInfo = glkios;
+		};
+		5599DB1E1B8EF2A700B8166E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 445484CC1B1E61A900E8EE7B;
+			remoteInfo = CocoaHTTPServer;
+		};
+		5599DB201B8EF2A700B8166E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 44F7B1061B20213E00DDD2A3;
+			remoteInfo = FTPServ;
+		};
+		5599DB221B8EF2A700B8166E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 44F7B14E1B202A0800DDD2A3;
+			remoteInfo = minizip;
+		};
+		5599DB241B8EF2A700B8166E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 44B0ECAA1B23D00100C36380;
+			remoteInfo = git;
+		};
+		5599DB261B8EF2A700B8166E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 44B0ECD91B23D1D800C36380;
+			remoteInfo = glulxe;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		4431B76C0E204F52001E5DAD /* CopyFiles */ = {
@@ -1181,6 +1248,10 @@
 		5599DB031B8EEDCA00B8166E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5599DB061B8EEDCA00B8166E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5599DB081B8EEDCA00B8166E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5599DB281B8EF30800B8166E /* SwiftFrotz-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftFrotz-Bridging-Header.h"; sourceTree = "<group>"; };
+		5599DB291B8EF30A00B8166E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5599DB2B1B8EF73700B8166E /* StoryBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryBrowser.swift; sourceTree = "<group>"; };
+		5599DB2D1B8EF75A00B8166E /* StoryInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryInfo.swift; sourceTree = "<group>"; };
 		55A50A4F1B8E7EA700E70F53 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1272,6 +1343,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5599DB1B1B8EF26600B8166E /* libfrotzlib.a in Frameworks */,
+				5599DB1C1B8EF26600B8166E /* libminizip.a in Frameworks */,
+				5599DB1D1B8EF26600B8166E /* libtads.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2206,6 +2280,10 @@
 				5599DB031B8EEDCA00B8166E /* Assets.xcassets */,
 				5599DB051B8EEDCA00B8166E /* MainMenu.xib */,
 				5599DB081B8EEDCA00B8166E /* Info.plist */,
+				5599DB291B8EF30A00B8166E /* main.m */,
+				5599DB281B8EF30800B8166E /* SwiftFrotz-Bridging-Header.h */,
+				5599DB2B1B8EF73700B8166E /* StoryBrowser.swift */,
+				5599DB2D1B8EF75A00B8166E /* StoryInfo.swift */,
 			);
 			path = SwiftFrotz;
 			sourceTree = "<group>";
@@ -2414,6 +2492,14 @@
 			buildRules = (
 			);
 			dependencies = (
+				5599DB1F1B8EF2A700B8166E /* PBXTargetDependency */,
+				5599DB211B8EF2A700B8166E /* PBXTargetDependency */,
+				5599DB231B8EF2A700B8166E /* PBXTargetDependency */,
+				5599DB251B8EF2A700B8166E /* PBXTargetDependency */,
+				5599DB271B8EF2A700B8166E /* PBXTargetDependency */,
+				5599DB161B8EF24700B8166E /* PBXTargetDependency */,
+				5599DB181B8EF24700B8166E /* PBXTargetDependency */,
+				5599DB1A1B8EF24700B8166E /* PBXTargetDependency */,
 			);
 			name = SwiftFrotz;
 			productName = SwiftFrotz;
@@ -2550,10 +2636,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5599DB2F1B8F5D4000B8166E /* locale in Resources */,
 				5599DB0E1B8EEDFA00B8166E /* Images.xcassets in Resources */,
 				5599DB041B8EEDCA00B8166E /* Assets.xcassets in Resources */,
 				5599DB071B8EEDCA00B8166E /* MainMenu.xib in Resources */,
 				5599DB101B8EEDFA00B8166E /* Frotz-2048x2048B.png in Resources */,
+				5599DB301B8F5D4000B8166E /* Games in Resources */,
 				5599DB0F1B8EEDFA00B8166E /* Frotz-2048x2048F.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2611,9 +2699,9 @@
 				44F7B1F91B22C6B800DDD2A3 /* main.m in Sources */,
 				447F882A1044DC0B002CA22D /* AboutFrotz.m in Sources */,
 				44FA76C20E4A5D89007DCC99 /* BookmarkListController.m in Sources */,
-				44FB39FA0E62406C00142D85 /* ColorPicker.m in Sources */,
 				44F2F5B811447AE0001AE868 /* CompletionLabel.m in Sources */,
 				5599DAFA1B8ECF2C00B8166E /* ColorPicker.swift in Sources */,
+				557763151B8FA2AA0067BF83 /* StoryInfo.swift in Sources */,
 				44FB393E0E612A3D00142D85 /* DisplayCell.m in Sources */,
 				446B9EAB0E2075D1002BDD65 /* FileBrowser.m in Sources */,
 				44B6DD390F7C74E500EBE1BD /* FileTransferInfo.m in Sources */,
@@ -2987,11 +3075,57 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5599DB2A1B8EF30A00B8166E /* main.m in Sources */,
+				5599DB2C1B8EF73700B8166E /* StoryBrowser.swift in Sources */,
 				5599DB021B8EEDCA00B8166E /* AppDelegate.swift in Sources */,
+				5599DB2E1B8EF75A00B8166E /* StoryInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5599DB161B8EF24700B8166E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 44F7B1FD1B22CFF100DDD2A3 /* frotzlib */;
+			targetProxy = 5599DB151B8EF24700B8166E /* PBXContainerItemProxy */;
+		};
+		5599DB181B8EF24700B8166E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4454850B1B1FBAB900E8EE7B /* tads */;
+			targetProxy = 5599DB171B8EF24700B8166E /* PBXContainerItemProxy */;
+		};
+		5599DB1A1B8EF24700B8166E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 44F7B19F1B20D4BD00DDD2A3 /* glkios */;
+			targetProxy = 5599DB191B8EF24700B8166E /* PBXContainerItemProxy */;
+		};
+		5599DB1F1B8EF2A700B8166E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 445484CC1B1E61A900E8EE7B /* CocoaHTTPServer */;
+			targetProxy = 5599DB1E1B8EF2A700B8166E /* PBXContainerItemProxy */;
+		};
+		5599DB211B8EF2A700B8166E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 44F7B1061B20213E00DDD2A3 /* FTPServ */;
+			targetProxy = 5599DB201B8EF2A700B8166E /* PBXContainerItemProxy */;
+		};
+		5599DB231B8EF2A700B8166E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 44F7B14E1B202A0800DDD2A3 /* minizip */;
+			targetProxy = 5599DB221B8EF2A700B8166E /* PBXContainerItemProxy */;
+		};
+		5599DB251B8EF2A700B8166E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 44B0ECAA1B23D00100C36380 /* git */;
+			targetProxy = 5599DB241B8EF2A700B8166E /* PBXContainerItemProxy */;
+		};
+		5599DB271B8EF2A700B8166E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 44B0ECD91B23D1D800C36380 /* glulxe */;
+			targetProxy = 5599DB261B8EF2A700B8166E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5599DB051B8EEDCA00B8166E /* MainMenu.xib */ = {
@@ -3274,6 +3408,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -3320,7 +3456,9 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Release;
 		};
@@ -3367,7 +3505,9 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = "Release armv6";
 		};
@@ -3414,7 +3554,9 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Distribution;
 		};
@@ -3443,6 +3585,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = /Applications;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=*]" = "";
 				SDKROOT = iphoneos;
@@ -3519,6 +3662,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = /Applications;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = YES;
@@ -4072,6 +4216,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -4108,7 +4254,9 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Release;
 		};
@@ -4145,7 +4293,9 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = "Release armv6";
 		};
@@ -4182,7 +4332,9 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Distribution;
 		};
@@ -4225,6 +4377,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -4261,7 +4415,9 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Release;
 		};
@@ -4298,7 +4454,9 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = "Release armv6";
 		};
@@ -4335,7 +4493,9 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Distribution;
 		};
@@ -4374,10 +4534,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -4410,11 +4573,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Release;
 		};
@@ -4447,11 +4613,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = "Release armv6";
 		};
@@ -4484,11 +4653,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Distribution;
 		};
@@ -4528,6 +4700,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.SwiftFrotz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftFrotz/SwiftFrotz-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -4564,6 +4737,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.SwiftFrotz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftFrotz/SwiftFrotz-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -4599,6 +4773,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.SwiftFrotz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftFrotz/SwiftFrotz-Bridging-Header.h";
 			};
 			name = "Release armv6";
 		};
@@ -4634,6 +4809,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.SwiftFrotz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftFrotz/SwiftFrotz-Bridging-Header.h";
 			};
 			name = Distribution;
 		};
@@ -4661,6 +4837,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = /Applications;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -4695,6 +4872,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = /Applications;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = YES;
@@ -4814,6 +4992,7 @@
 				5599DB0C1B8EEDCA00B8166E /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Frotz" */ = {
 			isa = XCConfigurationList;

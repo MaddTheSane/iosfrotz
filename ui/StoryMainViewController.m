@@ -46,6 +46,7 @@
 #include <sys/time.h>
 #include <unistd.h>
 #include <stdlib.h>
+#import "Frotz-Swift.h"
 
 #define kDefaultTextViewWidth ((gLargeScreenDevice || gLargeScreenPhone) ? 80 : kDefaultTextViewMinWidth)
 

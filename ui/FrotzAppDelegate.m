@@ -14,11 +14,12 @@
 #import "StoryView.h"
 #import "StoryDetailsController.h"
 #import <DropboxSDK/DropboxSDK.h>
+#import "Frotz-Swift.h"
 
 @interface FrotzWindow : UIWindow
-{
-}
-- (void)sendEvent:(UIEvent *)event;                    // called by UIApplication to dispatch events to views inside the window
+
+/// called by UIApplication to dispatch events to views inside the window
+- (void)sendEvent:(UIEvent *)event;
 @end
 
 @implementation FrotzWindow

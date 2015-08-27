@@ -26,19 +26,9 @@
 
 @class StoryDetailsController;
 @class StoryBrowser;
+@class StoryInfo;
 
 NS_ASSUME_NONNULL_BEGIN
-
-@interface StoryInfo : NSObject {
-    NSString *path;
-}
--(instancetype)initWithPath:(NSString*)storyPath browser:(StoryBrowser*)browser NS_DESIGNATED_INITIALIZER;
--(BOOL)isEqual:(id)object;
-@property (nonatomic, readonly, copy) NSString *title;
-
-@property(nonatomic,copy) NSString *path;
-@property(nonatomic,weak) StoryBrowser *browser;
-@end
 
 @interface StoryBrowser : UITableViewController <UIActionSheetDelegate, UISplitViewControllerDelegate, UIPopoverControllerDelegate,UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource> {
     NSMutableArray *m_paths;
@@ -111,7 +101,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)addDescript: (NSString*)descript forStory:(NSString*)story;
 @property (nonatomic, readonly) BOOL canEditStoryInfo;
 - (NSString*)fullTitleForStory:(NSString*)story;
-- (NSString*)customTitleForStory:(NSString*)story storyKey:(NSString*__nonnull*__nullable)storyKey;
+- (nullable NSString*)customTitleForStory:(NSString*)story storyKey:(NSString*__nonnull*__nullable)storyKey;
 - (NSString*)tuidForStory:(NSString*)story;
 - (NSString*)authorsForStory:(NSString*)story;
 - (NSString*)descriptForStory:(NSString*)story;

@@ -3,6 +3,7 @@
 #import "FileTransferInfo.h"
 
 #import "iosfrotz.h"
+#import "Frotz-Swift.h"
 
 #define kLeftMargin                     20.0
 #define kTopMargin                      20.0
@@ -269,7 +270,7 @@ enum ControlTableSections
 }
 
 -(void)colorPicker:(ColorPicker*)picker selectedColor:(UIColor*)color {
-    if ([picker isTextColorMode])
+    if (picker.textColorMode)
         [m_storyDelegate setTextColor: color makeDefault:YES];
     else
         [m_storyDelegate setBackgroundColor: color makeDefault:YES];

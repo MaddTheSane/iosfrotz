@@ -13,6 +13,7 @@
 #import "ui_utils.h"
 #import "../HTTPServer/Responses/HTTPFileResponse.h"
 #import "../HTTPServer/Responses/HTTPDataResponse.h"
+#import "Frotz-Swift.h"
 
 @implementation FrotzHTTPConnection
 

@@ -24,6 +24,7 @@
 #import "ui_utils.h"
 #import "extractzfromz.h"
 #import "iosfrotz.h"
+#import "Frotz-Swift.h"
 
 NSString *kSplashesDir = @"Splashes";
 
@@ -45,31 +46,6 @@ static BOOL abortLaunchCondition = NO;
 
 const long kMinimumRequiredSpaceFirstLaunch = 20; // MB
 const long kMinimumRequiredSpace = 2;
-
-@implementation StoryInfo
-@synthesize path;
-@synthesize browser;
-
--(instancetype)initWithPath:(NSString*)storyPath browser:(StoryBrowser*)abrowser {
-    if ((self = [super init]) != nil) {
-    	self.path = storyPath;
-        self.browser = abrowser;
-    }
-    return self;
-}
--(NSString*)title {
-    NSString *storyName = [[self path] storyKey];
-    NSString *title = [self.browser fullTitleForStory: storyName];
-    return title;
-}
--(BOOL)isEqual:(id)object {
-    if ([object isKindOfClass:[StoryInfo class]]) {
-        return [path isEqualToString: [(StoryInfo*)object path]];
-    }
-    return false;
-}
-
-@end
 
 
 void removeOldPngSplash(const char *filename) {

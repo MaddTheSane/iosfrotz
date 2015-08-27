@@ -84,11 +84,6 @@ private func HSVtoRGB(inout r r: CGFloat, inout g: CGFloat, inout b: CGFloat, h 
     }
 }
 
-@objc protocol ColorPickerDelegate: NSObjectProtocol {
-    func colorPicker(picker: ColorPicker, slelctedColor color: UIColor)
-    var fontForColorDemo: UIFont? {get}
-}
-
 class ColorPicker: UIViewController {
     
     /*
@@ -108,10 +103,26 @@ UIColor *m_textColor, *m_bgColor;
 BOOL m_changeTextColor;
 */
     weak var delegate: ColorPickerDelegate?
-    
+    var value: CGFloat = 0
     var textColorMode = false
     
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
+    
     func toggleMode() {
+        
+    }
+    
+    func setTextColor(textColor: UIColor, bgColor: UIColor, changeText changeTextColor: Bool) {
+        
+    }
+    
+    func updateAccessibility() {
+        
+    }
+    
+    func setColor(color: UIColor) {
         
     }
 }
@@ -402,6 +413,29 @@ free (bitmapData);
 */
     func mousePositionToColor(point: CGPoint) {
         var rgba: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) = (0,0,0,1)
+        var color: UInt32
+        var x = Int32(point.x)
+        var y = Int32(point.y)
+        if x >= width {
+            x = width - 1
+        }
+        if y >= height {
+            y = height - 1
+        }
+        
+        color = hsvData[Int((height-1-y) * width + x)]
+        
+        let hue = CGFloat((color & 0xff0000) >> 16) / 255
+        let saturation = CGFloat((color & 0xff00) >> 8) / 255
+        var value = CGFloat((color & 0xff)) / 255
+        let alpha = CGFloat((color & 0xff000000) >> 24) / 255
+        
+        if alpha != 0 {
+            value = colorPicker!.value
+            HSVtoRGB(r: &rgba.red, g: &rgba.green, b: &rgba.blue, h: hue, s: saturation, v: value)
+            let col = UIColor(red: rgba.red, green: rgba.green, blue: rgba.blue, alpha: rgba.alpha)
+            colorPicker!.setColor(col)
+        }
     }
     
     /*

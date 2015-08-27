@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FrotzSettings.h"
-//#import "ColorPicker.h"
+#import "ColorPicker.h"
 
 
 @protocol KeyboardOwner
