@@ -411,6 +411,12 @@
 		44FB39FA0E62406C00142D85 /* ColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FB39F90E62406C00142D85 /* ColorPicker.m */; };
 		44FC54D41120006400CF11E9 /* url.png in Resources */ = {isa = PBXBuildFile; fileRef = 44FC54D31120006400CF11E9 /* url.png */; };
 		5599DAFA1B8ECF2C00B8166E /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5599DAF91B8ECF2C00B8166E /* ColorPicker.swift */; settings = {ASSET_TAGS = (); }; };
+		5599DB021B8EEDCA00B8166E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5599DB011B8EEDCA00B8166E /* AppDelegate.swift */; };
+		5599DB041B8EEDCA00B8166E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5599DB031B8EEDCA00B8166E /* Assets.xcassets */; };
+		5599DB071B8EEDCA00B8166E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5599DB051B8EEDCA00B8166E /* MainMenu.xib */; };
+		5599DB0E1B8EEDFA00B8166E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 445484C71B1D04C200E8EE7B /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
+		5599DB0F1B8EEDFA00B8166E /* Frotz-2048x2048F.png in Resources */ = {isa = PBXBuildFile; fileRef = 44D3F4D819C147BB00BFF014 /* Frotz-2048x2048F.png */; settings = {ASSET_TAGS = (); }; };
+		5599DB101B8EEDFA00B8166E /* Frotz-2048x2048B.png in Resources */ = {isa = PBXBuildFile; fileRef = 44D3F4D719C147BB00BFF014 /* Frotz-2048x2048B.png */; settings = {ASSET_TAGS = (); }; };
 		55A50A501B8E7EA700E70F53 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A50A4F1B8E7EA700E70F53 /* libz.dylib */; };
 /* End PBXBuildFile section */
 
@@ -1170,6 +1176,11 @@
 		5500D8421B8E935300D3B5D1 /* Frotz-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Frotz-Bridging-Header.h"; sourceTree = "<group>"; };
 		5500D8431B8E935400D3B5D1 /* RichTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RichTextView.swift; sourceTree = "<group>"; };
 		5599DAF91B8ECF2C00B8166E /* ColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
+		5599DAFF1B8EEDC900B8166E /* SwiftFrotz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftFrotz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5599DB011B8EEDCA00B8166E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5599DB031B8EEDCA00B8166E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5599DB061B8EEDCA00B8166E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		5599DB081B8EEDCA00B8166E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55A50A4F1B8E7EA700E70F53 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1251,6 +1262,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		44F7B1FB1B22CFF100DDD2A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5599DAFC1B8EEDC900B8166E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1357,6 +1375,7 @@
 				44F7B1FE1B22CFF100DDD2A3 /* libfrotzlib.a */,
 				44B0ECAB1B23D00100C36380 /* libgit.a */,
 				44B0ECDA1B23D1D800C36380 /* libglulxe.a */,
+				5599DAFF1B8EEDC900B8166E /* SwiftFrotz.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1374,6 +1393,7 @@
 				445485061B1F9DFD00E8EE7B /* Libs */,
 				44DA420715E9869C007F61DA /* Frotz Images */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				5599DB001B8EEDCA00B8166E /* SwiftFrotz */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				44A2E7B811228B0900E35CCC /* Entitlements.plist */,
@@ -2179,6 +2199,17 @@
 			name = "Frotz Images";
 			sourceTree = "<group>";
 		};
+		5599DB001B8EEDCA00B8166E /* SwiftFrotz */ = {
+			isa = PBXGroup;
+			children = (
+				5599DB011B8EEDCA00B8166E /* AppDelegate.swift */,
+				5599DB031B8EEDCA00B8166E /* Assets.xcassets */,
+				5599DB051B8EEDCA00B8166E /* MainMenu.xib */,
+				5599DB081B8EEDCA00B8166E /* Info.plist */,
+			);
+			path = SwiftFrotz;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -2372,6 +2403,23 @@
 			productReference = 44F7B1FE1B22CFF100DDD2A3 /* libfrotzlib.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		5599DAFE1B8EEDC900B8166E /* SwiftFrotz */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5599DB0D1B8EEDCA00B8166E /* Build configuration list for PBXNativeTarget "SwiftFrotz" */;
+			buildPhases = (
+				5599DAFB1B8EEDC900B8166E /* Sources */,
+				5599DAFC1B8EEDC900B8166E /* Frameworks */,
+				5599DAFD1B8EEDC900B8166E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftFrotz;
+			productName = SwiftFrotz;
+			productReference = 5599DAFF1B8EEDC900B8166E /* SwiftFrotz.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -2408,6 +2456,9 @@
 					44F7B1FD1B22CFF100DDD2A3 = {
 						CreatedOnToolsVersion = 6.3.2;
 					};
+					5599DAFE1B8EEDC900B8166E = {
+						CreatedOnToolsVersion = 7.0;
+					};
 				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Frotz" */;
@@ -2420,6 +2471,7 @@
 				French,
 				German,
 				en,
+				Base,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
@@ -2434,6 +2486,7 @@
 				44F7B14E1B202A0800DDD2A3 /* minizip */,
 				44B0ECAA1B23D00100C36380 /* git */,
 				44B0ECD91B23D1D800C36380 /* glulxe */,
+				5599DAFE1B8EEDC900B8166E /* SwiftFrotz */,
 			);
 		};
 /* End PBXProject section */
@@ -2490,6 +2543,18 @@
 				445FFBBE15E9ED3F00ECB161 /* Icon@2x.png in Resources */,
 				4485D051196E4F33005A19AD /* Icon-60@2x.png in Resources */,
 				44D71CEA19882F5300F4AD9A /* Frotz-152x152.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5599DAFD1B8EEDC900B8166E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5599DB0E1B8EEDFA00B8166E /* Images.xcassets in Resources */,
+				5599DB041B8EEDCA00B8166E /* Assets.xcassets in Resources */,
+				5599DB071B8EEDCA00B8166E /* MainMenu.xib in Resources */,
+				5599DB101B8EEDFA00B8166E /* Frotz-2048x2048B.png in Resources */,
+				5599DB0F1B8EEDFA00B8166E /* Frotz-2048x2048F.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2918,7 +2983,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5599DAFB1B8EEDC900B8166E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5599DB021B8EEDCA00B8166E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5599DB051B8EEDCA00B8166E /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5599DB061B8EEDCA00B8166E /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
@@ -4408,6 +4492,151 @@
 			};
 			name = Distribution;
 		};
+		5599DB091B8EEDCA00B8166E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = SwiftFrotz/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.SwiftFrotz;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5599DB0A1B8EEDCA00B8166E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = SwiftFrotz/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.SwiftFrotz;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		5599DB0B1B8EEDCA00B8166E /* Release armv6 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = SwiftFrotz/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.SwiftFrotz;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = "Release armv6";
+		};
+		5599DB0C1B8EEDCA00B8166E /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = SwiftFrotz/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.SwiftFrotz;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Distribution;
+		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -4575,6 +4804,16 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		5599DB0D1B8EEDCA00B8166E /* Build configuration list for PBXNativeTarget "SwiftFrotz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5599DB091B8EEDCA00B8166E /* Debug */,
+				5599DB0A1B8EEDCA00B8166E /* Release */,
+				5599DB0B1B8EEDCA00B8166E /* Release armv6 */,
+				5599DB0C1B8EEDCA00B8166E /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Frotz" */ = {
 			isa = XCConfigurationList;
