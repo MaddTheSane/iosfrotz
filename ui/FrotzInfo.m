@@ -16,6 +16,7 @@
 @end
 
 @implementation FrotzInfo
+@synthesize keyboardOwner = m_kbdOwner;
 
 -(instancetype)initWithSettingsController:(FrotzSettingsController*)settings navController:(UINavigationController*)navController navItem: (UINavigationItem*) navItem {
 	if ((self = [super initWithNibName:nil bundle:nil])) {
@@ -131,14 +132,6 @@
             [UIView commitAnimations];
         }
     }
-}
-
--(void)setKeyboardOwner:(id<KeyboardOwner>)kbdOwner {
-    m_kbdOwner = kbdOwner;
-}
-
--(id<KeyboardOwner>)keyboardOwner {
-    return m_kbdOwner;
 }
 
 -(void)frotzInfo {

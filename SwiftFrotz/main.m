@@ -10,7 +10,7 @@
 #include "iosfrotz.h"
 #include <locale.h>
 
-int main(int argc, char **argv)
+int main(int argc, const char *argv[])
 {
     os_init_setup(); // todo: move this into frotz-terp-specific section but called only once
     
@@ -27,5 +27,5 @@ int main(int argc, char **argv)
     fflush(stdout);
     fflush(stderr);
     
-    return 1;
+    return EXIT_SUCCESS;
 }

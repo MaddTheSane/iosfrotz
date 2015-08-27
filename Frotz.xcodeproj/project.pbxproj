@@ -399,7 +399,6 @@
 		44F7B22A1B22D06000DDD2A3 /* table.c in Sources */ = {isa = PBXBuildFile; fileRef = 441EC83E0E10BD1100E74625 /* table.c */; };
 		44F7B22B1B22D06000DDD2A3 /* text.c in Sources */ = {isa = PBXBuildFile; fileRef = 441EC83F0E10BD1100E74625 /* text.c */; };
 		44F7B22C1B22D06000DDD2A3 /* variable.c in Sources */ = {isa = PBXBuildFile; fileRef = 441EC8400E10BD1100E74625 /* variable.c */; };
-		44F7B22D1B22D06D00DDD2A3 /* ui_audio_none.c in Sources */ = {isa = PBXBuildFile; fileRef = 441EC85B0E10BD4400E74625 /* ui_audio_none.c */; };
 		44F7B22E1B22D06D00DDD2A3 /* ui_init.c in Sources */ = {isa = PBXBuildFile; fileRef = 441EC85D0E10BD4400E74625 /* ui_init.c */; };
 		44F7B22F1B22D06D00DDD2A3 /* ui_input.c in Sources */ = {isa = PBXBuildFile; fileRef = 441EC85F0E10BD4400E74625 /* ui_input.c */; };
 		44F7B2301B22D06D00DDD2A3 /* ui_pic.c in Sources */ = {isa = PBXBuildFile; fileRef = 441EC8610E10BD4400E74625 /* ui_pic.c */; };
@@ -417,6 +416,8 @@
 		5577631F1B8FAFD60067BF83 /* CBridging.m in Sources */ = {isa = PBXBuildFile; fileRef = 5577631E1B8FAFD60067BF83 /* CBridging.m */; settings = {ASSET_TAGS = (); }; };
 		557763201B8FAFEE0067BF83 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A50A4F1B8E7EA700E70F53 /* libz.dylib */; settings = {ASSET_TAGS = (); }; };
 		557763221B8FB5940067BF83 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 557763211B8FB5940067BF83 /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
+		557763251B8FBCE60067BF83 /* ui_audio_none.c in Sources */ = {isa = PBXBuildFile; fileRef = 441EC85B0E10BD4400E74625 /* ui_audio_none.c */; settings = {ASSET_TAGS = (); }; };
+		557763291B8FBD260067BF83 /* ui_audio_coreaudio.c in Sources */ = {isa = PBXBuildFile; fileRef = 557763281B8FBD260067BF83 /* ui_audio_coreaudio.c */; settings = {ASSET_TAGS = (); }; };
 		5599DAFA1B8ECF2C00B8166E /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5599DAF91B8ECF2C00B8166E /* ColorPicker.swift */; settings = {ASSET_TAGS = (); }; };
 		5599DB021B8EEDCA00B8166E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5599DB011B8EEDCA00B8166E /* AppDelegate.swift */; };
 		5599DB041B8EEDCA00B8166E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5599DB031B8EEDCA00B8166E /* Assets.xcassets */; };
@@ -1244,6 +1245,7 @@
 		5500D8431B8E935400D3B5D1 /* RichTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RichTextView.swift; sourceTree = "<group>"; };
 		5577631E1B8FAFD60067BF83 /* CBridging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBridging.m; sourceTree = "<group>"; };
 		557763211B8FB5940067BF83 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = resources/Images.xcassets; sourceTree = "<group>"; };
+		557763281B8FBD260067BF83 /* ui_audio_coreaudio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ui_audio_coreaudio.c; sourceTree = "<group>"; };
 		5599DAF91B8ECF2C00B8166E /* ColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		5599DAFF1B8EEDC900B8166E /* SwiftFrotz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftFrotz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5599DB011B8EEDCA00B8166E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -1695,6 +1697,7 @@
 			isa = PBXGroup;
 			children = (
 				441EC8550E10BD1D00E74625 /* common */,
+				557763271B8FBD260067BF83 /* macosx */,
 				441EC8560E10BD3400E74625 /* ios */,
 			);
 			name = frotz;
@@ -2281,6 +2284,15 @@
 			name = "Frotz Images";
 			sourceTree = "<group>";
 		};
+		557763271B8FBD260067BF83 /* macosx */ = {
+			isa = PBXGroup;
+			children = (
+				557763281B8FBD260067BF83 /* ui_audio_coreaudio.c */,
+			);
+			name = macosx;
+			path = frotz/macosx;
+			sourceTree = "<group>";
+		};
 		5599DB001B8EEDCA00B8166E /* SwiftFrotz */ = {
 			isa = PBXGroup;
 			children = (
@@ -2732,6 +2744,7 @@
 				4413B1631071CA2700D39E6A /* RichTextView.m in Sources */,
 				449C92BE11221E7D006CCDF9 /* StatusLine.m in Sources */,
 				446B9EAC0E2075D1002BDD65 /* StoryBrowser.m in Sources */,
+				557763251B8FBCE60067BF83 /* ui_audio_none.c in Sources */,
 				447DF3BA123C136500689076 /* StoryDetailsController.m in Sources */,
 				449C92B311221E21006CCDF9 /* StoryInputLine.m in Sources */,
 				446B9EAD0E2075D1002BDD65 /* StoryMainViewController.m in Sources */,
@@ -3065,7 +3078,6 @@
 				44F7B21B1B22D06000DDD2A3 /* err.c in Sources */,
 				44F7B2191B22D06000DDD2A3 /* main.c in Sources */,
 				44F7B21A1B22D06000DDD2A3 /* buffer.c in Sources */,
-				44F7B22D1B22D06D00DDD2A3 /* ui_audio_none.c in Sources */,
 				44F7B2241B22D06000DDD2A3 /* quetzal.c in Sources */,
 				44F7B21F1B22D06000DDD2A3 /* hotkey.c in Sources */,
 				44F7B22B1B22D06000DDD2A3 /* text.c in Sources */,
@@ -3085,6 +3097,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				557763291B8FBD260067BF83 /* ui_audio_coreaudio.c in Sources */,
 				5599DB2A1B8EF30A00B8166E /* main.m in Sources */,
 				5599DB2C1B8EF73700B8166E /* StoryBrowser.swift in Sources */,
 				5599DB021B8EEDCA00B8166E /* AppDelegate.swift in Sources */,
