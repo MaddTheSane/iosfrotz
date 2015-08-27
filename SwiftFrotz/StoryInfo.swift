@@ -9,6 +9,9 @@
 import Foundation
 
 func ==(lhs: StoryInfo, rhs: StoryInfo) -> Bool {
+    if lhs === rhs {
+        return true
+    }
     return lhs.path == rhs.path
 }
 

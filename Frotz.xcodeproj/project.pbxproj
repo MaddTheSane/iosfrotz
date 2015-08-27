@@ -43,7 +43,7 @@
 		444F7D1D19F23E7600927703 /* tctok.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444F7D1919F23E7600927703 /* tctok.cpp */; };
 		444F7D1F19F2BF9200927703 /* oem_glk.c in Sources */ = {isa = PBXBuildFile; fileRef = 444F7D1E19F2BF9200927703 /* oem_glk.c */; };
 		444F7D2119F2C1D900927703 /* vmuni_cs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444F7D2019F2C1D900927703 /* vmuni_cs.cpp */; };
-		445484C81B1D04C200E8EE7B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 445484C71B1D04C200E8EE7B /* Images.xcassets */; };
+		445484C81B1D04C200E8EE7B /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 445484C71B1D04C200E8EE7B /* Icons.xcassets */; };
 		445484FD1B1E675D00E8EE7B /* FrotzHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 443CD77210FAFD6100A7FB96 /* FrotzHTTPConnection.m */; };
 		445484FE1B1E67E200E8EE7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		445485031B1EAA2D00E8EE7B /* libCocoaHTTPServer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 445484CD1B1E61A900E8EE7B /* libCocoaHTTPServer.a */; };
@@ -410,11 +410,18 @@
 		44FB393E0E612A3D00142D85 /* DisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FB393C0E612A3D00142D85 /* DisplayCell.m */; };
 		44FC54D41120006400CF11E9 /* url.png in Resources */ = {isa = PBXBuildFile; fileRef = 44FC54D31120006400CF11E9 /* url.png */; };
 		557763151B8FA2AA0067BF83 /* StoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5599DB2D1B8EF75A00B8166E /* StoryInfo.swift */; settings = {ASSET_TAGS = (); }; };
+		5577631A1B8FAF8B0067BF83 /* libCocoaHTTPServer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 445484CD1B1E61A900E8EE7B /* libCocoaHTTPServer.a */; };
+		5577631B1B8FAF8B0067BF83 /* libgit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B0ECAB1B23D00100C36380 /* libgit.a */; };
+		5577631C1B8FAF8B0067BF83 /* libglkios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44F7B1A01B20D4BD00DDD2A3 /* libglkios.a */; };
+		5577631D1B8FAF8B0067BF83 /* libglulxe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B0ECDA1B23D1D800C36380 /* libglulxe.a */; };
+		5577631F1B8FAFD60067BF83 /* CBridging.m in Sources */ = {isa = PBXBuildFile; fileRef = 5577631E1B8FAFD60067BF83 /* CBridging.m */; settings = {ASSET_TAGS = (); }; };
+		557763201B8FAFEE0067BF83 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A50A4F1B8E7EA700E70F53 /* libz.dylib */; settings = {ASSET_TAGS = (); }; };
+		557763221B8FB5940067BF83 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 557763211B8FB5940067BF83 /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
 		5599DAFA1B8ECF2C00B8166E /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5599DAF91B8ECF2C00B8166E /* ColorPicker.swift */; settings = {ASSET_TAGS = (); }; };
 		5599DB021B8EEDCA00B8166E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5599DB011B8EEDCA00B8166E /* AppDelegate.swift */; };
 		5599DB041B8EEDCA00B8166E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5599DB031B8EEDCA00B8166E /* Assets.xcassets */; };
 		5599DB071B8EEDCA00B8166E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5599DB051B8EEDCA00B8166E /* MainMenu.xib */; };
-		5599DB0E1B8EEDFA00B8166E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 445484C71B1D04C200E8EE7B /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
+		5599DB0E1B8EEDFA00B8166E /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 445484C71B1D04C200E8EE7B /* Icons.xcassets */; settings = {ASSET_TAGS = (); }; };
 		5599DB0F1B8EEDFA00B8166E /* Frotz-2048x2048F.png in Resources */ = {isa = PBXBuildFile; fileRef = 44D3F4D819C147BB00BFF014 /* Frotz-2048x2048F.png */; settings = {ASSET_TAGS = (); }; };
 		5599DB101B8EEDFA00B8166E /* Frotz-2048x2048B.png in Resources */ = {isa = PBXBuildFile; fileRef = 44D3F4D719C147BB00BFF014 /* Frotz-2048x2048B.png */; settings = {ASSET_TAGS = (); }; };
 		5599DB1B1B8EF26600B8166E /* libfrotzlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44F7B1FE1B22CFF100DDD2A3 /* libfrotzlib.a */; };
@@ -456,13 +463,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 445484CC1B1E61A900E8EE7B;
 			remoteInfo = CocoaHTTPServer;
-		};
-		5599DB201B8EF2A700B8166E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 44F7B1061B20213E00DDD2A3;
-			remoteInfo = FTPServ;
 		};
 		5599DB221B8EF2A700B8166E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -724,7 +724,7 @@
 		444F7D1C19F23E7600927703 /* tcvsn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tcvsn.h; path = tads/tads3/tcvsn.h; sourceTree = "<group>"; };
 		444F7D1E19F2BF9200927703 /* oem_glk.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = oem_glk.c; path = tads/tads2/oem_glk.c; sourceTree = "<group>"; };
 		444F7D2019F2C1D900927703 /* vmuni_cs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = vmuni_cs.cpp; path = tads/vmuni_cs.cpp; sourceTree = "<group>"; };
-		445484C71B1D04C200E8EE7B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		445484C71B1D04C200E8EE7B /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		445484CD1B1E61A900E8EE7B /* libCocoaHTTPServer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCocoaHTTPServer.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4454850C1B1FBAB900E8EE7B /* libtads.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libtads.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		44550A7E1277B39300CDEA97 /* TO-DO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "TO-DO.txt"; sourceTree = "<group>"; };
@@ -1242,6 +1242,8 @@
 		5500D8411B8E8CA100D3B5D1 /* ifrotzdefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ifrotzdefs.h; sourceTree = "<group>"; };
 		5500D8421B8E935300D3B5D1 /* Frotz-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Frotz-Bridging-Header.h"; sourceTree = "<group>"; };
 		5500D8431B8E935400D3B5D1 /* RichTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RichTextView.swift; sourceTree = "<group>"; };
+		5577631E1B8FAFD60067BF83 /* CBridging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBridging.m; sourceTree = "<group>"; };
+		557763211B8FB5940067BF83 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = resources/Images.xcassets; sourceTree = "<group>"; };
 		5599DAF91B8ECF2C00B8166E /* ColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		5599DAFF1B8EEDC900B8166E /* SwiftFrotz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftFrotz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5599DB011B8EEDCA00B8166E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -1343,7 +1345,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5577631A1B8FAF8B0067BF83 /* libCocoaHTTPServer.a in Frameworks */,
+				5577631B1B8FAF8B0067BF83 /* libgit.a in Frameworks */,
+				5577631C1B8FAF8B0067BF83 /* libglkios.a in Frameworks */,
+				5577631D1B8FAF8B0067BF83 /* libglulxe.a in Frameworks */,
 				5599DB1B1B8EF26600B8166E /* libfrotzlib.a in Frameworks */,
+				557763201B8FAFEE0067BF83 /* libz.dylib in Frameworks */,
 				5599DB1C1B8EF26600B8166E /* libminizip.a in Frameworks */,
 				5599DB1D1B8EF26600B8166E /* libtads.a in Frameworks */,
 			);
@@ -1490,7 +1497,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				445484C71B1D04C200E8EE7B /* Images.xcassets */,
+				445484C71B1D04C200E8EE7B /* Icons.xcassets */,
+				557763211B8FB5940067BF83 /* Images.xcassets */,
 				44F69CFF19C118E000ECADD0 /* Launch Screen.xib */,
 				44D3F4D819C147BB00BFF014 /* Frotz-2048x2048F.png */,
 				44D3F4D719C147BB00BFF014 /* Frotz-2048x2048B.png */,
@@ -2281,12 +2289,14 @@
 				5599DB051B8EEDCA00B8166E /* MainMenu.xib */,
 				5599DB081B8EEDCA00B8166E /* Info.plist */,
 				5599DB291B8EF30A00B8166E /* main.m */,
-				5599DB281B8EF30800B8166E /* SwiftFrotz-Bridging-Header.h */,
 				5599DB2B1B8EF73700B8166E /* StoryBrowser.swift */,
 				5599DB2D1B8EF75A00B8166E /* StoryInfo.swift */,
+				5577631E1B8FAFD60067BF83 /* CBridging.m */,
+				5599DB281B8EF30800B8166E /* SwiftFrotz-Bridging-Header.h */,
 			);
 			path = SwiftFrotz;
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 /* End PBXGroup section */
 
@@ -2493,7 +2503,6 @@
 			);
 			dependencies = (
 				5599DB1F1B8EF2A700B8166E /* PBXTargetDependency */,
-				5599DB211B8EF2A700B8166E /* PBXTargetDependency */,
 				5599DB231B8EF2A700B8166E /* PBXTargetDependency */,
 				5599DB251B8EF2A700B8166E /* PBXTargetDependency */,
 				5599DB271B8EF2A700B8166E /* PBXTargetDependency */,
@@ -2596,7 +2605,7 @@
 				44407D10123742030021DEE4 /* zcode.png in Resources */,
 				44D71CE919882F5300F4AD9A /* Frotz-120x120.png in Resources */,
 				447DF3BB123C136500689076 /* StoryDetailsController.xib in Resources */,
-				445484C81B1D04C200E8EE7B /* Images.xcassets in Resources */,
+				445484C81B1D04C200E8EE7B /* Icons.xcassets in Resources */,
 				447DF981123DF34900689076 /* StoryDetailsController-ipad.xib in Resources */,
 				44550A7F1277B39300CDEA97 /* TO-DO.txt in Resources */,
 				44550B1B1277FC2B00CDEA97 /* glulx.png in Resources */,
@@ -2615,6 +2624,7 @@
 				44D3F4D919C147BB00BFF014 /* Frotz-2048x2048B.png in Resources */,
 				4485D053196E4F33005A19AD /* Icon-76@2x.png in Resources */,
 				44D3F4DA19C147BB00BFF014 /* Frotz-2048x2048F.png in Resources */,
+				557763221B8FB5940067BF83 /* Images.xcassets in Resources */,
 				449CD89815E9E079007AEABD /* Default-Landscape@2x~ipad.png in Resources */,
 				449CD89915E9E079007AEABD /* Default-Landscape~ipad.png in Resources */,
 				449CD89A15E9E079007AEABD /* Default-Portrait@2x~ipad.png in Resources */,
@@ -2637,7 +2647,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5599DB2F1B8F5D4000B8166E /* locale in Resources */,
-				5599DB0E1B8EEDFA00B8166E /* Images.xcassets in Resources */,
+				5599DB0E1B8EEDFA00B8166E /* Icons.xcassets in Resources */,
 				5599DB041B8EEDCA00B8166E /* Assets.xcassets in Resources */,
 				5599DB071B8EEDCA00B8166E /* MainMenu.xib in Resources */,
 				5599DB101B8EEDFA00B8166E /* Frotz-2048x2048B.png in Resources */,
@@ -3079,6 +3089,7 @@
 				5599DB2C1B8EF73700B8166E /* StoryBrowser.swift in Sources */,
 				5599DB021B8EEDCA00B8166E /* AppDelegate.swift in Sources */,
 				5599DB2E1B8EF75A00B8166E /* StoryInfo.swift in Sources */,
+				5577631F1B8FAFD60067BF83 /* CBridging.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3104,11 +3115,6 @@
 			isa = PBXTargetDependency;
 			target = 445484CC1B1E61A900E8EE7B /* CocoaHTTPServer */;
 			targetProxy = 5599DB1E1B8EF2A700B8166E /* PBXContainerItemProxy */;
-		};
-		5599DB211B8EF2A700B8166E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 44F7B1061B20213E00DDD2A3 /* FTPServ */;
-			targetProxy = 5599DB201B8EF2A700B8166E /* PBXContainerItemProxy */;
 		};
 		5599DB231B8EF2A700B8166E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3256,10 +3262,13 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -3288,10 +3297,13 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Release;
 		};
@@ -3320,10 +3332,13 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = "Release armv6";
 		};
@@ -3352,10 +3367,13 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Distribution;
 		};
@@ -3753,10 +3771,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -3789,11 +3810,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Release;
 		};
@@ -3826,11 +3850,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = "Release armv6";
 		};
@@ -3863,11 +3890,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Distribution;
 		};
@@ -3906,10 +3936,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -3942,11 +3975,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Release;
 		};
@@ -3979,11 +4015,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = "Release armv6";
 		};
@@ -4016,11 +4055,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Distribution;
 		};
@@ -4212,6 +4254,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4250,6 +4293,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4289,6 +4333,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4328,6 +4373,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4821,6 +4867,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Craig Smith (6AKPWEXC5W)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Craig Smith (6AKPWEXC5W)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_TESTABILITY = YES;
 				FROTZ_BETA = 0;
