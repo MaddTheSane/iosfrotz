@@ -410,7 +410,7 @@
 		44FB393E0E612A3D00142D85 /* DisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FB393C0E612A3D00142D85 /* DisplayCell.m */; };
 		44FB39FA0E62406C00142D85 /* ColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FB39F90E62406C00142D85 /* ColorPicker.m */; };
 		44FC54D41120006400CF11E9 /* url.png in Resources */ = {isa = PBXBuildFile; fileRef = 44FC54D31120006400CF11E9 /* url.png */; };
-		5500D8441B8E935400D3B5D1 /* RichTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5500D8431B8E935400D3B5D1 /* RichTextView.swift */; settings = {ASSET_TAGS = (); }; };
+		5599DAFA1B8ECF2C00B8166E /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5599DAF91B8ECF2C00B8166E /* ColorPicker.swift */; settings = {ASSET_TAGS = (); }; };
 		55A50A501B8E7EA700E70F53 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A50A4F1B8E7EA700E70F53 /* libz.dylib */; };
 /* End PBXBuildFile section */
 
@@ -1169,6 +1169,7 @@
 		5500D8411B8E8CA100D3B5D1 /* ifrotzdefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ifrotzdefs.h; sourceTree = "<group>"; };
 		5500D8421B8E935300D3B5D1 /* Frotz-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Frotz-Bridging-Header.h"; sourceTree = "<group>"; };
 		5500D8431B8E935400D3B5D1 /* RichTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RichTextView.swift; sourceTree = "<group>"; };
+		5599DAF91B8ECF2C00B8166E /* ColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		55A50A4F1B8E7EA700E70F53 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1269,6 +1270,7 @@
 				447F88291044DC0B002CA22D /* AboutFrotz.m */,
 				44FA76C00E4A5D89007DCC99 /* BookmarkListController.h */,
 				44FA76C10E4A5D89007DCC99 /* BookmarkListController.m */,
+				5599DAF91B8ECF2C00B8166E /* ColorPicker.swift */,
 				44FB39F80E62406C00142D85 /* ColorPicker.h */,
 				44FB39F90E62406C00142D85 /* ColorPicker.m */,
 				44F2F5B611447AE0001AE868 /* CompletionLabel.h */,
@@ -2546,6 +2548,7 @@
 				44FA76C20E4A5D89007DCC99 /* BookmarkListController.m in Sources */,
 				44FB39FA0E62406C00142D85 /* ColorPicker.m in Sources */,
 				44F2F5B811447AE0001AE868 /* CompletionLabel.m in Sources */,
+				5599DAFA1B8ECF2C00B8166E /* ColorPicker.swift in Sources */,
 				44FB393E0E612A3D00142D85 /* DisplayCell.m in Sources */,
 				446B9EAB0E2075D1002BDD65 /* FileBrowser.m in Sources */,
 				44B6DD390F7C74E500EBE1BD /* FileTransferInfo.m in Sources */,
@@ -2567,7 +2570,6 @@
 				449C92BE11221E7D006CCDF9 /* StatusLine.m in Sources */,
 				446B9EAC0E2075D1002BDD65 /* StoryBrowser.m in Sources */,
 				447DF3BA123C136500689076 /* StoryDetailsController.m in Sources */,
-				5500D8441B8E935400D3B5D1 /* RichTextView.swift in Sources */,
 				449C92B311221E21006CCDF9 /* StoryInputLine.m in Sources */,
 				446B9EAD0E2075D1002BDD65 /* StoryMainViewController.m in Sources */,
 				449C92461122188D006CCDF9 /* StoryView.m in Sources */,

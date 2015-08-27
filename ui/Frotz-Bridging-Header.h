@@ -5,6 +5,7 @@
 #import "WordSelectionProtocol.h"
 #import "UIFontExt.h"
 #import "RichTextStyle.h"
+#import "iosfrotz.h"
 
 @class UIView;
 
