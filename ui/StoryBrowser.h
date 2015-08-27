@@ -42,7 +42,7 @@
     NSMutableArray *m_paths;
 
     int m_numStories;
-    NSMutableArray *m_storyNames;
+    NSMutableArray<StoryInfo*> *m_storyNames;
     NSMutableArray *m_recents;
     NSMutableArray *m_unsupportedNames;
     

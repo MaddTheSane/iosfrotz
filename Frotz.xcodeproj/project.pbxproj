@@ -14,11 +14,6 @@
 		4413B1631071CA2700D39E6A /* RichTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4413B1611071CA2700D39E6A /* RichTextView.m */; };
 		4414E2D9104CDA0B008C3F56 /* FrotzWordPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4414E2D8104CDA0B008C3F56 /* FrotzWordPicker.xib */; };
 		4414E2DC104CDA21008C3F56 /* FrotzWordPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 4414E2DB104CDA21008C3F56 /* FrotzWordPicker.m */; };
-		441EC8670E10BD4400E74625 /* ui_audio_none.c in Sources */ = {isa = PBXBuildFile; fileRef = 441EC85B0E10BD4400E74625 /* ui_audio_none.c */; };
-		441EC8690E10BD4400E74625 /* ui_init.c in Sources */ = {isa = PBXBuildFile; fileRef = 441EC85D0E10BD4400E74625 /* ui_init.c */; };
-		441EC86B0E10BD4400E74625 /* ui_input.c in Sources */ = {isa = PBXBuildFile; fileRef = 441EC85F0E10BD4400E74625 /* ui_input.c */; };
-		441EC86D0E10BD4400E74625 /* ui_pic.c in Sources */ = {isa = PBXBuildFile; fileRef = 441EC8610E10BD4400E74625 /* ui_pic.c */; };
-		441EC86F0E10BD4400E74625 /* ui_text.c in Sources */ = {isa = PBXBuildFile; fileRef = 441EC8640E10BD4400E74625 /* ui_text.c */; };
 		443A64C5114F5FA90093B4B2 /* splashes.zip in Resources */ = {isa = PBXBuildFile; fileRef = 443A64AD114F5EDB0093B4B2 /* splashes.zip */; };
 		443A7C34115094E00093B4B2 /* FrotzCommonWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 443A7C33115094E00093B4B2 /* FrotzCommonWebView.m */; };
 		443C9B4A0E46A518003A44D4 /* ui_utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 443C9B490E46A518003A44D4 /* ui_utils.m */; };
@@ -415,6 +410,7 @@
 		44FB393E0E612A3D00142D85 /* DisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FB393C0E612A3D00142D85 /* DisplayCell.m */; };
 		44FB39FA0E62406C00142D85 /* ColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FB39F90E62406C00142D85 /* ColorPicker.m */; };
 		44FC54D41120006400CF11E9 /* url.png in Resources */ = {isa = PBXBuildFile; fileRef = 44FC54D31120006400CF11E9 /* url.png */; };
+		5500D8441B8E935400D3B5D1 /* RichTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5500D8431B8E935400D3B5D1 /* RichTextView.swift */; settings = {ASSET_TAGS = (); }; };
 		55A50A501B8E7EA700E70F53 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A50A4F1B8E7EA700E70F53 /* libz.dylib */; };
 /* End PBXBuildFile section */
 
@@ -1170,6 +1166,9 @@
 		44FB39F80E62406C00142D85 /* ColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPicker.h; sourceTree = "<group>"; };
 		44FB39F90E62406C00142D85 /* ColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPicker.m; sourceTree = "<group>"; };
 		44FC54D31120006400CF11E9 /* url.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = url.png; path = resources/url.png; sourceTree = "<group>"; };
+		5500D8411B8E8CA100D3B5D1 /* ifrotzdefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ifrotzdefs.h; sourceTree = "<group>"; };
+		5500D8421B8E935300D3B5D1 /* Frotz-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Frotz-Bridging-Header.h"; sourceTree = "<group>"; };
+		5500D8431B8E935400D3B5D1 /* RichTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RichTextView.swift; sourceTree = "<group>"; };
 		55A50A4F1B8E7EA700E70F53 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1263,6 +1262,7 @@
 		080E96DDFE201D6D7F000001 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				5500D8411B8E8CA100D3B5D1 /* ifrotzdefs.h */,
 				441EC8590E10BD4400E74625 /* iosfrotz.h */,
 				44F7B1F81B22C6B800DDD2A3 /* main.m */,
 				447F88281044DC0B002CA22D /* AboutFrotz.h */,
@@ -1310,6 +1310,7 @@
 				44EA5BA40E67CD2200EF37C5 /* ReleaseNotes.h */,
 				44EA5BA50E67CD2200EF37C5 /* ReleaseNotes.m */,
 				444592F91396DBED00C740B9 /* RichTextStyle.h */,
+				5500D8431B8E935400D3B5D1 /* RichTextView.swift */,
 				4413B1621071CA2700D39E6A /* RichTextView.h */,
 				4413B1611071CA2700D39E6A /* RichTextView.m */,
 				449C92BC11221E7D006CCDF9 /* StatusLine.h */,
@@ -1336,6 +1337,7 @@
 				44F2FABF11460EF6001AE868 /* WordSelectionProtocol.h */,
 				443C9B480E46A518003A44D4 /* ui_utils.h */,
 				443C9B490E46A518003A44D4 /* ui_utils.m */,
+				5500D8421B8E935300D3B5D1 /* Frotz-Bridging-Header.h */,
 			);
 			name = UI;
 			path = ui;
@@ -2374,6 +2376,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
@@ -2564,6 +2567,7 @@
 				449C92BE11221E7D006CCDF9 /* StatusLine.m in Sources */,
 				446B9EAC0E2075D1002BDD65 /* StoryBrowser.m in Sources */,
 				447DF3BA123C136500689076 /* StoryDetailsController.m in Sources */,
+				5500D8441B8E935400D3B5D1 /* RichTextView.swift in Sources */,
 				449C92B311221E21006CCDF9 /* StoryInputLine.m in Sources */,
 				446B9EAD0E2075D1002BDD65 /* StoryMainViewController.m in Sources */,
 				449C92461122188D006CCDF9 /* StoryView.m in Sources */,
@@ -2571,11 +2575,6 @@
 				44CA12F10E41076D009AEF85 /* TransitionView.m in Sources */,
 				449119D6125D306200409694 /* UIFontExt.m in Sources */,
 				44C28D051238C41C00EE9FA3 /* URLPromptController.m in Sources */,
-				441EC8670E10BD4400E74625 /* ui_audio_none.c in Sources */,
-				441EC8690E10BD4400E74625 /* ui_init.c in Sources */,
-				441EC86B0E10BD4400E74625 /* ui_input.c in Sources */,
-				441EC86D0E10BD4400E74625 /* ui_pic.c in Sources */,
-				441EC86F0E10BD4400E74625 /* ui_text.c in Sources */,
 				443C9B4A0E46A518003A44D4 /* ui_utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2926,6 +2925,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2939,10 +2939,9 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Frotz_Prefix.pch;
-				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = "-Wno-deprecated-declarations";
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
@@ -2957,6 +2956,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flippencorp.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = Frotz;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ui/Frotz-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WARNING_CFLAGS = "-Wno-logical-op-parentheses";
 			};
 			name = Debug;
@@ -2968,6 +2969,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2979,10 +2981,9 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Frotz_Prefix.pch;
-				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = "-Wno-deprecated-declarations";
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
@@ -2997,6 +2998,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flippencorp.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = Frotz;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ui/Frotz-Bridging-Header.h";
 				WARNING_CFLAGS = "-Wno-logical-op-parentheses";
 			};
 			name = Release;
@@ -3352,7 +3354,7 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = /Applications;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=*]" = "";
 				SDKROOT = iphoneos;
@@ -3370,6 +3372,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
@@ -3381,10 +3384,9 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Frotz_Prefix.pch;
-				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = "-Wno-deprecated-declarations";
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
@@ -3400,6 +3402,7 @@
 				PRODUCT_NAME = Frotz;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ui/Frotz-Bridging-Header.h";
 				WARNING_CFLAGS = "-Wno-logical-op-parentheses";
 			};
 			name = Distribution;
@@ -3426,7 +3429,7 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = /Applications;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = YES;
@@ -3441,6 +3444,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -3452,10 +3456,9 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Frotz_Prefix.pch;
-				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = "-Wno-deprecated-declarations";
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
@@ -3476,6 +3479,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flippencorp.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = Frotz;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ui/Frotz-Bridging-Header.h";
 				WARNING_CFLAGS = "-Wno-logical-op-parentheses";
 			};
 			name = "Release armv6";
@@ -4421,7 +4425,7 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = /Applications;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -4455,7 +4459,7 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = /Applications;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = YES;

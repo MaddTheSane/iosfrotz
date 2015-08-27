@@ -23,7 +23,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_WARN;
 //-----------------------------------------------------------------
 
 
-@interface MultipartFormDataParser (private)
+@interface MultipartFormDataParser ()
 + (NSData*) decodedDataFromData:(NSData*) data encoding:(int) encoding;
 
 - (int) findHeaderEnd:(NSData*) workingData fromOffset:(int) offset;

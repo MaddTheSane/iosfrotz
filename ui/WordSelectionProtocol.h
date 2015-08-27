@@ -7,6 +7,8 @@
  *
  */
 
+#import <UIKit/UIFont.h>
+#import <UIKit/UILabel.h>
 
 @protocol WordSelection
 -(void)setFont:(UIFont*)font;

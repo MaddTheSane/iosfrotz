@@ -20,6 +20,7 @@
 
 #import <UIKit/UIKit.h>
 
+@class FileInfo;
 
 typedef NS_ENUM(unsigned int, FileBrowserState)  { kFBHidden, kFBShown, kFBDoShowRestore, kFBDoShowSave, kFBDoShowScript, kFBDoShowViewScripts, kFBDoShowRecord, kFBDoShowPlayback  };
 
@@ -38,7 +39,7 @@ typedef NS_ENUM(unsigned int, FileBrowserState)  { kFBHidden, kFBShown, kFBDoSho
 {
     UITableViewController *m_tableViewController;
     NSMutableArray *m_extensions;
-    NSMutableArray *m_files;
+    NSMutableArray<FileInfo*> *m_files;
     NSString *m_path;
     NSUInteger m_rowCount;
     id m_delegate;

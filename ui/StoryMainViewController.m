@@ -1071,6 +1071,9 @@ static void setColorTable(RichTextView *v) {
     [v getOrAllocColorIndex: [UIColor orangeColor]];
 }
 
+@interface StoryMainViewController ()
+-(void)setGlkBGColor:(NSNumber*)arg;
+@end
 
 @implementation StoryMainViewController 
 

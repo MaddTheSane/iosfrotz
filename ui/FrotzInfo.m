@@ -11,6 +11,10 @@
 #import <QuartzCore/QuartzCore.h>
 #import "TextViewExt.h"
 
+@interface /*StoryBrowser*/ UITableViewController (Private)
+-(void)hidePopover;
+@end
+
 @implementation FrotzInfo
 
 -(instancetype)initWithSettingsController:(FrotzSettingsController*)settings navController:(UINavigationController*)navController navItem: (UINavigationItem*) navItem {

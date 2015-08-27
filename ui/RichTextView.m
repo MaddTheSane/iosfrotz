@@ -77,9 +77,11 @@ static void DrawViewBorder(CGContextRef context, CGFloat x1, CGFloat y1, CGFloat
 @implementation RichTextView
 
 @synthesize tileSize = m_tileSize;
+@synthesize textStyle = m_currentTextStyle;
 @synthesize textRuns = m_textRuns;
 @synthesize lastPt = m_lastPt;
 @synthesize controller = m_controller;
+@synthesize hyperlinkIndex = m_hyperlinkIndex;
 @dynamic leftMargin;
 @synthesize rightMargin = m_rightMargin;
 @synthesize bottomMargin = m_bottomMargin;
@@ -114,10 +116,6 @@ static void DrawViewBorder(CGContextRef context, CGFloat x1, CGFloat y1, CGFloat
         m_prevLineNotTerminated = NO;
     }
 }
--(RichTextStyle)textStyle {
-    return m_currentTextStyle;
-}
-
 -(void)setHyperlinkIndex:(NSInteger)hyperlinkIndex {
     if (m_hyperlinkIndex != hyperlinkIndex) {
         m_hyperlinkIndex = hyperlinkIndex;
