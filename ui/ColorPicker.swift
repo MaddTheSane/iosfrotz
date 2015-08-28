@@ -237,10 +237,14 @@ private final class HSVPicker: ColorPickerView {
     var imageRef: CGImage?
     var hsvData: UnsafeMutablePointer<UInt32> = nil
     
-    init(frame: CGRect, colorPicker: ColorPicker) {
+    init(frame: CGRect, colorPicker: ColorPicker?) {
         self.colorPicker = colorPicker
         super.init(frame: frame)
         self.frame = frame
+    }
+    
+    override convenience init(frame: CGRect) {
+        self.init(frame: frame, colorPicker: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -308,109 +312,74 @@ private final class HSVPicker: ColorPickerView {
     }
     
     private override func drawRect(rect: CGRect) {
+        var h: CGFloat;var s: CGFloat;var v: CGFloat
+        var r: CGFloat = 0
+        var g: CGFloat = 0
+        var b: CGFloat = 0
         
+        var wColor: UInt32
+        var hsv: UInt32
+        var i = 0
+        
+        v = 1.0; //[m_colorPicker value];
+        
+        var pixelsWide = Int(width)
+        var pixelsHigh = Int(height)
+        var bitmapBytesPerRow   = (pixelsWide * 4);
+        var bitmapByteCount     = (bitmapBytesPerRow * pixelsHigh);
+        
+        guard let colorSpace = CGColorSpaceCreateDeviceRGB() else {
+            NSLog("Error allocating color space\n");
+            return;
+        }
+        
+        var bitmapData = malloc(Int(bitmapByteCount));
+        
+        guard bitmapData != nil else {
+            NSLog("BitmapContext memory not allocated!");
+            return;
+        }
+        defer {
+            free(bitmapData)
+        }
+        let c = UnsafeMutablePointer<UInt32>(bitmapData)
+        
+        for _ in 0..<height {
+            for _ in 0..<width {
+                hsv = hsvData[i];
+                
+                if ((hsv & 0xff000000) != 0) {
+                    h = CGFloat((hsv & 0x00ff0000) >> 16) / 255.0;
+                    s = CGFloat((hsv & 0x0000ff00) >> 8) / 255.0;
+                    HSVtoRGB(r: &r, g: &g, b: &b, h: h, s: s, v: v);
+                    
+                    wColor = 0xff000000 | ((UInt32(b * 255.0)) << 16) | ((UInt32(g * 255.0)) << 8) | (UInt32(r * 255.0));
+                    c[i] = wColor;
+                } else {
+                    c[i] = 0xffffffff;
+                }
+                i++;
+            }
+        }
+        
+        guard let bmcontext = CGBitmapContextCreate (bitmapData,
+            pixelsWide,
+            pixelsHigh,
+            8,      // bits per component
+            bitmapBytesPerRow,
+            colorSpace,
+            CGImageAlphaInfo.Last.rawValue) else {
+                NSLog("Context not created!");
+                return;
+        }
+        
+        imageRef = CGBitmapContextCreateImage(bmcontext);
+        
+        let context = UIGraphicsGetCurrentContext();
+        CGContextDrawImage(context, CGRect(x: 0, y: 0, width: Int(width), height: Int(height)), imageRef);
+        imageRef = nil;
     }
     
-    /*
-@implementation HSVPicker
-
-- (instancetype) initWithFrame:(CGRect)frame withColorPicker: colorPicker {
-if (!(self = [super initWithFrame: frame])) return nil;
-
-m_colorPicker = colorPicker;
-[self setFrame: frame];
-
-return self;
-}
-
-
-- (unsigned int *)hsvData {
-return m_hsvData;
-}
-
-- (void)drawRect:(CGRect)rect {
-int x, y, i = 0;
-CGFloat r, g, b;
-CGFloat h, s, v;
-
-unsigned int wColor, hsv;
-
-v = 1.0; //[m_colorPicker value];
-
-CGContextRef    bmcontext = NULL;
-CGColorSpaceRef colorSpace;
-void *          bitmapData;
-int             bitmapByteCount;
-int             bitmapBytesPerRow;
-
-int pixelsWide = m_width, pixelsHigh = m_height;
-bitmapBytesPerRow   = (pixelsWide * 4);
-bitmapByteCount     = (bitmapBytesPerRow * pixelsHigh);
-
-colorSpace = CGColorSpaceCreateDeviceRGB();
-if (colorSpace == NULL)
-{
-NSLog(@"Error allocating color space\n");
-return;
-}
-
-bitmapData = malloc(bitmapByteCount);
-
-if (bitmapData == NULL)
-{
-NSLog(@"BitmapContext memory not allocated!");
-CGColorSpaceRelease(colorSpace);
-return;
-}
-unsigned int *c = (unsigned int*)bitmapData;
-
-for (y=0; y < m_height; y++)
-{
-for (x=0; x < m_width; x++) {
-hsv = m_hsvData[i];
-
-if ((hsv & 0xff000000UL)) {
-h = (CGFloat)((hsv & 0x00ff0000UL) >> 16) / 255.0f;
-s = (CGFloat)((hsv & 0x0000ff00UL) >> 8) / 255.0f;
-HSVtoRGB(&r, &g, &b, h, s, v);
-
-wColor = 0xff000000UL | (((int)(b * 255.0f)) << 16) | (((int)(g * 255.0f)) << 8) | ((int)(r * 255.0f));
-c[i] = wColor;
-} else
-c[i] = 0xffffffffUL;
-i++;
-}
-}
-
-bmcontext = CGBitmapContextCreate (bitmapData,
-pixelsWide,
-pixelsHigh,
-8,      // bits per component
-bitmapBytesPerRow,
-colorSpace,
-kCGImageAlphaPremultipliedLast);
-if (bmcontext == NULL)
-{
-free (bitmapData);
-NSLog(@"Context not created!");
-}
-
-// Make sure and release colorspace before returning
-CGColorSpaceRelease( colorSpace );
-
-m_imageRef = CGBitmapContextCreateImage(bmcontext);
-
-// When finished, release the context
-CGContextRelease(bmcontext);
-
-CGContextRef context = UIGraphicsGetCurrentContext();
-CGContextDrawImage(context, CGRectMake(0,0,m_width,m_height), m_imageRef);
-CGImageRelease(m_imageRef);
-m_imageRef = NULL;
-free (bitmapData);
-
-}
-*/
     func mousePositionToColor(point: CGPoint) {
         var rgba: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) = (0,0,0,1)
         var color: UInt32
@@ -438,59 +407,24 @@ free (bitmapData);
         }
     }
     
-    /*
--(void)mousePositionToColor:(CGPoint)point {
-unsigned int *c = [self hsvData];
-CGFloat rgba[4] = {0.0, 0.0, 0.0, 1.0};
-unsigned int color;
-unsigned int x = (int)point.x;
-unsigned int y = (int)point.y;
-if (x >= m_width) x = m_width - 1;
-if (y >= m_height) y = m_height - 1;
-
-color = c[(m_height-1-y) * m_width + x];
-
-CGFloat hue = (CGFloat)((color & 0xff0000) >> 16) / 255.0f;
-CGFloat saturation = (CGFloat)((color & 0xff00) >> 8) / 255.0f;
-CGFloat value; // = (CGFloat)(color & 0xff) / 255.0f;
-CGFloat alpha = (CGFloat)((color & 0xff000000) >> 24) / 255.0f;
-
-if (alpha != 0.0f) {
-value = [m_colorPicker value];
-HSVtoRGB(&rgba[0], &rgba[1], &rgba[2], hue, saturation, value);
-
-UIColor *col = [UIColor colorWithRed: rgba[0] green:rgba[1] blue:rgba[2] alpha:rgba[3]];
-[m_colorPicker setColor: col];
-}
-}
--(void)dealloc {
-if (m_hsvData)
-free(m_hsvData);
-m_hsvData = NULL;
-}
-
--(void) touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
-{
-UITouch* touch = [touches anyObject];
-[self mousePositionToColor: [touch locationInView: self]];
-}
-
-- (void) touchesEnded:(NSSet*)touches withEvent:(UIEvent*)event
-{
-UITouch* touch = [touches anyObject];
-[self mousePositionToColor: [touch locationInView: self]];
-}
-
-- (void)touchesCancelled:(NSSet*)touches withEvent:(UIEvent*)event {
-}
-
-- (void) touchesMoved:(NSSet*)touches withEvent:(UIEvent*)event
-{
-UITouch* touch = [touches anyObject];
-[self mousePositionToColor: [touch locationInView: self]];
-}
-@end
-*/
+    @objc private override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let touch = touches.first!
+        mousePositionToColor(touch.locationInView(self))
+    }
+    
+    @objc private override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let touch = touches.first!
+        mousePositionToColor(touch.locationInView(self))
+    }
+    
+    @objc private override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+        //do nothing
+    }
+    
+    @objc private override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let touch = touches.first!
+        mousePositionToColor(touch.locationInView(self))
+    }
     
     deinit {
         if hsvData != nil {
@@ -499,21 +433,3 @@ UITouch* touch = [touches anyObject];
         }
     }
 }
-
-/*
-@interface HSVPicker : ColorPickerView {
-ColorPicker *m_colorPicker;
-CGImageRef m_imageRef;
-unsigned int *m_hsvData;
-}
-- (instancetype) initWithFrame:(CGRect)frame withColorPicker: colorPicker;
-@property (nonatomic, readonly) unsigned int *hsvData;
-- (void)drawRect:(CGRect)rect;
-- (void)mousePositionToColor:(CGPoint)point;
-- (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event;
-- (void)touchesEnded:(NSSet*)touches withEvent:(UIEvent*)event;
-- (void)touchesMoved:(NSSet*)touches withEvent:(UIEvent*)event;
-- (void)touchesCancelled:(NSSet*)touches withEvent:(UIEvent*)event;
-@end
-*/
-
