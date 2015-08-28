@@ -13,11 +13,8 @@ private func RGBtoHSV(r r: CGFloat, g: CGFloat, b: CGFloat, inout h: CGFloat, in
     var min: CGFloat
     var max: CGFloat
     var delta: CGFloat
-    min = Swift.min(r, g)
-    min = Swift.min(min, b)
-    
-    max = Swift.max(r, g)
-    max = Swift.max(max, b)
+    min = Swift.min(r, g, b)
+    max = Swift.max(r, g, b)
     
     v = max;				// v
     delta = max - min;
@@ -85,7 +82,13 @@ private func HSVtoRGB(inout r r: CGFloat, inout g: CGFloat, inout b: CGFloat, h 
 }
 
 class ColorPicker: UIViewController {
-    
+    private var hsvPicker: HSVPicker!
+    private var valuePicker: HSVValuePicker!
+    private var colorTile: ColorTile!
+    var background: UIView!
+    var tileBorder: UIView!
+    var hsvCursor: UIImageView!
+    var valueCursor: UIImageView!
     /*
 HSVPicker *m_hsvPicker;
 HSVValuePicker *m_valuePicker;
@@ -102,12 +105,102 @@ CGColorSpaceRef m_colorSpace;
 UIColor *m_textColor, *m_bgColor;
 BOOL m_changeTextColor;
 */
+    
     weak var delegate: ColorPickerDelegate?
+    var hue: CGFloat = 0
+    var saturation: CGFloat = 0
     var value: CGFloat = 0
+    var colorSpace: CGColorSpace?
+    
+    var textColor: UIColor?
+    var bgColor: UIColor?
     var textColorMode = false
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        title = NSLocalizedString("Select Color", comment: "")
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        title = NSLocalizedString("Select Color", comment: "")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        edgesForExtendedLayout = .None
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return gLargeScreenDevice ? .All : [.PortraitUpsideDown, .Portrait]
+    }
     
     override func shouldAutorotate() -> Bool {
         return true
+    }
+    
+    override func loadView() {
+        let frame = UIScreen.mainScreen().applicationFrame
+        //BOOL fullScreenLarge = (frame.size.width > 760);
+        background = UIView(frame: frame)
+        self.view = background;
+        
+        let bgColor = UIColor.whiteColor()
+        let borderColor = UIColor.blackColor()
+        background.backgroundColor = bgColor
+        
+        //    [m_background setAutoresizesSubviews: YES];
+        background.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        
+        let colorTileHeight: CGFloat  = 64.0
+        let leftMargin: CGFloat = 8.0
+        let hsvBaseYOrigin = colorTileHeight + 64.0;
+        let colorTileFrame = CGRectMake(leftMargin, 32.0, frame.size.width-(leftMargin-1)*2, colorTileHeight);
+        colorTile = ColorTile(frame: colorTileFrame, colorPicker: self)
+        tileBorder = UIView(frame: CGRectInset(colorTileFrame, -1, -1))
+        tileBorder.backgroundColor = borderColor
+        colorTile!.autoresizingMask = [.FlexibleWidth]
+        tileBorder.autoresizingMask = [.FlexibleWidth]
+        
+        let radius: CGFloat = 128.0
+        hsvPicker = HSVPicker(frame: CGRectMake(leftMargin, hsvBaseYOrigin, radius*2, radius*2), colorPicker: self)
+        valuePicker = HSVValuePicker(frame: CGRectMake(leftMargin+radius*2, hsvBaseYOrigin, 56.0, radius*2), colorPicker: self)
+        valuePicker!.barWidth = 32
+        
+        hsvPicker!.autoresizingMask = [.FlexibleLeftMargin, .FlexibleRightMargin]
+        valuePicker!.autoresizingMask = [.FlexibleLeftMargin, .FlexibleRightMargin]
+        valuePicker!.leftMargin = 16
+        
+        let hsvCursorImage = UIImage(named: "hsv-crosshair")
+        hsvCursor = UIImageView(image: hsvCursorImage)
+        let valCursorImage = UIImage(named: "val-crosshair")
+        valueCursor = UIImageView(image: valCursorImage)
+        
+        var cursFrame = hsvCursor.frame
+        cursFrame.origin = CGPointMake(radius - 16.0, radius - 16.0)
+        hsvCursor.frame = cursFrame
+        
+        cursFrame = valueCursor.frame;
+        cursFrame.origin = CGPointMake(8, -16);
+        valueCursor.frame = cursFrame
+        
+        view.addSubview(tileBorder)
+        view.addSubview(hsvPicker)
+        view.addSubview(valuePicker)
+        view.addSubview(colorTile)
+        hsvPicker.addSubview(hsvCursor)
+        valuePicker.addSubview(valueCursor)
+        
+        updateAccessibility()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        
+    }
+    
+    func layoutViews() {
+        
     }
     
     func toggleMode() {
@@ -125,6 +218,11 @@ BOOL m_changeTextColor;
     func setColor(color: UIColor) {
         
     }
+    
+    func setColorValue(color: UIColor) {
+        
+    }
+
 }
 
 private class ColorPickerView: UIView {
@@ -141,7 +239,7 @@ private class ColorPickerView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override var frame: CGRect {
+    @objc override var frame: CGRect {
         didSet {
             width = Int32(frame.size.width)
             height = Int32(frame.size.height)
@@ -214,6 +312,16 @@ private class ColorTile: UIView {
         //do nothing
     }
     
+    /*
+    var textColor: UIColor? {
+        get {
+            return textLabel?.textColor
+        }
+        set {
+            textLabel?.textColor = newValue
+        }
+    }*/
+    
     func setTextColor(color: UIColor) {
         textLabel?.textColor = color;
     }
@@ -222,7 +330,7 @@ private class ColorTile: UIView {
         self.backgroundColor = color
     }
     
-    override var frame: CGRect {
+    @objc override var frame: CGRect {
         didSet {
             textLabel?.frame = CGRect(x: 5, y: 5, width: frame.size.width - 5, height: frame.size.height - 5)
             if let font = colorPicker?.delegate?.fontForColorDemo {
@@ -251,7 +359,7 @@ private final class HSVPicker: ColorPickerView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override var frame: CGRect {
+    @objc override var frame: CGRect {
         set {
             if hsvData != nil {
                 if width == Int32(newValue.size.width) && height == Int32(newValue.size.height) {
@@ -311,7 +419,7 @@ private final class HSVPicker: ColorPickerView {
         }
     }
     
-    private override func drawRect(rect: CGRect) {
+    @objc override func drawRect(rect: CGRect) {
         var h: CGFloat;var s: CGFloat;var v: CGFloat
         var r: CGFloat = 0
         var g: CGFloat = 0
@@ -368,7 +476,7 @@ private final class HSVPicker: ColorPickerView {
             8,      // bits per component
             bitmapBytesPerRow,
             colorSpace,
-            CGImageAlphaInfo.Last.rawValue) else {
+            CGImageAlphaInfo.PremultipliedLast.rawValue) else {
                 NSLog("Context not created!");
                 return;
         }
@@ -407,21 +515,21 @@ private final class HSVPicker: ColorPickerView {
         }
     }
     
-    @objc private override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    @objc override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         let touch = touches.first!
         mousePositionToColor(touch.locationInView(self))
     }
     
-    @objc private override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    @objc override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         let touch = touches.first!
         mousePositionToColor(touch.locationInView(self))
     }
     
-    @objc private override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+    @objc override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
         //do nothing
     }
     
-    @objc private override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    @objc override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         let touch = touches.first!
         mousePositionToColor(touch.locationInView(self))
     }
@@ -431,5 +539,141 @@ private final class HSVPicker: ColorPickerView {
             free(hsvData)
             hsvData = nil
         }
+    }
+}
+
+private class HSVValuePicker : ColorPickerView {
+    weak var colorPicker: ColorPicker?
+    var leftMargin: Int32 = 0
+    var barWidth: Int32 = 0
+    var imageRef: CGImage?
+    
+    init(frame: CGRect, colorPicker: ColorPicker) {
+        self.colorPicker = colorPicker
+        
+        super.init(frame: frame)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func mousePositionToValue(point: CGPoint) {
+        let y: Int32
+        if point.y < 0 {
+            y = 0
+        } else if Int32(point.y) >= height {
+        y = height
+        } else {
+            y = Int32(point.y)
+        }
+        let value: CGFloat = 1 - CGFloat(y) / CGFloat(height)
+        
+        var rgba: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) = (0,0,0,1)
+        
+        let hue = colorPicker!.hue
+        let saturation = colorPicker!.saturation
+        HSVtoRGB(r: &rgba.red, g: &rgba.green, b: &rgba.blue, h: hue, s: saturation, v: value);
+        
+        let color = UIColor(red: rgba.red, green: rgba.green, blue: rgba.blue, alpha: rgba.alpha)
+        colorPicker?.setColorValue(color) // hue and sat didn't change, so force them constant even if color is black or white
+    }
+    
+    @objc override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let touch = touches.first!
+        mousePositionToValue(touch.locationInView(self))
+    }
+    
+    @objc override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let touch = touches.first!
+        mousePositionToValue(touch.locationInView(self))
+    }
+    
+    @objc override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+        //Do nothing
+    }
+    
+    @objc override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let touch = touches.first!
+        mousePositionToValue(touch.locationInView(self))
+    }
+    
+    @objc override func drawRect(rect: CGRect) {
+        var bitmapData = UnsafeMutablePointer<()>()
+        defer {
+            if bitmapData != nil {
+                free(bitmapData)
+            }
+        }
+        
+        if imageRef == nil {
+            var i = 0
+            var r: CGFloat = 0
+            var g: CGFloat = 0
+            var b: CGFloat = 0
+            
+            var h: CGFloat = 0
+            var s: CGFloat = 0
+            var v: CGFloat = 0
+            
+            let pixelsWide = Int(width)
+            let pixelsHigh = Int(height)
+            let bitmapBytesPerRow   = pixelsWide * 4
+            let bitmapByteCount     = bitmapBytesPerRow * pixelsHigh
+            
+            guard let colorSpace = CGColorSpaceCreateDeviceRGB() else {
+                NSLog("Error allocating color space\n");
+                return
+            }
+            
+            bitmapData = malloc(bitmapByteCount);
+            guard bitmapData != nil else {
+                NSLog("BitmapContext memory not allocated!");
+                return;
+            }
+            let c = UnsafeMutablePointer<UInt32>(bitmapData)
+            var wColor: UInt32
+            
+            h = colorPicker!.hue
+            s = colorPicker!.saturation; // use full sat on color picker
+            for y in 0..<height {
+                var x: Int32 = 0
+                for x = 0; x < leftMargin; x++ {
+                    c[i++] = 0xffffffff;
+                }
+                v = CGFloat(y) / CGFloat(height)
+                HSVtoRGB(r: &r, g: &g, b: &b, h: h, s: s, v: v);
+                // iPhone is little endian, want alpha last in memoryt
+                wColor = 0xff000000 | ((UInt32(b * 255.0) & 0xff) << 16) | ((UInt32(g * 255.0) & 0xff) << 8) | ((UInt32(r * 255.0) & 0xff));
+                for _ in 0..<barWidth {
+                    c[i++] = wColor;
+                    x++
+                }
+                for _ in x..<width {
+                    c[i++] = 0xffffffff;
+                }
+            }
+            
+            // Create the bitmap context. We want pre-multiplied ARGB, 8-bits
+            // per component. Regardless of what the source image format is
+            // (CMYK, Grayscale, and so on) it will be converted over to the format
+            // specified here by CGBitmapContextCreate.
+            guard let bmcontext = CGBitmapContextCreate (bitmapData,
+                pixelsWide,
+                pixelsHigh,
+                8,      // bits per component
+                bitmapBytesPerRow,
+                colorSpace,
+                CGImageAlphaInfo.PremultipliedLast.rawValue) else {
+                    NSLog("Context not created!");
+                    return
+            }
+            
+            imageRef = CGBitmapContextCreateImage(bmcontext);
+        }
+        
+        let context = UIGraphicsGetCurrentContext();
+        CGContextDrawImage(context, CGRect(x: 0, y: 0, width: Int(width), height: Int(height)), imageRef);
+        imageRef = nil;
     }
 }
