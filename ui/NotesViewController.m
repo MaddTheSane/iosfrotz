@@ -25,7 +25,16 @@
 
 @end
 
-@implementation NotesViewController
+@implementation NotesViewController {
+    CGRect m_frame;
+    
+    UISegmentedControl *m_notesTitle;
+    
+    UIScrollView *m_scrollView;
+    UITextView *m_notesView;
+    UIImageView *m_notesBGView;
+    UIResponder *m_chainResponder;
+}
 @synthesize delegate = m_delegate;
 
 - (NotesViewController*)initWithFrame:(CGRect)frame {

@@ -15,7 +15,21 @@
 -(void)hidePopover;
 @end
 
-@implementation FrotzInfo
+@implementation FrotzInfo {
+    UIButton *m_infoButton;
+    //    UIButton *m_titleTextView;
+    UILabel *m_titleTextView;
+    
+    UINavigationController *m_navigationController;
+    UIBarButtonItem *m_doneButton, *m_savedLeftButton, *m_savedRightButton;
+    
+    UIViewController *m_viewController;
+    
+    UITextView *m_pane1, *m_pane2;
+    FrotzSettingsController *m_settings;
+    UINavigationItem *m_navItem;
+    id m_prevResponder;
+}
 @synthesize keyboardOwner = m_kbdOwner;
 
 -(instancetype)initWithSettingsController:(FrotzSettingsController*)settings navController:(UINavigationController*)navController navItem: (UINavigationItem*) navItem {

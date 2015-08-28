@@ -9,19 +9,7 @@
 #import "StoryMainViewController.h"
 #import "CompletionLabel.h"
 
-@interface StoryInputLine: UITextField <FrotzInputDelegate> {
-    StoryView *m_storyView;
-    StatusLine *m_statusLine;
-    UIView *m_enterAndClearView;
-    FrotzInputHelper *m_inputHelper;
-    UITouchPhase m_lastTouchPhaseSeen;
-    NSTimeInterval m_lastTouchTimestamp;
-    CGPoint m_touchBeganPosition;
-    CompletionLabel *m_completionLabel;
-    BOOL m_firstKeyPressed, m_lastCharDeleted;
-    BOOL m_justHidHelper;
-    BOOL m_completionAmbiguous;
-}
+@interface StoryInputLine: UITextField <FrotzInputDelegate>
 -(StoryInputLine*)initWithFrame:(CGRect)frame NS_DESIGNATED_INITIALIZER;
 @property (nonatomic, strong) StoryView *storyView;
 @property (nonatomic, strong) StatusLine *statusLine;

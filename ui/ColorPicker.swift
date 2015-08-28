@@ -196,7 +196,7 @@ BOOL m_changeTextColor;
     }
     
     override func viewWillLayoutSubviews() {
-        
+        layoutViews()
     }
     
     func layoutViews() {

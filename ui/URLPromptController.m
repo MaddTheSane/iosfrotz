@@ -9,7 +9,10 @@
 #import "URLPromptController.h"
 #include "iosfrotz.h"
 
-@implementation URLPromptController
+@implementation URLPromptController {
+    UISearchBar	*m_textbar;
+}
+@synthesize delegate = m_delegate;
 
 - (instancetype)init
 {
@@ -21,15 +24,6 @@
     
     return self;
 }
-
--(void)setDelegate:(id<URLPromptDelegate>)del {
-    m_delegate = del;
-}
-
--(id<URLPromptDelegate>)delegate {
-    return m_delegate;
-}
-
 
 - (void)setText:(NSString*)text {
     [m_textbar setText: text];

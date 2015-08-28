@@ -68,10 +68,6 @@ NS_ASSUME_NONNULL_BEGIN
 extern NSString *kDisplayCell_ID;
 
 @interface DisplayCell : UITableViewCell
-{
-	UILabel	*nameLabel;
-	UIView	*view;
-}
 
 @property (nonatomic, strong, nullable) UIView *view;
 @property (nonatomic, strong) UILabel *nameLabel;

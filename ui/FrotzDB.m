@@ -19,7 +19,18 @@
 
 #define kFontSizeStr "Font size (%d)"
 
-@implementation FrotzDBController
+@implementation FrotzDBController {
+    UITableView	*m_tableView;
+    UILabel	*m_headerLabel, *m_folderLabel;
+    
+    //    DBLoginController* m_dbLoginController;
+    
+    UITextField *m_textField;
+    
+    BOOL m_hasAppeared;
+    BOOL m_isUnlinking;
+}
+@synthesize delegate = m_delegate;
 
 -(void)donePressed {
 

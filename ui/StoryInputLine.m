@@ -13,7 +13,19 @@
 
 #include "iosfrotz.h"
 
-@implementation StoryInputLine
+@implementation StoryInputLine {
+    StoryView *m_storyView;
+    StatusLine *m_statusLine;
+    UIView *m_enterAndClearView;
+    FrotzInputHelper *m_inputHelper;
+    UITouchPhase m_lastTouchPhaseSeen;
+    NSTimeInterval m_lastTouchTimestamp;
+    CGPoint m_touchBeganPosition;
+    CompletionLabel *m_completionLabel;
+    BOOL m_firstKeyPressed, m_lastCharDeleted;
+    BOOL m_justHidHelper;
+    BOOL m_completionAmbiguous;
+}
 
 -(void)enterButtonPressed:(id)sender {
     StoryMainViewController *storyController = (StoryMainViewController*)self.delegate;

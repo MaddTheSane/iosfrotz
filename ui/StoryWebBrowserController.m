@@ -28,21 +28,32 @@ NSString *kBookmarksFN = @"bookmarks.plist";
 const NSString *kBookmarkURLsKey = @"URLs";
 const NSString *kBookmarkTitlesKey = @"Titles";
 
-@implementation StoryWebBrowserController 
+@implementation StoryWebBrowserController {
+    UIView *m_background; // UIView
+    UIScrollView *m_scrollView;
+    UIToolbar *m_toolBar;
+    UIBarButtonItem *m_forwardButtonItem, *m_cancelButtonItem, *m_reloadButtonItem, *m_URLButtonItem, *m_activButtonItem;
+    URLPromptController *m_urlBarController;
+    BookmarkListController *m_bookmarkListController;
+    
+    NSURLRequest *m_currentRequest, *m_delayedRequest;
+    NSMutableData *m_receivedData;
+    SWBDownloadState m_state;
+    BOOL m_backToStoryList;
+    BOOL m_storyAlreadyInstalled;
+    NSMutableArray *m_expectedArchiveFiles;
+}
+@synthesize storyBrowser = m_storyBrowser;
+@synthesize frotzInfoController = m_frotzInfoController;
+@synthesize activityIndicator = m_activityView;
+@synthesize backButton = m_backButtonItem;
+@synthesize webView = m_webView;
 
 -(StoryWebBrowserController*)initWithBrowser:(StoryBrowser*)sb {
     if ((self = [super init])) {
         m_storyBrowser = sb;
     }
     return self;
-}
-
--(StoryBrowser*)storyBrowser {
-    return m_storyBrowser;
-}
-
--(FrotzInfo*)frotzInfoController {
-    return m_frotzInfoController;
 }
 
 -(void)loadView {
@@ -264,22 +275,11 @@ const NSString *kBookmarkTitlesKey = @"Titles";
 //    [m_frotzInfoController dismissInfo];
 }
 
--(UIActivityIndicatorView*)activityIndicator {
-    return m_activityView;
-}
-
 -(id)dismissKeyboard {
     [self dismissURLPrompt];
     return nil;
 }
 
--(UIBarButtonItem*)backButton {
-    return m_backButtonItem;
-}
-
--(UIWebView*)webView {
-    return m_webView;
-}
 -(void)goBack {
     [[self webView] goBack];
 }

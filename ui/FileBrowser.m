@@ -53,7 +53,20 @@ static NSString *kSaveExt = @".sav", *kAltSaveExt = @".qut";
 @end
 
 
-@implementation FileBrowser
+@implementation FileBrowser {
+    UITableViewController *m_tableViewController;
+    NSMutableArray *m_extensions;
+    NSMutableArray<FileInfo*> *m_files;
+    NSString *m_path;
+    NSUInteger m_rowCount;
+    FileBrowserState m_dialogType;
+    UIView *m_backgroundView;
+    UITableView *m_tableView;
+    UITextField *m_textField;
+    UIButton *m_saveButton;
+    UIAlertView *m_alertView;
+    int m_textFileCount;
+}
 @synthesize delegate = m_delegate;
 @synthesize path = m_path;
 @synthesize textFileCount = m_textFileCount;

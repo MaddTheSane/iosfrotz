@@ -177,7 +177,7 @@
 }
 
 - (NSString*)lookForTruncatedWord:(NSString*)word {
-    for (NSString *text in m_textRuns) {
+    for (NSString *text in self.textRuns) {
         NSUInteger len = [text length];
         NSRange r = [text rangeOfString:word options:NSCaseInsensitiveSearch];
         if (r.length) {

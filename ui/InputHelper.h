@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "FrotzWordPicker.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol FrotzInputDelegate <NSObject>
 -(void)inputHelperString:(NSString*)string;
 -(BOOL)isFirstResponder;
@@ -30,11 +32,11 @@ typedef NS_ENUM(unsigned int, FrotzInputHelperMode) {
     NSUInteger m_currHistoryItem;
 }
 - (instancetype)init;
-@property (nonatomic, weak) id<FrotzInputDelegate> delegate;
+@property (nonatomic, weak, nullable) id<FrotzInputDelegate> delegate;
 - (void)clearHistory;
 @property (nonatomic, readonly) NSUInteger historyCount;
 @property (nonatomic, readonly) NSUInteger menuCount;
-- (NSString*)historyItem:(int)item;
+- (nullable NSString*)historyItem:(int)item;
 - (NSUInteger)addHistoryItem:(NSString*)historyItem;
 @property (nonatomic, getter=getNextHistoryItem, readonly, copy) NSString *nextHistoryItem;
 @property (nonatomic, getter=getPrevHistoryItem, readonly, copy) NSString *prevHistoryItem;
@@ -44,3 +46,5 @@ typedef NS_ENUM(unsigned int, FrotzInputHelperMode) {
 -(void)hideInputHelper;
 
 @end
+
+NS_ASSUME_NONNULL_END

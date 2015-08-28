@@ -1241,7 +1241,6 @@
 		44FC54D31120006400CF11E9 /* url.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = url.png; path = resources/url.png; sourceTree = "<group>"; };
 		5500D8411B8E8CA100D3B5D1 /* ifrotzdefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ifrotzdefs.h; sourceTree = "<group>"; };
 		5500D8421B8E935300D3B5D1 /* Frotz-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Frotz-Bridging-Header.h"; sourceTree = "<group>"; };
-		5500D8431B8E935400D3B5D1 /* RichTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RichTextView.swift; sourceTree = "<group>"; };
 		5577631E1B8FAFD60067BF83 /* CBridging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBridging.m; sourceTree = "<group>"; };
 		557763211B8FB5940067BF83 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = resources/Images.xcassets; sourceTree = "<group>"; };
 		557763281B8FBD260067BF83 /* ui_audio_coreaudio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ui_audio_coreaudio.c; sourceTree = "<group>"; };
@@ -1411,7 +1410,6 @@
 				44EA5BA40E67CD2200EF37C5 /* ReleaseNotes.h */,
 				44EA5BA50E67CD2200EF37C5 /* ReleaseNotes.m */,
 				444592F91396DBED00C740B9 /* RichTextStyle.h */,
-				5500D8431B8E935400D3B5D1 /* RichTextView.swift */,
 				4413B1621071CA2700D39E6A /* RichTextView.h */,
 				4413B1611071CA2700D39E6A /* RichTextView.m */,
 				449C92BC11221E7D006CCDF9 /* StatusLine.h */,

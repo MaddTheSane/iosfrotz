@@ -3,21 +3,10 @@
 #import <DropboxSDK/DropboxSDK.h>
 
 @interface FrotzDBController : UITableViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
-{
-    UITableView	*m_tableView;
-    UILabel	*m_headerLabel, *m_folderLabel;
-    
-//    DBLoginController* m_dbLoginController;
+@property (nonatomic, weak, nullable) id delegate;
 
-    UITextField *m_textField;
-    
-    id m_delegate;
-    BOOL m_hasAppeared;
-    BOOL m_isUnlinking;
-}
+- (nonnull instancetype)init;
 
-- (instancetype)init;
 - (void)donePressed;
-@property (nonatomic, weak) id delegate;
 @end
 

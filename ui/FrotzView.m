@@ -48,7 +48,7 @@
     if (self.autoresizingMask == 0)
         return;
     if (recognizer.state==UIGestureRecognizerStateBegan)
-        m_origFontSize = m_fontSize;
+        m_origFontSize = self.fontSize;
     else if (recognizer.state==UIGestureRecognizerStateChanged || recognizer.state==UIGestureRecognizerStateEnded) {
         CGFloat scale = recognizer.scale;
         
@@ -57,7 +57,7 @@
             newFontSize = 8;
         else if (newFontSize > 32)
             newFontSize = 32;
-        if ((int)(m_fontSize) != (int)(newFontSize) || recognizer.state==UIGestureRecognizerStateEnded) {
+        if ((int)(self.fontSize) != (int)(newFontSize) || recognizer.state==UIGestureRecognizerStateEnded) {
             CGFloat duration = 0.12;
             CATransition *animation = [CATransition animation];
             [animation setType:kCATransitionFade];

@@ -9,17 +9,19 @@
 
 @class StoryBrowser;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol FrotzSettingsInfoDelegate <NSObject>
 -(void)dismissInfo;
 @end
 
 @protocol FrotzSettingsStoryDelegate <NSObject,FrotzFontDelegate>
 -(void)resetSettingsToDefault;
--(void)setBackgroundColor:(UIColor*)color makeDefault:(BOOL)makeDefault;
--(void)setTextColor:(UIColor*)color makeDefault:(BOOL)makeDefault;
+-(void)setBackgroundColor:(nullable UIColor*)color makeDefault:(BOOL)makeDefault;
+-(void)setTextColor:(nullable UIColor*)color makeDefault:(BOOL)makeDefault;
 -(UIColor*)backgroundColor;
 -(UIColor*)textColor;
--(NSString*)rootPath;
+@property (nonatomic, readonly, copy) NSString *rootPath;
 @property (nonatomic, getter=isCompletionEnabled) BOOL completionEnabled;
 @property (nonatomic) BOOL canEditStoryInfo;
 -(void)savePrefs;
@@ -29,38 +31,17 @@
 @class FileTransferInfo;
 
 @interface FrotzSettingsController : UITableViewController <UITableViewDelegate, UITableViewDataSource, ColorPickerDelegate>
-{
-    UITableView	    *m_tableView;
-    
-    GettingStarted  *m_gettingStarted;
-    AboutFrotz	*m_aboutFrotz;
-    ReleaseNotes *m_releaseNotes;
-    FileTransferInfo *m_fileTransferInfo;
-
-    ColorPicker	*m_colorPicker;
-    FontPicker	*m_fontPicker;
-    FrotzDBController *m_frotzDB;
-    
-    BOOL	m_settingsShown, m_subPagePushed;
-    BOOL	m_resetting;
-    
-    NSInteger m_selectedRow, m_selectedSection;
-
-    UISwitch		    *m_switchCtl, *m_switchCtl2;
-    UISlider		    *m_sliderCtl;    
-    UITableViewCell	    *m_fontSizeCell;
-    
-    int m_origFontSize, m_newFontSize;
-}
 - (instancetype)init;
+
 @property (nonatomic, readonly) BOOL settingsActive;
 @property (nonatomic, strong) id<FrotzSettingsInfoDelegate> infoDelegate;
 @property (nonatomic, strong) id<FrotzSettingsStoryDelegate,FrotzFontDelegate> storyDelegate;
-@property (nonatomic, readonly, copy) NSString *rootPath;
+@property (nonatomic, readonly, copy, nullable) NSString *rootPath;
 - (void)donePressed;
 - (void)colorPicker:(ColorPicker*)picker selectedColor:(UIColor*)color;
-@property (nonatomic, readonly, copy) UIFont *fontForColorDemo;
+@property (nonatomic, readonly, copy, nullable) UIFont *fontForColorDemo;
 - (void)updateAccessibility;
 
 @end
 
+NS_ASSUME_NONNULL_END

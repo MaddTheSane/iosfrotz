@@ -13,11 +13,7 @@
 @class StoryDetailsController;
 
 @interface FrotzImageView : UIImageView  <UIAlertViewDelegate>
-{
-    StoryDetailsController *__weak m_detailsController;
-    NSTimer *m_tapTimer;
-    CGRect m_savedBounds;
-}
+
 -(void)displayMenu;
 @property (nonatomic, getter=isMagnified, readonly) BOOL magnified;
 -(void)magnifyImage:(BOOL)toggle;
@@ -25,36 +21,35 @@
 @property (nonatomic,weak) StoryDetailsController *detailsController;
 @end
 
-@interface StoryDetailsController : UIViewController <UIScrollViewDelegate, UITextFieldDelegate, UIActionSheetDelegate> {
+@interface StoryDetailsController : UIViewController <UIScrollViewDelegate, UITextFieldDelegate, UIActionSheetDelegate, UIWebViewDelegate>
+@property(nonatomic,strong) IBOutlet UITextField *titleField;
+@property(nonatomic,strong) IBOutlet UITextField *authorField;
+@property(nonatomic,strong) IBOutlet UITextField *tuidField;
+@property(nonatomic,strong) IBOutlet FrotzImageView *artworkView;
+@property(nonatomic,strong) IBOutlet UIView *textFieldsView;
+@property(nonatomic,strong) IBOutlet UIView *buttonsView;
+@property(nonatomic,strong) IBOutlet UIView* flipper;
+@property(nonatomic,strong) IBOutlet UIWebView* descriptionWebView;
+@property(nonatomic,strong) IBOutlet UIButton* infoButton;
+@property(nonatomic,strong) IBOutlet UIButton *ifdbButton;
+@property(nonatomic,strong) IBOutlet UIButton *playButton;
+@property(nonatomic,strong) IBOutlet UILabel *artworkLabel;
+@property(nonatomic,strong) IBOutlet UIView *portraitCover;
+@property(nonatomic,strong) IBOutlet UILabel *portraitCoverLabel;
+@property(nonatomic,strong) IBOutlet UIView* contentView;
+@property(nonatomic,strong) IBOutlet UIButton *restartButton;
 
-    IBOutlet UITextField *m_titleField;
-    IBOutlet UITextField *m_authorField;
-    IBOutlet UITextField *m_TUIDField;
-    IBOutlet FrotzImageView *m_artworkView;
-    IBOutlet UIView *m_textFieldsView;
-    IBOutlet UIView *m_buttonsView;
-    IBOutlet UIView *m_flipper;
-    IBOutlet UIWebView *m_descriptionWebView;
-    IBOutlet UIButton *m_infoButton;
-    IBOutlet UIButton *m_ifdbButton;
-    IBOutlet UIButton *m_playButton;
-    IBOutlet UILabel *m_artworkLabel;
-    IBOutlet UIView *m_portraitCover;
-    IBOutlet UILabel *m_portraitCoverLabel;
-    IBOutlet UIView *m_contentView;
-    IBOutlet UIButton *m_restartButton;
+@property(nonatomic,strong) UINavigationController* detailsNavigationController;
 
-    BOOL m_willResume;
+@property(nonatomic,strong) UIImage* artwork;
+@property(nonatomic,strong) StoryInfo* storyInfo;
+@property(nonatomic,weak) StoryBrowser* storyBrowser;
+@property(nonatomic,assign) BOOL willResume;
 
-    NSString *m_title, *m_author, *m_tuid, *m_descriptionHTML;
-    StoryInfo *m_storyInfo;
-    UIImage *m_artwork;
-
-    StoryBrowser *__weak m_browser;
-    FrotzInfo *m_frotzInfoController;
-    
-    CGSize m_artSizeLandscape, m_artSizePortrait;
-}
+@property(nonatomic,strong) NSString* storyTitle;
+@property(nonatomic,strong) NSString* author;
+@property(nonatomic,strong) NSString* descriptionHTML;
+@property(nonatomic,strong,setter=setTUID:) NSString* tuid;
 
 -(IBAction) toggleArtDescript;
 -(void)repositionArtwork:(UIInterfaceOrientation)toInterfaceOrientation;
@@ -68,19 +63,6 @@
 -(IBAction)dismissKeyboard;
 -(IBAction)showRestartMenu;
 
-@property(nonatomic,weak) StoryBrowser* storyBrowser;
-@property(nonatomic,strong) NSString* storyTitle;
-@property(nonatomic,strong) NSString* author;
-@property(nonatomic,strong) NSString* descriptionHTML;
-@property(nonatomic,strong) StoryInfo* storyInfo;
-@property(nonatomic,strong,setter=setTUID:) NSString* tuid;
-@property(nonatomic,strong) UIImage* artwork;
-@property(nonatomic,strong) UIView* contentView;
-@property(nonatomic,strong) UIWebView* descriptionWebView;
-@property(nonatomic,strong) UIView* flipper;
-@property(nonatomic,strong) UIView* infoButton;
-@property(nonatomic,assign) BOOL willResume;
-@property(nonatomic,strong) UINavigationController* detailsNavigationController;
 
 
 @end

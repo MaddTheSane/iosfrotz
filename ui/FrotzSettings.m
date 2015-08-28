@@ -37,7 +37,29 @@
 
 #define kFontSizeStr "Font size (%d)"
 
-@implementation FrotzSettingsController
+@implementation FrotzSettingsController {
+    UITableView	    *m_tableView;
+    
+    GettingStarted  *m_gettingStarted;
+    AboutFrotz	*m_aboutFrotz;
+    ReleaseNotes *m_releaseNotes;
+    FileTransferInfo *m_fileTransferInfo;
+    
+    ColorPicker	*m_colorPicker;
+    FontPicker	*m_fontPicker;
+    FrotzDBController *m_frotzDB;
+    
+    BOOL	m_settingsShown, m_subPagePushed;
+    BOOL	m_resetting;
+    
+    NSInteger m_selectedRow, m_selectedSection;
+    
+    UISwitch		    *m_switchCtl, *m_switchCtl2;
+    UISlider		    *m_sliderCtl;
+    UITableViewCell	    *m_fontSizeCell;
+    
+    int m_origFontSize, m_newFontSize;
+}
 @synthesize storyDelegate = m_storyDelegate;
 @synthesize infoDelegate = m_infoDelegate;
 @synthesize settingsActive = m_settingsShown;

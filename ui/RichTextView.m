@@ -74,7 +74,70 @@ static void DrawViewBorder(CGContextRef context, CGFloat x1, CGFloat y1, CGFloat
 }
 @end
 
-@implementation RichTextView
+@implementation RichTextView {
+    NSMutableString *m_text;
+    CGSize m_tileSize;
+    NSInteger m_numLines;
+    NSMutableArray *m_textRuns;   // text fragments
+    NSMutableArray *m_textStyles; // bit set, bold, italic, etc.
+    NSMutableArray *m_colorIndex; // fg/bg color for run
+    NSMutableArray *m_hyperlinks;
+    
+    NSMutableArray *m_textPos;     // beginning point of each text run
+    NSMutableArray *m_textLineNum; // which line (0..n) each run starts on
+    
+    NSMutableArray *m_lineYPos;    // Y position of each line; indexed by line number, not run
+    NSMutableArray *m_lineWidth;    // width of each text line
+    NSMutableArray *m_lineDescent;  // height of line below text origin
+    
+    NSMutableArray *m_imageviews;  // inline image views container
+    NSMutableArray *m_imageIDs;
+    
+    NSMutableArray *m_colorArray;
+    UIColor *m_fgColor, *m_bgColor;
+    UIColor *m_currBgColor; // weak ref
+    NSInteger m_firstVisibleTextRunIndex;
+    CGFloat m_savedTopYOffset;
+    
+    unsigned int m_topMargin, m_leftMargin, m_rightMargin, m_bottomMargin;
+    unsigned int m_tempLeftMargin, m_tempRightMargin;
+    unsigned int m_tempLeftYThresh, m_tempRightYThresh;
+    unsigned int m_extraLineSpacing;
+    
+    CGPoint m_prevPt, m_lastPt;
+    
+    UIFont *m_normalFont, *m_boldFont;
+    UIFont *m_italicFont, *m_boldItalicFont;
+    UIFont *m_fixedNormalFont, *m_fixedBoldFont;
+    UIFont *m_fixedItalicFont, *m_fixedBoldItalicFont;
+    
+    RichTextStyle m_currentTextStyle;
+    NSUInteger m_currentTextColorIndex, m_currentBGColorIndex;
+    NSInteger m_hyperlinkIndex;
+    
+    NSMutableSet *m_reusableTiles;
+    UIView *m_tileContainerView;
+    CGFloat m_fontHeight, m_fixedFontHeight, m_fixedFontWidth, m_fontMinWidth, m_fontMaxWidth;
+    CGFloat m_firstVisibleRow, m_firstVisibleColumn, m_lastVisibleRow, m_lastVisibleColumn;
+    UIViewController<UIScrollViewDelegate> *__weak m_controller;
+    
+    CGFloat m_origY;
+    BOOL m_prevLineNotTerminated;
+    
+    NSMutableArray *m_accessibilityElements;
+    NSInteger m_lastAEIndexAccessed, m_lastAEIndexAnnounced;
+    
+    NSInteger m_selectedRun;
+    NSRange m_selectedColumnRange;
+    UILabelWA *m_selectionView;
+    BOOL m_selectionDisabled;
+    BOOL m_hyperlinkTest;
+    
+    BOOL m_freezeDisplay;
+    CGRect m_delayedFrame;
+    CGRect m_origFrame;
+    RichDataGetImageCallback m_richDataGetImageCallback;
+}
 
 @synthesize tileSize = m_tileSize;
 @synthesize textStyle = m_currentTextStyle;
@@ -90,6 +153,9 @@ static void DrawViewBorder(CGContextRef context, CGFloat x1, CGFloat y1, CGFloat
 @synthesize selectionDelegate = m_selectionDelegate;
 @synthesize selectionDisabled = m_selectionDisabled;
 @synthesize richDataGetImageCallback = m_richDataGetImageCallback;
+
+@synthesize fontSize = m_fontSize;
+@synthesize fixedFontPointSize = m_fixedFontSize;
 
 -(void)repositionAfterReflow {
     if (m_firstVisibleTextRunIndex > 0 && m_firstVisibleTextRunIndex < [m_textPos count]) {

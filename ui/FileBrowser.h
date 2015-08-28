@@ -25,39 +25,30 @@
 
 typedef NS_ENUM(int, FileBrowserState)  { kFBHidden, kFBShown, kFBDoShowRestore, kFBDoShowSave, kFBDoShowScript, kFBDoShowViewScripts, kFBDoShowRecord, kFBDoShowPlayback  };
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol TextFileBrowser <NSObject>
--(NSString*)textFileBrowserPath;
+@property (nonatomic, readonly, copy) NSString *textFileBrowserPath;
 @end
 
 
 @protocol FileSelected <NSObject>
 @optional
--(void)fileBrowser:(FileBrowser*)browser fileSelected: (NSString*)filePath;
+-(void)fileBrowser:(FileBrowser*)browser fileSelected: (nullable NSString*)filePath;
 -(void)fileBrowser:(FileBrowser*)browser deleteFile: (NSString*)filePath;
 @end
 
 @interface FileBrowser : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
-{
-    UITableViewController *m_tableViewController;
-    NSMutableArray *m_extensions;
-    NSMutableArray<FileInfo*> *m_files;
-    NSString *m_path;
-    NSUInteger m_rowCount;
-    FileBrowserState m_dialogType;
-    UIView *m_backgroundView;
-    UITableView *m_tableView;
-    UITextField *m_textField;
-    UIButton *m_saveButton;
-    UIAlertView *m_alertView;
-    int m_textFileCount;
-}
+
 - (instancetype)initWithDialogType:(FileBrowserState)dialogType NS_DESIGNATED_INITIALIZER;
 @property (nonatomic, copy) NSString *path;
 - (void)reloadData;
-@property (nonatomic, weak) id<FileSelected> delegate;
-@property (nonatomic, readonly, copy) NSString *selectedFile;
+@property (nonatomic, weak, nullable) id<FileSelected> delegate;
+@property (nonatomic, readonly, copy, nullable) NSString *selectedFile;
 - (void)commit:(id)sender;
 - (void)doneWithTextFile:(id)sender;
 - (void)addExtension: (NSString *)extension;
 @property (nonatomic, readonly) int textFileCount;
 @end
+
+NS_ASSUME_NONNULL_END

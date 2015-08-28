@@ -24,25 +24,7 @@
 
 typedef NS_ENUM(unsigned int, SWBDownloadState) { kSWBIdle, kSWBFetchingImage, kSWBFetchingStory };
 
-@interface StoryWebBrowserController : UIViewController <UIWebViewDelegate, KeyboardOwner, URLPromptDelegate, BookmarkDelegate, UIScrollViewDelegate> {
-    UIView *m_background; // UIView
-    UIWebView *m_webView;
-    UIScrollView *m_scrollView;
-    StoryBrowser *m_storyBrowser;
-    UIToolbar *m_toolBar;
-    UIActivityIndicatorView *m_activityView;
-    UIBarButtonItem *m_backButtonItem, *m_forwardButtonItem, *m_cancelButtonItem, *m_reloadButtonItem, *m_URLButtonItem, *m_activButtonItem;
-    URLPromptController *m_urlBarController;
-    BookmarkListController *m_bookmarkListController;
-
-    FrotzInfo *m_frotzInfoController;
-    NSURLRequest *m_currentRequest, *m_delayedRequest;
-    NSMutableData *m_receivedData;
-    SWBDownloadState m_state;
-    BOOL m_backToStoryList;
-    BOOL m_storyAlreadyInstalled;
-    NSMutableArray *m_expectedArchiveFiles;
-}
+@interface StoryWebBrowserController : UIViewController <UIWebViewDelegate, KeyboardOwner, URLPromptDelegate, BookmarkDelegate, UIScrollViewDelegate>
 -(StoryWebBrowserController*)initWithBrowser:(StoryBrowser*)sb NS_DESIGNATED_INITIALIZER;
 -(void)loadView;
 -(void)goBack;

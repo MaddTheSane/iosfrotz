@@ -24,7 +24,10 @@
 }
 @end
 
-@implementation FontPicker
+@implementation FontPicker {
+    NSMutableArray *m_fonts;
+    NSMutableArray *m_fixedFonts;
+}
 @synthesize delegate = m_delegate;
 @synthesize fixedFontsOnly = m_fixedFontsOnly;
 

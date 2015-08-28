@@ -30,45 +30,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface StoryBrowser : UITableViewController <UIActionSheetDelegate, UISplitViewControllerDelegate, UIPopoverControllerDelegate,UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource> {
-    NSMutableArray *m_paths;
+@interface StoryBrowser : UITableViewController <UIActionSheetDelegate, UISplitViewControllerDelegate, UIPopoverControllerDelegate,UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource>
 
-    int m_numStories;
-    NSMutableArray<StoryInfo*> *m_storyNames;
-    NSMutableArray<StoryInfo*> *m_recents;
-    NSMutableArray<NSString*> *m_unsupportedNames;
-    
-    NSArray *m_filteredNames;
-
-    StoryMainViewController<FrotzFontDelegate> *m_storyMainViewController;
-    StoryWebBrowserController *m_webBrowserController;
-    StoryDetailsController *m_details;
-    FrotzInfo *m_frotzInfoController;
-    FrotzSettingsController *m_settings;
-
-    UISearchDisplayController *m_searchDisplayController;
-
-    UIView *m_navTitleView;
-
-    UIView *m_background;
-    UITableView *m_tableView;
-
-    UIBarButtonItem *m_editButtonItem;
-    UIBarButtonItem *m_nowPlayingButtonItem;
-    UIButton *m_nowPlayingButtonView;
-
-    NSMutableDictionary *m_metaDict;
-    NSMutableDictionary *m_storyInfoDict;
-
-    NSString *m_launchPath;
-    UIImage *m_defaultThumb;
-    BOOL m_isDeleting;
-    BOOL m_lowMemory;
-    BOOL m_postLaunch;
-    
-    UIPopoverController *m_popoverController;
-    UIBarButtonItem *m_popoverBarButton;
-}
 - (instancetype)init;
 @property (nonatomic, copy) NSString *launchPath;
 @property (nonatomic, readonly, strong) UIView *navTitleView;

@@ -10,7 +10,10 @@
 #import "Frotz-Swift.h"
 
 
-@implementation FrotzImageView
+@implementation FrotzImageView {
+    NSTimer *m_tapTimer;
+    CGRect m_savedBounds;
+}
 
 @synthesize detailsController = m_detailsController;
 
@@ -190,7 +193,15 @@ static NSData *pasteboardWebArchiveImageData(UIPasteboard* gpBoard) {
 @end
 
 
-@implementation StoryDetailsController
+@implementation StoryDetailsController {    
+    NSString *m_title, *m_author, *m_tuid;
+    StoryInfo *m_storyInfo;
+    UIImage *m_artwork;
+    
+    FrotzInfo *m_frotzInfoController;
+    
+    CGSize m_artSizeLandscape, m_artSizePortrait;
+}
 
 @dynamic storyTitle;
 @dynamic author;
@@ -199,13 +210,25 @@ static NSData *pasteboardWebArchiveImageData(UIPasteboard* gpBoard) {
 
 @synthesize storyInfo = m_storyInfo;
 @synthesize storyBrowser = m_browser;
-@synthesize contentView = m_contentView;
-@synthesize descriptionWebView = m_descriptionWebView;
-@synthesize flipper = m_flipper;
-@synthesize infoButton = m_infoButton;
 @synthesize descriptionHTML = m_descriptionHTML;
 @synthesize willResume = m_willResume;
 
+@synthesize titleField = m_titleField;
+@synthesize authorField = m_authorField;
+@synthesize tuidField = m_TUIDField;
+@synthesize artworkView = m_artworkView;
+@synthesize textFieldsView = m_textFieldsView;
+@synthesize buttonsView = m_buttonsView;
+@synthesize flipper = m_flipper;
+@synthesize descriptionWebView = m_descriptionWebView;
+@synthesize infoButton = m_infoButton;
+@synthesize ifdbButton = m_ifdbButton;
+@synthesize playButton = m_playButton;
+@synthesize artworkLabel = m_artworkLabel;
+@synthesize portraitCover = m_portraitCover;
+@synthesize portraitCoverLabel = m_portraitCoverLabel;
+@synthesize contentView = m_contentView;
+@synthesize restartButton = m_restartButton;
 
 -(void)clear {
     self.storyTitle = @"";

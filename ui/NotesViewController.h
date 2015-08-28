@@ -9,23 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "FileBrowser.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol LockableKeyboard <NSObject>
 -(void)showKeyboardLockState;
 @end
 
-@interface NotesViewController : UIViewController <UIScrollViewDelegate, UITextViewDelegate, FileSelected> {
-    CGRect m_frame;
-    
-    UISegmentedControl *m_notesTitle;
-    
-    UIScrollView *m_scrollView;
-    UITextView *m_notesView;
-    UIImageView *m_notesBGView;
-    UIResponder *m_chainResponder;
-}
+@interface NotesViewController : UIViewController <UIScrollViewDelegate, UITextViewDelegate, FileSelected> 
 
 -(instancetype)initWithFrame:(CGRect)frame NS_DESIGNATED_INITIALIZER;
-@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy, nullable) NSString *title;
 @property (nonatomic, copy) NSString *text;
 -(void)setFrame:(CGRect)frame;
 -(void)setChainResponder:(UIResponder*)responder;
@@ -45,6 +38,8 @@
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation;
 -(void)viewWillAppear:(BOOL)animated;
 -(void)viewWillDisappear:(BOOL)animated;
-@property (nonatomic, weak) UIViewController<TextFileBrowser,FileSelected,LockableKeyboard>* delegate;
+@property (nonatomic, weak, nullable) UIViewController<TextFileBrowser,FileSelected,LockableKeyboard>* delegate;
 -(void)workaroundFirstResponderBug;
 @end
+
+NS_ASSUME_NONNULL_END

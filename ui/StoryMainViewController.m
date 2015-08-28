@@ -1081,6 +1081,9 @@ static void setColorTable(RichTextView *v) {
 @synthesize fontSize = m_fontSize;
 @synthesize completionEnabled = m_completionEnabled;
 @synthesize canEditStoryInfo = m_canEditStoryInfo;
+@synthesize backgroundColor = m_defaultBGColor;
+@synthesize textColor = m_defaultFGColor;
+@synthesize landscape = m_landscape;
 
 - (instancetype)init {
     return [self initWithNibName:nil bundle:nil];
@@ -2606,22 +2609,6 @@ static UIImage *GlkGetImageCallback(int imageNum) {
     [m_inputLine setTextColor: color];
     [m_storyView setNeedsLayout];
     [m_statusLine setNeedsLayout];
-}
-
--(UIColor*) backgroundColor {
-    return m_defaultBGColor;
-}
-
--(UIColor*) textColor {
-    return m_defaultFGColor;
-}
-
--(BOOL) isLandscape {
-    return m_landscape;
-}
-
--(void)setLandscape:(BOOL)landscape {
-    m_landscape = landscape;
 }
 
 -(void) setFont: (NSString*) fontname withSize:(NSInteger)size {

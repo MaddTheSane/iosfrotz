@@ -9,20 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "FrotzCommonWebView.h"
 
+NS_ASSUME_NONNULL_BEGIN
 
-@interface ReleaseNotes : FrotzCommonWebViewController {
-    NSObject *m_controller;
-    NSURLRequest *m_request;
-    NSURLConnection *m_connection;
-    NSMutableData *m_data;
-    NSString *m_relNotesPath;
-    UIButton *m_rateButton;
-}
+@interface ReleaseNotes : FrotzCommonWebViewController
 - (instancetype)init;
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithNibName:(nullable NSString *)nibNameOrNil bundle:(nullable NSBundle *)nibBundleOrNil NS_DESIGNATED_INITIALIZER;
 - (void)updateReleaseNotes:(BOOL)force;
 - (void)updateReleaseNotesAuto;
 - (void)showReleaseNotes;
 - (void)loadView;
 - (void)rateFrotz;
 @end
+
+NS_ASSUME_NONNULL_END

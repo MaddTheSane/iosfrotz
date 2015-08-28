@@ -19,7 +19,14 @@
 #define OO
 #endif
 
-@implementation ReleaseNotes
+@implementation ReleaseNotes {
+    NSObject *m_controller;
+    NSURLRequest *m_request;
+    NSURLConnection *m_connection;
+    NSMutableData *m_data;
+    NSString *m_relNotesPath;
+    UIButton *m_rateButton;
+}
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {

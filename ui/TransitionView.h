@@ -11,6 +11,8 @@
 
 @class TransitionView;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol TransitionViewDelegate <NSObject>
 @optional
 - (void)transitionViewDidStart:(TransitionView *)view;
@@ -19,14 +21,12 @@
 @end
 
 @interface TransitionView: UIView
-{
-    BOOL transitioning;
-    BOOL wasEnabled;
-}
-@property (weak) id<TransitionViewDelegate> delegate;
+
+@property (weak, nullable) id<TransitionViewDelegate> delegate;
 @property (readonly, getter=isTransitioning) BOOL transitioning;
 
--(void)replaceSubview:(UIView *)oldView withSubview:(UIView *)newView transition:(NSString *)transition direction:(NSString *)direction duration:(NSTimeInterval)duration;
+-(void)replaceSubview:(UIView *)oldView withSubview:(nullable UIView *)newView transition:(NSString *)transition direction:(NSString *)direction duration:(NSTimeInterval)duration;
 - (void)cancelTransition;
 @end
 
+NS_ASSUME_NONNULL_END

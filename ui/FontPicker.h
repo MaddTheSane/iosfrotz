@@ -8,31 +8,28 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol FrotzFontDelegate <NSObject>
--(void) setFont: (NSString*)font withSize:(NSInteger)size;
+-(void) setFont: (nullable NSString*)font withSize:(NSInteger)size;
 @property (nonatomic, readonly, copy) NSString *font;
 @property (nonatomic, copy) NSString *fixedFont;
 @property (nonatomic, readonly) NSInteger fontSize;
 @end
 
-@interface FrotzFontInfo : NSObject {
-    NSString *family;
-    NSString *fontName;
-    UIFont *font;
-}
+@interface FrotzFontInfo : NSObject
 -(instancetype)initWithFamily:(NSString*)aFamily fontName:(NSString*)aFont font:(UIFont*)aFont NS_DESIGNATED_INITIALIZER;
 
-@property(nonatomic,strong) NSString *family;
-@property(nonatomic,strong) NSString *fontName;
+@property(nonatomic,copy) NSString *family;
+@property(nonatomic,copy) NSString *fontName;
 @property(nonatomic,strong) UIFont *font;
 @end
 
-@interface FontPicker : UITableViewController {
-    NSMutableArray *m_fonts;
-    NSMutableArray *m_fixedFonts;
-}
-@property (nonatomic, weak) id<FrotzFontDelegate> delegate;
+@interface FontPicker : UITableViewController 
+@property (nonatomic, weak, nullable) id<FrotzFontDelegate> delegate;
 @property (nonatomic, assign) BOOL fixedFontsOnly;
 
 - (instancetype)init;
 @end
+
+NS_ASSUME_NONNULL_END

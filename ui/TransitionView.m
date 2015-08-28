@@ -10,7 +10,9 @@
 
 #define kAnimationKey @"transitionViewAnimation"
 
-@implementation  TransitionView
+@implementation  TransitionView {
+    BOOL wasEnabled;
+}
 
 @synthesize delegate, transitioning;
 

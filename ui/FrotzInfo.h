@@ -16,21 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(nullable id)dismissKeyboard;
 @end
 
-@interface FrotzInfo : UIViewController <FrotzSettingsInfoDelegate> {
-    UIButton *m_infoButton;
-//    UIButton *m_titleTextView;
-    UILabel *m_titleTextView;
-
-    UINavigationController *m_navigationController;
-    UIBarButtonItem *m_doneButton, *m_savedLeftButton, *m_savedRightButton;
-    
-    UIViewController *m_viewController;
-    
-    UITextView *m_pane1, *m_pane2;
-    FrotzSettingsController *m_settings;
-    UINavigationItem *m_navItem;
-    id m_prevResponder;
-}
+@interface FrotzInfo : UIViewController <FrotzSettingsInfoDelegate>
 
 -(instancetype)initWithSettingsController:(FrotzSettingsController*)settings navController:(UINavigationController*)navController navItem: (UINavigationItem*) navItem NS_DESIGNATED_INITIALIZER;
 -(void)dismissInfo;
