@@ -85,36 +85,20 @@ class ColorPicker: UIViewController {
     private var hsvPicker: HSVPicker!
     private var valuePicker: HSVValuePicker!
     private var colorTile: ColorTile!
-    var background: UIView!
-    var tileBorder: UIView!
-    var hsvCursor: UIImageView!
-    var valueCursor: UIImageView!
-    /*
-HSVPicker *m_hsvPicker;
-HSVValuePicker *m_valuePicker;
-ColorTile *m_colorTile;
-UIView *m_background;
-UIView *m_tileBorder;
-UIImageView *m_hsvCursor;
-UIImageView *m_valueCursor;
-CGFloat m_hue;
-CGFloat m_saturation;
-CGFloat m_value;
-CGColorSpaceRef m_colorSpace;
-
-UIColor *m_textColor, *m_bgColor;
-BOOL m_changeTextColor;
-*/
+    private(set) var background: UIView!
+    private(set) var tileBorder: UIView!
+    private(set) var hsvCursor: UIImageView!
+    private(set) var valueCursor: UIImageView!
     
     weak var delegate: ColorPickerDelegate?
-    var hue: CGFloat = 0
-    var saturation: CGFloat = 0
-    var value: CGFloat = 0
-    var colorSpace: CGColorSpace?
+    private(set) var hue: CGFloat = 0
+    private(set) var saturation: CGFloat = 0
+    private(set) var value: CGFloat = 0
+    private(set) var colorSpace: CGColorSpace?
     
-    var textColor: UIColor?
-    var bgColor: UIColor?
-    var textColorMode = false
+    private(set) var textColor: UIColor?
+    private(set) var bgColor: UIColor?
+    private(set) var textColorMode = false
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         
@@ -160,11 +144,11 @@ BOOL m_changeTextColor;
         colorTile = ColorTile(frame: colorTileFrame, colorPicker: self)
         tileBorder = UIView(frame: CGRectInset(colorTileFrame, -1, -1))
         tileBorder.backgroundColor = borderColor
-        colorTile!.autoresizingMask = [.FlexibleWidth]
+        colorTile.autoresizingMask = [.FlexibleWidth]
         tileBorder.autoresizingMask = [.FlexibleWidth]
         
         let radius: CGFloat = 128.0
-        hsvPicker = HSVPicker(frame: CGRectMake(leftMargin, hsvBaseYOrigin, radius*2, radius*2), colorPicker: self)
+        hsvPicker = HSVPicker(frame: CGRect(x: leftMargin, y: hsvBaseYOrigin, width: radius*2, height: radius*2), colorPicker: self)
         valuePicker = HSVValuePicker(frame: CGRectMake(leftMargin+radius*2, hsvBaseYOrigin, 56.0, radius*2), colorPicker: self)
         valuePicker!.barWidth = 32
         
@@ -199,30 +183,165 @@ BOOL m_changeTextColor;
         layoutViews()
     }
     
-    func layoutViews() {
+    private func layoutViews() {
+        let frame = self.view.frame;
+        let fullScreenLarge = frame.size.width >= 540.0 && frame.size.height >= 576.0
+        let isPortrait = UIApplication.sharedApplication().statusBarOrientation == .Portrait
+            || UIApplication.sharedApplication().statusBarOrientation == .PortraitUpsideDown
         
+        var colorTileHeight: CGFloat  = fullScreenLarge ? 128.0 : isPortrait ? 96.0 : 232.0;
+        var leftMargin: CGFloat = fullScreenLarge ? 32.0 : isPortrait ? 4.0 : 16.0;
+        var hsvBaseYOrigin = !isPortrait && !fullScreenLarge ? 24.0 : colorTileHeight + 48.0;
+        var rightMarin: CGFloat = 60;
+        if isPortrait && !fullScreenLarge && frame.size.height > 600 {
+            leftMargin += 20;
+            colorTileHeight += 60;
+            hsvBaseYOrigin += 120;
+            rightMarin += 20;
+        }
+        let colorTileFrame = CGRect(x: leftMargin, y: 24.0,
+            width: isPortrait || fullScreenLarge ? frame.size.width-(leftMargin*2-1) : frame.size.width-328,
+            height: colorTileHeight);
+        if (!isPortrait && !fullScreenLarge) {
+        leftMargin += frame.size.width-312;
+        }
+        colorTile.frame = colorTileFrame
+        tileBorder.frame = CGRectInset(colorTileFrame, -1, -1)
+        
+        let radius = fullScreenLarge ? frame.size.width/3 : isPortrait ? 128.0 : 116.0;
+        if (fullScreenLarge) {
+            hsvPicker.frame = CGRect(x: leftMargin, y: hsvBaseYOrigin, width: radius*2, height: radius*2)
+            valuePicker.frame = CGRect(x: frame.size.width - 80.0 - leftMargin, y: hsvBaseYOrigin, width: 96.0, height: radius*2)
+            valuePicker.barWidth = 64
+        } else {
+            hsvPicker.frame = CGRect(x: leftMargin, y: hsvBaseYOrigin, width: radius*2, height: radius*2)
+            valuePicker.frame = CGRect(x: frame.size.width - (isPortrait ? rightMarin : 60.0), y: hsvBaseYOrigin, width: 56.0, height: radius*2)
+            valuePicker.barWidth = 32
+        }
+        
+        var cursFrame = valueCursor.frame;
+        //    cursFrame.size.width = m_valueCursor.image.size.width * (fullScreenLarge ? 2 : 1);
+        valueCursor.frame = cursFrame
+        
+        updateHSVCursors()
     }
     
-    func toggleMode() {
-        
-    }
-    
-    func setTextColor(textColor: UIColor, bgColor: UIColor, changeText changeTextColor: Bool) {
-        
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        layoutViews()
     }
     
     func updateAccessibility() {
+        if let colorTile = colorTile {
+            colorTile.textLabel?.accessibilityHint = NSLocalizedString("Sample text for color adjustment", comment: "")
+        }
+    }
+
+    func toggleMode() {
+        textColorMode = !textColorMode;
+        if textColorMode {
+            title = "Text Color";
+        } else {
+            title = "Background Color";
+        }
+        updateHSVCursors()
+    }
+    
+    func setTextColor(textColor: UIColor?, bgColor: UIColor?, changeText changeTextColor: Bool) {
+        if textColor != nil && self.textColor != textColor! {
+            self.textColor = textColor;
+        }
+        if bgColor != nil && self.bgColor != bgColor {
+            self.bgColor = bgColor;
+        }
+        textColorMode = changeTextColor;
         
+        _ = self.view; // force load of view
+        if let textColor = textColor {
+            colorTile.setTextColor(textColor)
+        }
+        if let bgColor = bgColor {
+            colorTile.setBGColor(bgColor)
+        }
+        
+        if textColor != nil && bgColor != nil {
+            updateHSVCursors()
+        }
+    }
+    
+    func updateHSVCursors() {
+        let color = textColorMode ? textColor : bgColor;
+        let rgba = CGColorGetComponents(color!.CGColor);
+        var hue: CGFloat = 0
+        var saturation: CGFloat = 0
+        var value: CGFloat = 0
+        RGBtoHSV(r: rgba[0], g: rgba[1], b: rgba[2], h: &hue, s: &saturation, v: &value)
+        updateColor(hue: hue, saturation: saturation, value: value)
+    }
+    
+    /// doesn't update cursors or callback delegate
+    func setColorOnly(color: UIColor) {
+        if textColorMode {
+            setTextColor(color, bgColor: nil, changeText: textColorMode)
+        } else {
+            setTextColor(nil, bgColor: color, changeText: textColorMode)
+        }
     }
     
     func setColor(color: UIColor) {
-        
+        setColorOnly(color)
+        let rgba = CGColorGetComponents(color.CGColor)
+        var hue: CGFloat = 0
+        var saturation: CGFloat = 0
+        var value: CGFloat = 0
+        RGBtoHSV(r: rgba[0], g: rgba[1], b: rgba[2], h: &hue, s: &saturation, v: &value)
+        updateColor(hue: hue, saturation: saturation, value: value)
     }
     
     func setColorValue(color: UIColor) {
-        
+        setColorOnly(color)
+        let rgba = CGColorGetComponents(color.CGColor)
+        var hue: CGFloat = 0
+        var saturation: CGFloat = 0
+        var value: CGFloat = 0
+        RGBtoHSV(r: rgba[0], g: rgba[1], b: rgba[2], h: &hue, s: &saturation, v: &value)
+        // keep only changed value
+        hue = self.hue;
+        saturation = self.saturation;
+        updateColor(hue: hue, saturation: saturation, value: value)
     }
 
+    @objc(updateColorWithHue:Saturation:Value:) func updateColor(hue hue: CGFloat, saturation: CGFloat, value: CGFloat) {
+        self.hue = !hue.isNaN ? hue : 0
+        self.saturation = saturation
+        self.value = value
+        
+        let radius = CGFloat(hsvPicker.width) / 2.0
+        let valHeight = CGFloat(valuePicker.height)
+        
+        var hsvX = radius - 16
+        var hsvY = radius - 16
+        
+        let valX: CGFloat = valuePicker.barWidth > 32 ? 0 : 8
+        var valY = CGFloat(-16)
+        
+        hsvX += (self.saturation * radius) * cos(self.hue * 2 * CGFloat(M_PI))
+        hsvY -= (self.saturation * radius) * sin(self.hue * 2 * CGFloat(M_PI))
+        valY += (1 - self.value) * valHeight
+        
+        var cursFrame = hsvCursor.frame
+        cursFrame.origin = CGPoint(x: hsvX, y: hsvY)
+        hsvCursor.frame = cursFrame
+        cursFrame = valueCursor.frame
+        cursFrame.origin = CGPoint(x: valX, y: valY)
+        valueCursor.frame = cursFrame
+        
+        valuePicker.setNeedsDisplay()
+        
+        //    if (oldValue != m_value)
+        //	[m_hsvPicker setNeedsDisplay];
+        delegate?.colorPicker(self, selectedColor: (textColorMode ? textColor : bgColor)!)
+    }
 }
 
 private class ColorPickerView: UIView {
@@ -363,12 +482,12 @@ private final class HSVPicker: ColorPickerView {
         set {
             if hsvData != nil {
                 if width == Int32(newValue.size.width) && height == Int32(newValue.size.height) {
-                    super.frame = frame
+                    super.frame = newValue
                     return
                 }
                 free(hsvData)
             }
-            super.frame = frame // sets m_width/m_height
+            super.frame = newValue // sets m_width/m_height
             
             let dataSize = sizeof(UInt32) * Int(width * height)
             hsvData = UnsafeMutablePointer<UInt32>(malloc(dataSize))

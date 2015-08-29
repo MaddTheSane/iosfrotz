@@ -1237,7 +1237,6 @@
 		44FB393B0E612A3D00142D85 /* FrotzSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrotzSettings.m; sourceTree = "<group>"; };
 		44FB393C0E612A3D00142D85 /* DisplayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayCell.m; sourceTree = "<group>"; };
 		44FB39F80E62406C00142D85 /* ColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPicker.h; sourceTree = "<group>"; };
-		44FB39F90E62406C00142D85 /* ColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPicker.m; sourceTree = "<group>"; };
 		44FC54D31120006400CF11E9 /* url.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = url.png; path = resources/url.png; sourceTree = "<group>"; };
 		5500D8411B8E8CA100D3B5D1 /* ifrotzdefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ifrotzdefs.h; sourceTree = "<group>"; };
 		5500D8421B8E935300D3B5D1 /* Frotz-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Frotz-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -1370,7 +1369,6 @@
 				44FA76C10E4A5D89007DCC99 /* BookmarkListController.m */,
 				5599DAF91B8ECF2C00B8166E /* ColorPicker.swift */,
 				44FB39F80E62406C00142D85 /* ColorPicker.h */,
-				44FB39F90E62406C00142D85 /* ColorPicker.m */,
 				44F2F5B611447AE0001AE868 /* CompletionLabel.h */,
 				44F2F5B711447AE0001AE868 /* CompletionLabel.m */,
 				44C28D011238C41C00EE9FA3 /* DisplayCell.h */,
