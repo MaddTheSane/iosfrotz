@@ -497,7 +497,7 @@ BOOL metaDataFromBlorb(NSString *blorbFile, NSString **title, NSString **author,
 }
 
 NSData *imageDataFromBlorb(NSString *blorbFile) {
-    const char *filename = [blorbFile UTF8String];
+    const char *filename = [blorbFile fileSystemRepresentation];
     NSData *data = nil;
     FILE *fp;
     if ((fp = os_path_open(filename, "rb")) == NULL)
