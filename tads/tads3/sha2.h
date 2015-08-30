@@ -36,6 +36,10 @@
 
 #include <limits.h>
 
+
+#if defined(USE_COMMON_CRYPTO) && USE_COMMON_CRYPTO
+#else
+#endif
 /*  Defines for suffixes to 32 and 64 bit unsigned numeric values   */
 
 #define sfx_lo(x,y) x##y

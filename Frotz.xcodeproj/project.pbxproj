@@ -3622,6 +3622,7 @@
 					"unix=1",
 					"COLOR_SUPPORT=1",
 					"FROTZ_IOS_PORT=1",
+					"USE_COMMON_CRYPTO=1",
 				);
 				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -3705,6 +3706,7 @@
 					"unix=1",
 					"COLOR_SUPPORT=1",
 					"FROTZ_IOS_PORT=1",
+					"USE_COMMON_CRYPTO=1",
 				);
 				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -4904,6 +4906,7 @@
 					"unix=1",
 					"COLOR_SUPPORT=1",
 					"FROTZ_IOS_PORT=1",
+					"USE_COMMON_CRYPTO=1",
 				);
 				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -4942,6 +4945,7 @@
 					"unix=1",
 					"COLOR_SUPPORT=1",
 					"FROTZ_IOS_PORT=1",
+					"USE_COMMON_CRYPTO=1",
 				);
 				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
