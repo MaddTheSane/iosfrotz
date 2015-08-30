@@ -10,14 +10,12 @@ import UIKit
 
 
 private func RGBtoHSV(r r: CGFloat, g: CGFloat, b: CGFloat, inout h: CGFloat, inout s: CGFloat, inout v: CGFloat) {
-    var min: CGFloat
-    var max: CGFloat
-    var delta: CGFloat
-    min = Swift.min(r, g, b)
-    max = Swift.max(r, g, b)
+    let min = Swift.min(r, g, b)
+    let max = Swift.max(r, g, b)
+    let delta: CGFloat = max - min
     
     v = max;				// v
-    delta = max - min;
+    //delta = max - min;
     if(max != 0.0) {
         s = delta / max;		// s
     } else { // r,g,b= 0			// s = 0, v is undefined
