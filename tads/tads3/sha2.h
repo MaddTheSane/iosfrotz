@@ -38,7 +38,7 @@
 
 
 #if defined(USE_COMMON_CRYPTO) && USE_COMMON_CRYPTO
-#else
+#include <CommonCrypto/CommonCrypto.h>
 #endif
 /*  Defines for suffixes to 32 and 64 bit unsigned numeric values   */
 
@@ -47,6 +47,10 @@
 #define n_u32(p)    sfx_hi(0x##p,s_u32)
 #define n_u64(p)    sfx_hi(0x##p,s_u64)
 
+#if defined(USE_COMMON_CRYPTO) && USE_COMMON_CRYPTO
+typedef CC_LONG sha2_32t;
+typedef CC_LONG64 sha2_64t;
+#else
 /* define an unsigned 32-bit type */
 
 #if UINT_MAX == 0xffffffff
@@ -74,11 +78,25 @@
 #error Please define sha2_64t as an unsigned 64 bit type in sha2.h
 #endif
 
+#endif
+
 #if defined(__cplusplus)
 extern "C"
 {
 #endif
 
+#if defined(USE_COMMON_CRYPTO) && USE_COMMON_CRYPTO
+
+#define SHA256_DIGEST_SIZE CC_SHA256_DIGEST_LENGTH
+#define SHA384_DIGEST_SIZE CC_SHA384_DIGEST_LENGTH
+#define SHA512_DIGEST_SIZE CC_SHA512_DIGEST_LENGTH
+
+#define SHA256_BLOCK_SIZE CC_SHA256_BLOCK_BYTES
+#define SHA384_BLOCK_SIZE CC_SHA384_BLOCK_BYTES
+#define SHA512_BLOCK_SIZE CC_SHA512_BLOCK_BYTES
+
+#else
+    
 #define SHA256_DIGEST_SIZE  32
 #define SHA384_DIGEST_SIZE  48
 #define SHA512_DIGEST_SIZE  64
@@ -87,12 +105,22 @@ extern "C"
 #define SHA384_BLOCK_SIZE  128
 #define SHA512_BLOCK_SIZE  128
 
+#endif
+
 #define SHA2_DIGEST_SIZE        SHA256_DIGEST_SIZE
 #define SHA2_MAX_DIGEST_SIZE    SHA512_DIGEST_SIZE
 
 #define SHA2_GOOD   0
 #define SHA2_BAD    1
 
+#if defined(USE_COMMON_CRYPTO) && USE_COMMON_CRYPTO
+
+typedef CC_SHA256_CTX sha256_ctx;
+typedef CC_SHA512_CTX sha384_ctx;
+typedef CC_SHA512_CTX sha512_ctx;
+
+#else
+    
 /* type to hold the SHA256 context                              */
 
 typedef struct
@@ -111,6 +139,8 @@ typedef struct
 
 typedef sha512_ctx  sha384_ctx;
 
+#endif
+    
 /* type to hold a SHA2 context (256/384/512)  */
 
 typedef struct
@@ -121,6 +151,15 @@ typedef struct
     sha2_32t    sha2_len;
 } sha2_ctx;
 
+#if defined(USE_COMMON_CRYPTO) && USE_COMMON_CRYPTO
+
+#define sha256_begin CC_SHA256_Init
+#define sha256_hash(data, len, ctx) CC_SHA256_Update(ctx, data, len)
+#define sha256_end CC_SHA256_Final
+#define sha256(hval, data, len) CC_SHA256(data, len, hval)
+
+#else
+
 void sha256_compile(sha256_ctx ctx[1]);
 void sha512_compile(sha512_ctx ctx[1]);
 
@@ -128,6 +167,8 @@ void sha256_begin(sha256_ctx ctx[1]);
 void sha256_hash(const unsigned char data[], unsigned long len, sha256_ctx ctx[1]);
 void sha256_end(unsigned char hval[], sha256_ctx ctx[1]);
 void sha256(unsigned char hval[], const unsigned char data[], unsigned long len);
+
+#endif
 
 /* 
  *   Generate a printable version of a hash for a given buffer.  'hash' is an
@@ -148,6 +189,20 @@ void sha256_datasrc(char *hash, class CVmDataSource *src, unsigned long len);
  */
 void sha256_ezf(char *hash, const char *fmt, ...);
 
+#if defined(USE_COMMON_CRYPTO) && USE_COMMON_CRYPTO
+
+#define sha384_begin CC_SHA384_Init
+#define sha384_hash(data, len, ctx) CC_SHA384_Update(ctx, data, len)
+#define sha384_end CC_SHA384_Final
+#define sha384(hval, data, len) CC_SHA384(data, len, hval)
+
+#define sha512_begin CC_SHA512_Init
+#define sha512_hash(data, len, ctx) CC_SHA512_Update(ctx, data, len)
+#define sha512_end CC_SHA512_Final
+#define sha512(hval, data, len) CC_SHA512(data, len, hval)
+
+#else
+
 void sha384_begin(sha384_ctx ctx[1]);
 #define sha384_hash sha512_hash
 void sha384_end(unsigned char hval[], sha384_ctx ctx[1]);
@@ -156,12 +211,14 @@ void sha384(unsigned char hval[], const unsigned char data[], unsigned long len)
 void sha512_begin(sha512_ctx ctx[1]);
 void sha512_hash(const unsigned char data[], unsigned long len, sha512_ctx ctx[1]);
 void sha512_end(unsigned char hval[], sha512_ctx ctx[1]);
-void sha512(unsigned char hval[], const unsigned char data[], unsigned long len); 
+void sha512(unsigned char hval[], const unsigned char data[], unsigned long len);
+
+#endif
 
 int sha2_begin(unsigned long size, sha2_ctx ctx[1]);
 void sha2_hash(const unsigned char data[], unsigned long len, sha2_ctx ctx[1]);
 void sha2_end(unsigned char hval[], sha2_ctx ctx[1]);
-int sha2(unsigned char hval[], unsigned long size, const unsigned char data[], unsigned long len); 
+int sha2(unsigned char hval[], unsigned long size, const unsigned char data[], unsigned long len);
 
 #if defined(__cplusplus)
 }

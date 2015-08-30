@@ -182,6 +182,10 @@
 #  error Please set undetermined byte order (lines 159 or 161 of sha2.c).
 #endif
 
+#if defined(USE_COMMON_CRYPTO) && USE_COMMON_CRYPTO
+
+#else
+
 #ifdef _MSC_VER
 #pragma intrinsic(memcpy)
 #endif
@@ -626,6 +630,8 @@ void sha512(unsigned char hval[], const unsigned char data[], unsigned long len)
     
     sha512_begin(cx); sha512_hash(data, len, cx); sha512_end(hval, cx);
 }
+
+#endif
 
 #endif
 
