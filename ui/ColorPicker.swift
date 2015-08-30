@@ -262,7 +262,7 @@ class ColorPicker: UIViewController {
             colorTile.setBGColor(bgColor)
         }
         
-        if textColor != nil && bgColor != nil {
+        if textColor != nil || bgColor != nil {
             updateHSVCursors()
         }
     }
