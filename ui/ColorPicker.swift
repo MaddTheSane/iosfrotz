@@ -8,6 +8,7 @@
 
 import UIKit
 
+private let CGpi = CGFloat(M_PI)
 
 private func RGBtoHSV(r r: CGFloat, g: CGFloat, b: CGFloat, inout h: CGFloat, inout s: CGFloat, inout v: CGFloat) {
     let min = Swift.min(r, g, b)
@@ -16,22 +17,22 @@ private func RGBtoHSV(r r: CGFloat, g: CGFloat, b: CGFloat, inout h: CGFloat, in
     
     v = max;				// v
     //delta = max - min;
-    if(max != 0.0) {
+    if max != 0.0 {
         s = delta / max;		// s
     } else { // r,g,b= 0			// s = 0, v is undefined
         s = 0.0;
         h = 0.0; // really -1,
         return;
     }
-    if(r == max) {
+    if r == max {
         h = (g - b) / delta;		// between yellow & magenta
-    } else if(g == max) {
+    } else if g == max {
         h = 2.0 + (b - r) / delta;	// between cyan & yellow
     } else {
         h = 4.0 + (r - g) / delta;	// between magenta & cyan
     }
     h /= 6.0;				// 0 -> 1
-    if(h < 0.0) {
+    if h < 0.0 {
         h += 1.0;
     }
 }
@@ -99,7 +100,6 @@ class ColorPicker: UIViewController {
     private(set) var textColorMode = false
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         title = NSLocalizedString("Select Color", comment: "")
     }
@@ -147,7 +147,7 @@ class ColorPicker: UIViewController {
         
         let radius: CGFloat = 128.0
         hsvPicker = HSVPicker(frame: CGRect(x: leftMargin, y: hsvBaseYOrigin, width: radius*2, height: radius*2), colorPicker: self)
-        valuePicker = HSVValuePicker(frame: CGRectMake(leftMargin+radius*2, hsvBaseYOrigin, 56.0, radius*2), colorPicker: self)
+        valuePicker = HSVValuePicker(frame: CGRect(x: leftMargin+radius*2, y: hsvBaseYOrigin, width: 56.0, height: radius*2), colorPicker: self)
         valuePicker!.barWidth = 32
         
         hsvPicker!.autoresizingMask = [.FlexibleLeftMargin, .FlexibleRightMargin]
@@ -160,11 +160,11 @@ class ColorPicker: UIViewController {
         valueCursor = UIImageView(image: valCursorImage)
         
         var cursFrame = hsvCursor.frame
-        cursFrame.origin = CGPointMake(radius - 16.0, radius - 16.0)
+        cursFrame.origin = CGPoint(x: radius - 16.0, y: radius - 16.0)
         hsvCursor.frame = cursFrame
         
         cursFrame = valueCursor.frame;
-        cursFrame.origin = CGPointMake(8, -16);
+        cursFrame.origin = CGPoint(x: 8, y: -16);
         valueCursor.frame = cursFrame
         
         view.addSubview(tileBorder)
@@ -323,8 +323,8 @@ class ColorPicker: UIViewController {
         let valX: CGFloat = valuePicker.barWidth > 32 ? 0 : 8
         var valY = CGFloat(-16)
         
-        hsvX += (self.saturation * radius) * cos(self.hue * 2 * CGFloat(M_PI))
-        hsvY -= (self.saturation * radius) * sin(self.hue * 2 * CGFloat(M_PI))
+        hsvX += (self.saturation * radius) * cos(self.hue * 2 * CGpi)
+        hsvY -= (self.saturation * radius) * sin(self.hue * 2 * CGpi)
         valY += (1 - self.value) * valHeight
         
         var cursFrame = hsvCursor.frame
@@ -381,7 +381,7 @@ private class ColorTile: UIView {
         super.init(frame: frame)
         autoresizesSubviews = true
         
-        textLabel = UILabel(frame: CGRectMake(5, 5, frame.size.width-5, frame.size.height-10))
+        textLabel = UILabel(frame: CGRect(x: 5, y: 5, width: frame.size.width-5, height: frame.size.height-10))
         textLabel!.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         textLabel!.lineBreakMode = .ByWordWrapping
         textLabel!.backgroundColor = UIColor.clearColor()
@@ -485,7 +485,7 @@ private final class HSVPicker: ColorPickerView {
                 }
                 free(hsvData)
             }
-            super.frame = newValue // sets m_width/m_height
+            super.frame = newValue // sets width/height
             
             let dataSize = sizeof(UInt32) * Int(width * height)
             hsvData = UnsafeMutablePointer<UInt32>(malloc(dataSize))
@@ -506,23 +506,23 @@ private final class HSVPicker: ColorPickerView {
                     var theta: CGFloat
                     if (dx == 0) {
                         if (CGFloat(y) > cy) {
-                            theta = CGFloat(M_PI) + CGFloat(M_PI)/2.0;
+                            theta = CGpi + CGpi/2.0;
                         } else {
-                            theta = CGFloat(M_PI)/2.0;
+                            theta = CGpi/2.0;
                         }
                     } else {
-                        theta = CGFloat(M_PI) - atan(dy/dx);
+                        theta = CGpi - atan(dy/dx);
                         if (CGFloat(x) > cx) {
                             if (CGFloat(y) > cy) {
-                                theta += CGFloat(M_PI);
+                                theta += CGpi
                             } else {
-                                theta -= CGFloat(M_PI);
+                                theta -= CGpi
                             }
                         }
                     }
                     s = radius / cx;
                     if (s <= 1.0) {
-                        h = theta  / (2.0 * CGFloat(M_PI));
+                        h = theta  / (2.0 * CGpi);
                         hsvData[i] = 0xff000000|((((UInt32(h * 255.0)) << 16) | ((UInt32(s * 255.0)) << 8) | (UInt32(v * 255.0))));
                     } else {
                         hsvData[i] = 0x00ffffff;
