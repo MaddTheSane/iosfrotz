@@ -25,12 +25,11 @@
 #define kBundledFileList "bundle/bundled.txt"
 
 @class StoryDetailsController;
-@class StoryBrowser;
 @class StoryInfo;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface StoryBrowser : UITableViewController <UIActionSheetDelegate, UISplitViewControllerDelegate, UIPopoverControllerDelegate,UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource>
+@interface StoryBrowser : UITableViewController <UIActionSheetDelegate, UISplitViewControllerDelegate, UIPopoverControllerDelegate,UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate>
 
 - (instancetype)init;
 @property (nonatomic, copy) NSString *launchPath;

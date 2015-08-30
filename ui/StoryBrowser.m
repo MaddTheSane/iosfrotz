@@ -72,8 +72,6 @@ void removeOldPngSplash(const char *filename) {
     FrotzInfo *m_frotzInfoController;
     FrotzSettingsController *m_settings;
     
-    UISearchDisplayController *m_searchDisplayController;
-    
     UIView *m_navTitleView;
     
     UIView *m_background;
@@ -89,16 +87,13 @@ void removeOldPngSplash(const char *filename) {
     NSString *m_launchPath;
     UIImage *m_defaultThumb;
     BOOL m_isDeleting;
-    BOOL m_lowMemory;
     BOOL m_postLaunch;
-    
-    UIPopoverController *m_popoverController;
-    UIBarButtonItem *m_popoverBarButton;
 }
 
 @synthesize popoverController = m_popoverController;
 @synthesize popoverBarButton = m_popoverBarButton;
 @synthesize searchDisplayController = m_searchDisplayController;
+@synthesize lowMemory = m_lowMemory;
 
 -(NSArray*)recentPaths {
     NSUInteger count = [m_recents count];
@@ -1677,10 +1672,6 @@ static NSInteger sortPathsByFilename(id a, id b, void *context) {
 
 - (NSString *)storyForIndexPath:(NSIndexPath*)indexPath tableView:(UITableView*)tableView{
     return [[self storyInfoForIndexPath: indexPath tableView:(UITableView*)tableView] path];
-}
-
-- (BOOL)lowMemory {
-    return m_lowMemory;
 }
 
 - (void)didReceiveMemoryWarning {

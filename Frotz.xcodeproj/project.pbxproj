@@ -432,6 +432,8 @@
 		5599DB2E1B8EF75A00B8166E /* StoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5599DB2D1B8EF75A00B8166E /* StoryInfo.swift */; settings = {ASSET_TAGS = (); }; };
 		5599DB2F1B8F5D4000B8166E /* locale in Resources */ = {isa = PBXBuildFile; fileRef = 44AF586A19491BB900E3EF8A /* locale */; settings = {ASSET_TAGS = (); }; };
 		5599DB301B8F5D4000B8166E /* Games in Resources */ = {isa = PBXBuildFile; fileRef = 446B9D960E2059E3002BDD65 /* Games */; settings = {ASSET_TAGS = (); }; };
+		55A0F93D1B925F6700B405EE /* StoryDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A0F93B1B925F6700B405EE /* StoryDetailsController.swift */; settings = {ASSET_TAGS = (); }; };
+		55A0F93E1B925F6700B405EE /* StoryDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55A0F93C1B925F6700B405EE /* StoryDetailsController.xib */; settings = {ASSET_TAGS = (); }; };
 		55A50A501B8E7EA700E70F53 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A50A4F1B8E7EA700E70F53 /* libz.dylib */; };
 /* End PBXBuildFile section */
 
@@ -1253,6 +1255,8 @@
 		5599DB291B8EF30A00B8166E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5599DB2B1B8EF73700B8166E /* StoryBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryBrowser.swift; sourceTree = "<group>"; };
 		5599DB2D1B8EF75A00B8166E /* StoryInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryInfo.swift; sourceTree = "<group>"; };
+		55A0F93B1B925F6700B405EE /* StoryDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryDetailsController.swift; sourceTree = "<group>"; };
+		55A0F93C1B925F6700B405EE /* StoryDetailsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoryDetailsController.xib; sourceTree = "<group>"; };
 		55A50A4F1B8E7EA700E70F53 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2293,9 +2297,11 @@
 				5599DB011B8EEDCA00B8166E /* AppDelegate.swift */,
 				5599DB031B8EEDCA00B8166E /* Assets.xcassets */,
 				5599DB051B8EEDCA00B8166E /* MainMenu.xib */,
+				55A0F93C1B925F6700B405EE /* StoryDetailsController.xib */,
 				5599DB081B8EEDCA00B8166E /* Info.plist */,
 				5599DB291B8EF30A00B8166E /* main.m */,
 				5599DB2B1B8EF73700B8166E /* StoryBrowser.swift */,
+				55A0F93B1B925F6700B405EE /* StoryDetailsController.swift */,
 				5599DB2D1B8EF75A00B8166E /* StoryInfo.swift */,
 				5577631E1B8FAFD60067BF83 /* CBridging.m */,
 				5599DB281B8EF30800B8166E /* SwiftFrotz-Bridging-Header.h */,
@@ -2658,6 +2664,7 @@
 				5599DB071B8EEDCA00B8166E /* MainMenu.xib in Resources */,
 				5599DB101B8EEDFA00B8166E /* Frotz-2048x2048B.png in Resources */,
 				5599DB301B8F5D4000B8166E /* Games in Resources */,
+				55A0F93E1B925F6700B405EE /* StoryDetailsController.xib in Resources */,
 				5599DB0F1B8EEDFA00B8166E /* Frotz-2048x2048F.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3092,6 +3099,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				557763291B8FBD260067BF83 /* ui_audio_coreaudio.c in Sources */,
+				55A0F93D1B925F6700B405EE /* StoryDetailsController.swift in Sources */,
 				5599DB2A1B8EF30A00B8166E /* main.m in Sources */,
 				5599DB2C1B8EF73700B8166E /* StoryBrowser.swift in Sources */,
 				5599DB021B8EEDCA00B8166E /* AppDelegate.swift in Sources */,

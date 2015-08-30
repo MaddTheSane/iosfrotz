@@ -219,9 +219,9 @@ class ColorPicker: UIViewController {
             valuePicker.barWidth = 32
         }
         
-        var cursFrame = valueCursor.frame;
+        //var cursFrame = valueCursor.frame;
         //    cursFrame.size.width = m_valueCursor.image.size.width * (fullScreenLarge ? 2 : 1);
-        valueCursor.frame = cursFrame
+        //valueCursor.frame = cursFrame
         
         updateHSVCursors()
     }
