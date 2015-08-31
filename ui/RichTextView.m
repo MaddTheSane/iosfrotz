@@ -76,7 +76,6 @@ static void DrawViewBorder(CGContextRef context, CGFloat x1, CGFloat y1, CGFloat
 
 @implementation RichTextView {
     NSMutableString *m_text;
-    CGSize m_tileSize;
     NSInteger m_numLines;
     NSMutableArray *m_textRuns;   // text fragments
     NSMutableArray *m_textStyles; // bit set, bold, italic, etc.
@@ -95,48 +94,43 @@ static void DrawViewBorder(CGContextRef context, CGFloat x1, CGFloat y1, CGFloat
     
     NSMutableArray *m_colorArray;
     UIColor *m_fgColor, *m_bgColor;
-    UIColor *m_currBgColor; // weak ref
+    __weak UIColor *m_currBgColor; // weak ref
     NSInteger m_firstVisibleTextRunIndex;
     CGFloat m_savedTopYOffset;
     
-    unsigned int m_topMargin, m_leftMargin, m_rightMargin, m_bottomMargin;
+    unsigned int m_leftMargin;
     unsigned int m_tempLeftMargin, m_tempRightMargin;
     unsigned int m_tempLeftYThresh, m_tempRightYThresh;
     unsigned int m_extraLineSpacing;
     
-    CGPoint m_prevPt, m_lastPt;
+    CGPoint m_prevPt;
     
     UIFont *m_normalFont, *m_boldFont;
     UIFont *m_italicFont, *m_boldItalicFont;
     UIFont *m_fixedNormalFont, *m_fixedBoldFont;
     UIFont *m_fixedItalicFont, *m_fixedBoldItalicFont;
     
-    RichTextStyle m_currentTextStyle;
     NSUInteger m_currentTextColorIndex, m_currentBGColorIndex;
-    NSInteger m_hyperlinkIndex;
     
     NSMutableSet *m_reusableTiles;
     UIView *m_tileContainerView;
     CGFloat m_fontHeight, m_fixedFontHeight, m_fixedFontWidth, m_fontMinWidth, m_fontMaxWidth;
     CGFloat m_firstVisibleRow, m_firstVisibleColumn, m_lastVisibleRow, m_lastVisibleColumn;
-    UIViewController<UIScrollViewDelegate> *__weak m_controller;
     
     CGFloat m_origY;
     BOOL m_prevLineNotTerminated;
     
     NSMutableArray *m_accessibilityElements;
-    NSInteger m_lastAEIndexAccessed, m_lastAEIndexAnnounced;
+    NSInteger m_lastAEIndexAnnounced;
     
     NSInteger m_selectedRun;
     NSRange m_selectedColumnRange;
     UILabelWA *m_selectionView;
-    BOOL m_selectionDisabled;
     BOOL m_hyperlinkTest;
     
     BOOL m_freezeDisplay;
     CGRect m_delayedFrame;
     CGRect m_origFrame;
-    RichDataGetImageCallback m_richDataGetImageCallback;
 }
 
 @synthesize tileSize = m_tileSize;
@@ -156,6 +150,12 @@ static void DrawViewBorder(CGContextRef context, CGFloat x1, CGFloat y1, CGFloat
 
 @synthesize fontSize = m_fontSize;
 @synthesize fixedFontPointSize = m_fixedFontSize;
+@synthesize textColorIndex = m_currentTextColorIndex;
+@synthesize topMargin = m_topMargin;
+@synthesize bgColorIndex = m_currentBGColorIndex;
+
+@synthesize font = m_normalFont;
+@synthesize fixedFont = m_fixedNormalFont;
 
 -(void)repositionAfterReflow {
     if (m_firstVisibleTextRunIndex > 0 && m_firstVisibleTextRunIndex < [m_textPos count]) {
@@ -189,10 +189,6 @@ static void DrawViewBorder(CGContextRef context, CGFloat x1, CGFloat y1, CGFloat
     }
 }
 
--(NSInteger)hyperlinkIndex {
-    return m_hyperlinkIndex;
-}
-
 -(void)populateZeroHyperlinks {
     if (!m_hyperlinks)
         m_hyperlinks = [[NSMutableArray alloc] initWithCapacity:1000];
@@ -210,10 +206,6 @@ static void DrawViewBorder(CGContextRef context, CGFloat x1, CGFloat y1, CGFloat
         m_currentTextColorIndex = index;
         m_prevLineNotTerminated = NO;
     }
-}
-
--(NSUInteger)textColorIndex {
-    return m_currentTextColorIndex;
 }
 
 -(UIColor*)getCurrentTextColor {
@@ -246,14 +238,6 @@ static void DrawViewBorder(CGContextRef context, CGFloat x1, CGFloat y1, CGFloat
         }
         m_prevLineNotTerminated = NO;
     }
-}
-
--(NSUInteger)bgColorIndex {
-    return m_currentBGColorIndex;
-}
-
--(unsigned int)topMargin {
-    return m_topMargin;
 }
 
 -(void)setTopMargin:(unsigned int)topMargin {
@@ -410,14 +394,6 @@ static void DrawViewBorder(CGContextRef context, CGFloat x1, CGFloat y1, CGFloat
     NSString *familyName = [newFont familyName];
     int newSize = [newFont pointSize];
     [self setFixedFontFamily: familyName size:newSize];
-}
-
-- (UIFont*)font {
-    return m_normalFont;
-}
-
-- (UIFont*)fixedFont {
-    return m_fixedNormalFont;
 }
 
 -(CGRect)visibleRect {

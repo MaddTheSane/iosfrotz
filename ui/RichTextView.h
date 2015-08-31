@@ -8,6 +8,8 @@
 @class RichTextView;
 @class RichTextAE;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface RichTextTile : UIView
 @property(nonatomic, weak) RichTextView *textView;
 @end
@@ -16,7 +18,7 @@
 -(void)textSelected:(NSString*)text animDuration:(CGFloat)duration hilightView:(UIView <WordSelection>*)view;
 @end
 
-typedef UIImage *(*RichDataGetImageCallback)(int imageNum);
+typedef UIImage *__nullable(*RichDataGetImageCallback)(int imageNum);
 
 @interface RichTextView : UIScrollView <UIScrollViewDelegate>
 
@@ -37,10 +39,10 @@ typedef UIImage *(*RichDataGetImageCallback)(int imageNum);
 @property(nonatomic, assign) NSInteger lastAEIndexAccessed;
 //@property(nonatomic, assign) NSInteger selectedRun;
 //@property(nonatomic, assign) NSRange selectedColumnRange;
-@property(nonatomic, weak) id<RTSelected> selectionDelegate;
+@property(nonatomic, weak, nullable) id<RTSelected> selectionDelegate;
 @property(nonatomic, assign) BOOL selectionDisabled;
 @property(nonatomic, assign, getter=displayFrozen) BOOL freezeDisplay;
-@property(nonatomic, assign) RichDataGetImageCallback richDataGetImageCallback;
+@property(nonatomic, assign, nullable) RichDataGetImageCallback richDataGetImageCallback;
 
 @property (nonatomic, readonly) CGFloat fontSize;
 @property (nonatomic, readonly) CGFloat fixedFontPointSize;
@@ -56,11 +58,11 @@ typedef UIImage *(*RichDataGetImageCallback)(int imageNum);
 - (void)updateLine:(NSInteger)lineNum withYPos:(CGFloat)yPos;
 - (void)updateLine:(NSInteger)lineNum withDescent:(CGFloat)desent;
 - (void)updateLine:(NSInteger)lineNum width:(CGFloat)width;
-- (BOOL)wordWrapTextSize:(NSString*)text atPoint:(CGPoint*)pos font:(UIFont*)font style:(RichTextStyle)style fgColor:(UIColor*)fgColor
-   bgColor:(UIColor*)bgColor withRect:(CGRect)rect  lineNumber:(NSInteger)lineNum nextPos:(CGPoint*)nextPos hotPoint:(CGPoint*)hotPoint doDraw:(BOOL)doDraw;
+- (BOOL)wordWrapTextSize:(NSString*)text atPoint:(CGPoint*)pos font:(UIFont*)font style:(RichTextStyle)style fgColor:(nullable UIColor*)fgColor
+   bgColor:(nullable UIColor*)bgColor withRect:(CGRect)rect  lineNumber:(NSInteger)lineNum nextPos:(CGPoint*)nextPos hotPoint:(nullable CGPoint*)hotPoint doDraw:(BOOL)doDraw;
 - (void)appendText:(NSString*)text;
 - (void)appendImage:(int)imageNum withAlignment:(int)imageAlign;
-- (BOOL)placeImage:(UIImage*)image imageView:(UIImageView*)imageView atPoint:(CGPoint)pt withAlignment:(int)imageAlign prevLineY:(CGFloat)prevY newTextPoint:(CGPoint*)newTextPoint inDraw:(BOOL)inDraw textStyle:(RichTextStyle)textStyle;
+- (BOOL)placeImage:(UIImage*)image imageView:(nullable UIImageView*)imageView atPoint:(CGPoint)pt withAlignment:(int)imageAlign prevLineY:(CGFloat)prevY newTextPoint:(CGPoint*)newTextPoint inDraw:(BOOL)inDraw textStyle:(RichTextStyle)textStyle;
 - (NSInteger) getTextRunAtPoint:(CGPoint)touchPoint;
 - (int)hyperlinkAtPoint:(CGPoint)point;
 - (void)populateZeroHyperlinks;
@@ -91,7 +93,7 @@ typedef UIImage *(*RichDataGetImageCallback)(int imageNum);
 - (NSUInteger)getOrAllocColorIndex:(UIColor*)color;
 - (void)populateAccessibilityElements;
 - (void)clearAE;
-@property (nonatomic, readonly, strong) RichTextAE *updateAE;
+@property (nonatomic, readonly, strong, nullable) RichTextAE *updateAE;
 - (void)appendAE;
 - (void)markWaitForInput;
 @property (nonatomic, getter=getTextPos, readonly, copy) NSArray *textPos;
@@ -100,5 +102,5 @@ typedef UIImage *(*RichDataGetImageCallback)(int imageNum);
 @property (nonatomic, readonly) CGPoint cursorPoint;
 @end
 
-
+NS_ASSUME_NONNULL_END
 
