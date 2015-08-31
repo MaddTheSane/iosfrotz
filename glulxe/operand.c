@@ -300,7 +300,7 @@ void parse_operands(oparg_t *args, operandlist_t *oplist)
 
   for (ix=0, curarg=args; ix<numops; ix++, curarg++) {
     int mode;
-    glui32 value;
+    glui32 value = 0;
     glui32 addr;
 
     curarg->desttype = 0;

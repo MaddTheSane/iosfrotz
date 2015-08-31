@@ -95,8 +95,8 @@ class ColorPicker: UIViewController {
     private(set) var value: CGFloat = 0
     private(set) var colorSpace: CGColorSpace?
     
-    private(set) var textColor: UIColor?
-    private(set) var bgColor: UIColor?
+    private(set) var textColor: UIColor = UIColor.blackColor()
+    private(set) var bgColor: UIColor = UIColor.whiteColor()
     private(set) var textColorMode = false
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
@@ -246,10 +246,10 @@ class ColorPicker: UIViewController {
     }
     
     func setTextColor(textColor: UIColor?, bgColor: UIColor?, changeText changeTextColor: Bool) {
-        if textColor != nil && self.textColor != textColor! {
-            self.textColor = textColor;
+        if let textColor = textColor where self.textColor != textColor {
+            self.textColor = textColor
         }
-        if bgColor != nil && self.bgColor != bgColor {
+        if let bgColor = bgColor where self.bgColor != bgColor {
             self.bgColor = bgColor;
         }
         textColorMode = changeTextColor;
@@ -269,7 +269,7 @@ class ColorPicker: UIViewController {
     
     private func updateHSVCursors() {
         let color = textColorMode ? textColor : bgColor;
-        let rgba = CGColorGetComponents(color!.CGColor);
+        let rgba = CGColorGetComponents(color.CGColor);
         var hue: CGFloat = 0
         var saturation: CGFloat = 0
         var value: CGFloat = 0
@@ -338,7 +338,7 @@ class ColorPicker: UIViewController {
         
         //    if (oldValue != m_value)
         //	[m_hsvPicker setNeedsDisplay];
-        delegate?.colorPicker(self, selectedColor: (textColorMode ? textColor : bgColor)!)
+        delegate?.colorPicker(self, selectedColor: (textColorMode ? textColor : bgColor))
     }
 }
 
