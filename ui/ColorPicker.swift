@@ -659,7 +659,7 @@ private final class HSVPicker: ColorPickerView {
     }
 }
 
-private class HSVValuePicker : ColorPickerView {
+private final class HSVValuePicker : ColorPickerView {
     weak var colorPicker: ColorPicker?
     var leftMargin: Int32 = 0
     var barWidth: Int32 = 0

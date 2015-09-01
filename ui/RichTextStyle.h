@@ -9,10 +9,19 @@
 #include <CoreFoundation/CFBase.h>
 
 
-typedef CF_OPTIONS(unsigned int, RichTextStyle) { RichTextStyleNormal=0, RichTextStyleBold=1,
-    RichTextStyleItalic=2, RichTextStyleFixedWidth=4, RichTextStyleFontStyleMask=7,
-    RichTextStyleReverse=8, RichTextStyleNoWrap=16, RichTextStyleRightJustification=32,
-    RichTextStyleCentered=64, RichTextStyleImage=512, RichTextStyleInMargin=1024 };
+typedef CF_OPTIONS(unsigned int, RichTextStyle) {
+    RichTextStyleNormal=0,
+    RichTextStyleBold=1 << 0,
+    RichTextStyleItalic=1<<1,
+    RichTextStyleFixedWidth=1<<2,
+    RichTextStyleFontStyleMask=7,
+    RichTextStyleReverse=1<<3,
+    RichTextStyleNoWrap=1<<4,
+    RichTextStyleRightJustification=1<<5,
+    RichTextStyleCentered=1<<6,
+    RichTextStyleImage=1<<9,
+    RichTextStyleInMargin=1<<10
+};
 enum { kFTImageNumShift = 20 };
 
 #pragma mark compatibility macros
