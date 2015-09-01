@@ -6,7 +6,13 @@
  *  Copyright 2008 Craig Smith. All rights reserved.
  *
  */
-#include <UIKit/UIKit.h>
+
+#import <Foundation/Foundation.h>
+#if TARGET_OS_IPHONE
+#import <UIKit/UIKit.h>
+#else
+#import <AppKit/AppKit.h>
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -29,13 +35,19 @@ CF_IMPLICIT_BRIDGING_DISABLED
 
 CGImageRef __nullable drawRectInCGImage(unsigned int color, CGFloat x, CGFloat y, CGFloat width, CGFloat height, CGImageRef destImageRef) CF_RETURNS_NOT_RETAINED;
 
+#if TARGET_OS_IPHONE
 UIImage *__nullable scaledUIImage(UIImage *image, size_t newWidth, size_t newHeight);
 UIImage *drawUIImageInUIImage(UIImage *image, int x, int y, size_t scaleWidth, size_t scaleHeight, UIImage *destImage);
 UIImage *drawRectInUIImage(unsigned int color, CGFloat x, CGFloat y, CGFloat width, CGFloat height, UIImage *destImage);
 UIImage *createBlankUIImage(unsigned int bgColor, size_t destWidth, size_t destHeight);
+#endif
 NSData *imageDataFromBlorb(NSString *blorbFile);
 BOOL metaDataFromBlorb(NSString *blorbFile, NSString *__nullable*__nullable title, NSString *__nullable*__nullable author, NSString *__nullable*__nullable description, NSString *__nullable*__nullable tuid);
 BOOL readGLULheaderFromUlxOrBlorb(const char *filename, char *glulHeader);
+#if TARGET_OS_IPHONE
 UIColor *UIColorFromInt(unsigned int color);
+#else
+NSColor *NSColorFromInt(unsigned int color);
+#endif
 
 NS_ASSUME_NONNULL_END

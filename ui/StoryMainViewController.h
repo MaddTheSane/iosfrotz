@@ -29,9 +29,9 @@
 #import "RichTextView.h"
 #import "TextViewExt.h"
 
-enum { kIPZDisableInput = 0, kIPZRequestInput = 1, kIPZNoEcho = 2, kIPZAllowInput = 4 };
+typedef NS_ENUM(int, IPZInput) { kIPZDisableInput = 0, kIPZRequestInput = 1, kIPZNoEcho = 2, kIPZAllowInput = 4 };
 /* !!! Move these to state variables in StoryMainViewController! */
-extern int ipzAllowInput;
+extern IPZInput ipzAllowInput;
 extern int lastVisibleYPos[];
 extern BOOL cursorVisible;
 
@@ -39,7 +39,7 @@ void iosif_clear_input(NSString *initStr);
 void iosif_feed_input(NSString *str);
 void iosif_feed_input_line(NSString *str);
 
-@protocol InputHelperDelegate
+@protocol InputHelperDelegate <NSObject>
 -(void)hideInputHelper;
 -(BOOL)inputHelperShown;
 -(UIView*) inputHelperView;
@@ -71,17 +71,10 @@ extern StoryBrowser *theStoryBrowser;
     FrotzInfo *m_frotzInfoController;
    
     NSMutableString *m_currentStory;    
-    NSString *m_fontname;
-    NSInteger m_fontSize;
     CGFloat topWinSize;
     
-    UIColor *m_defaultBGColor;
-    UIColor *m_defaultFGColor;
-
     NSString *frotzPrefsPath;
-    NSString *storyGamePath;
     NSString *docPath;
-    NSString *resourceGamePath;
     NSString *storyTopSavePath;
     NSString *storySavePath;
     NSString *storySIPPathOld;
@@ -92,11 +85,8 @@ extern StoryBrowser *theStoryBrowser;
     NSDictionary *m_autoRestoreDict;
     pthread_t m_storyTID;
     BOOL m_kbShown;
-    BOOL m_landscape;
     UIInterfaceOrientation m_lastOrientation;
     BOOL m_rotationInProgress;
-    BOOL m_completionEnabled;
-    BOOL m_canEditStoryInfo;
     BOOL m_autoRestoreEnabled;
     BOOL m_kbLocked;
     BOOL m_ignoreWordSelection;
@@ -239,6 +229,8 @@ extern StoryBrowser *theStoryBrowser;
 -(void)dbDownloadSaveGameFile:(NSString*)saveGameSubPath;
 -(void)dbCheckSaveDirs:(DBMetadata*)metadata;
 -(void)dbSyncSingleSaveDir:(DBMetadata*)metadata;
+
+-(void)setGlkBGColor:(NSNumber*)arg;
 @end
 
 @interface DBMetadata (MySort)

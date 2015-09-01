@@ -41,6 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)colorPicker:(ColorPicker*)picker selectedColor:(UIColor*)color;
 @property (nonatomic, readonly, copy, nullable) UIFont *fontForColorDemo;
 - (void)updateAccessibility;
+- (void)switchAction:(nullable id)sender;
 
 @end
 
