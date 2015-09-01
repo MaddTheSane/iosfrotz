@@ -95,8 +95,8 @@ class ColorPicker: UIViewController {
     private(set) var value: CGFloat = 0
     private(set) var colorSpace: CGColorSpace?
     
-    private(set) var textColor: UIColor?
-    private(set) var bgColor: UIColor?
+    private(set) var textColor: UIColor = UIColor.blackColor()
+    private(set) var bgColor: UIColor = UIColor.whiteColor()
     private(set) var textColorMode = false
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
@@ -138,7 +138,7 @@ class ColorPicker: UIViewController {
         let colorTileHeight: CGFloat  = 64.0
         let leftMargin: CGFloat = 8.0
         let hsvBaseYOrigin = colorTileHeight + 64.0;
-        let colorTileFrame = CGRectMake(leftMargin, 32.0, frame.size.width-(leftMargin-1)*2, colorTileHeight);
+        let colorTileFrame = CGRect(x: leftMargin, y: 32.0, width: frame.size.width-(leftMargin-1)*2, height: colorTileHeight);
         colorTile = ColorTile(frame: colorTileFrame, colorPicker: self)
         tileBorder = UIView(frame: CGRectInset(colorTileFrame, -1, -1))
         tileBorder.backgroundColor = borderColor
@@ -200,14 +200,14 @@ class ColorPicker: UIViewController {
         let colorTileFrame = CGRect(x: leftMargin, y: 24.0,
             width: isPortrait || fullScreenLarge ? frame.size.width-(leftMargin*2-1) : frame.size.width-328,
             height: colorTileHeight);
-        if (!isPortrait && !fullScreenLarge) {
-        leftMargin += frame.size.width-312;
+        if !isPortrait && !fullScreenLarge {
+            leftMargin += frame.size.width-312;
         }
         colorTile.frame = colorTileFrame
         tileBorder.frame = CGRectInset(colorTileFrame, -1, -1)
         
         let radius = fullScreenLarge ? frame.size.width/3 : isPortrait ? 128.0 : 116.0;
-        if (fullScreenLarge) {
+        if fullScreenLarge {
             hsvPicker.frame = CGRect(x: leftMargin, y: hsvBaseYOrigin, width: radius*2, height: radius*2)
             valuePicker.frame = CGRect(x: frame.size.width - 80.0 - leftMargin, y: hsvBaseYOrigin, width: 96.0, height: radius*2)
             valuePicker.barWidth = 64
@@ -246,10 +246,10 @@ class ColorPicker: UIViewController {
     }
     
     func setTextColor(textColor: UIColor?, bgColor: UIColor?, changeText changeTextColor: Bool) {
-        if textColor != nil && self.textColor != textColor! {
-            self.textColor = textColor;
+        if let textColor = textColor where self.textColor != textColor {
+            self.textColor = textColor
         }
-        if bgColor != nil && self.bgColor != bgColor {
+        if let bgColor = bgColor where self.bgColor != bgColor {
             self.bgColor = bgColor;
         }
         textColorMode = changeTextColor;
@@ -267,9 +267,9 @@ class ColorPicker: UIViewController {
         }
     }
     
-    func updateHSVCursors() {
+    private func updateHSVCursors() {
         let color = textColorMode ? textColor : bgColor;
-        let rgba = CGColorGetComponents(color!.CGColor);
+        let rgba = CGColorGetComponents(color.CGColor);
         var hue: CGFloat = 0
         var saturation: CGFloat = 0
         var value: CGFloat = 0
@@ -338,7 +338,7 @@ class ColorPicker: UIViewController {
         
         //    if (oldValue != m_value)
         //	[m_hsvPicker setNeedsDisplay];
-        delegate?.colorPicker(self, selectedColor: (textColorMode ? textColor : bgColor)!)
+        delegate?.colorPicker(self, selectedColor: (textColorMode ? textColor : bgColor))
     }
 }
 
@@ -395,7 +395,7 @@ private class ColorTile: UIView {
         flipFgImg = UIImage(named: "colorflipfg")
         flipBgImg = UIImage(named: "colorflipbg")
         imgView = UIImageView(image: flipFgImg)
-        imgView!.frame = CGRectMake(frame.size.width - flipFgImg!.size.width - 1, frame.size.height - flipFgImg!.size.height-1, flipFgImg!.size.width, flipFgImg!.size.height)
+        imgView!.frame = CGRect(x: frame.size.width - flipFgImg!.size.width - 1, y: frame.size.height - flipFgImg!.size.height-1, width: flipFgImg!.size.width, height: flipFgImg!.size.height)
         imgView!.autoresizingMask = [.FlexibleLeftMargin, .FlexibleTopMargin]
         addSubview(imgView!)
         textLabel!.sizeToFit()
@@ -504,16 +504,16 @@ private final class HSVPicker: ColorPickerView {
                     let dy = CGFloat(y) - cy;
                     let radius = sqrt(dx*dx + dy*dy);
                     var theta: CGFloat
-                    if (dx == 0) {
-                        if (CGFloat(y) > cy) {
+                    if dx == 0 {
+                        if CGFloat(y) > cy {
                             theta = CGpi + CGpi/2.0;
                         } else {
                             theta = CGpi/2.0;
                         }
                     } else {
                         theta = CGpi - atan(dy/dx);
-                        if (CGFloat(x) > cx) {
-                            if (CGFloat(y) > cy) {
+                        if CGFloat(x) > cx {
+                            if CGFloat(y) > cy {
                                 theta += CGpi
                             } else {
                                 theta -= CGpi
@@ -521,7 +521,7 @@ private final class HSVPicker: ColorPickerView {
                         }
                     }
                     s = radius / cx;
-                    if (s <= 1.0) {
+                    if s <= 1.0 {
                         h = theta  / (2.0 * CGpi);
                         hsvData[i] = 0xff000000|((((UInt32(h * 255.0)) << 16) | ((UInt32(s * 255.0)) << 8) | (UInt32(v * 255.0))));
                     } else {
@@ -680,7 +680,7 @@ private final class HSVValuePicker : ColorPickerView {
         if point.y < 0 {
             y = 0
         } else if Int32(point.y) >= height {
-        y = height
+            y = height
         } else {
             y = Int32(point.y)
         }
