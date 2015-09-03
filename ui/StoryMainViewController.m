@@ -104,7 +104,7 @@ static int numGlkViews;
 #define kStatusLineYPos		0.0f
 #define kStatusLineHeight	10.0f   // for early V3 games
 
-int ipzAllowInput = kIPZDisableInput;
+IPZInput ipzAllowInput = kIPZDisableInput;
 
 static BOOL isOS30 = NO, isOS32 = NO;
 
@@ -1072,11 +1072,7 @@ static void setColorTable(RichTextView *v) {
     [v getOrAllocColorIndex: [UIColor orangeColor]];
 }
 
-@interface StoryMainViewController ()
--(void)setGlkBGColor:(NSNumber*)arg;
-@end
-
-@implementation StoryMainViewController 
+@implementation StoryMainViewController
 @synthesize font = m_fontname;
 @synthesize fontSize = m_fontSize;
 @synthesize completionEnabled = m_completionEnabled;
@@ -1084,6 +1080,8 @@ static void setColorTable(RichTextView *v) {
 @synthesize backgroundColor = m_defaultBGColor;
 @synthesize textColor = m_defaultFGColor;
 @synthesize landscape = m_landscape;
+@synthesize storyGamePath;
+@synthesize resourceGamePath;
 
 - (instancetype)init {
     return [self initWithNibName:nil bundle:nil];
@@ -1588,15 +1586,6 @@ extern void gli_ios_set_focus(window_t *winNum);
     }
     
     return YES;
-}
-
-
--(NSString*)storyGamePath {
-    return storyGamePath;
-}
-
--(NSString*)resourceGamePath {
-    return resourceGamePath;
 }
 
 -(NSString*)rootPath { // root directory for FTP transfers

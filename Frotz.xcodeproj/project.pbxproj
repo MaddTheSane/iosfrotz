@@ -407,6 +407,7 @@
 		44FB393D0E612A3D00142D85 /* FrotzSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FB393B0E612A3D00142D85 /* FrotzSettings.m */; };
 		44FB393E0E612A3D00142D85 /* DisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FB393C0E612A3D00142D85 /* DisplayCell.m */; };
 		44FC54D41120006400CF11E9 /* url.png in Resources */ = {isa = PBXBuildFile; fileRef = 44FC54D31120006400CF11E9 /* url.png */; };
+		556D2A121B96083500FAC094 /* ui_utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 443C9B490E46A518003A44D4 /* ui_utils.m */; settings = {ASSET_TAGS = (); }; };
 		557763151B8FA2AA0067BF83 /* StoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5599DB2D1B8EF75A00B8166E /* StoryInfo.swift */; settings = {ASSET_TAGS = (); }; };
 		5577631A1B8FAF8B0067BF83 /* libCocoaHTTPServer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 445484CD1B1E61A900E8EE7B /* libCocoaHTTPServer.a */; };
 		5577631B1B8FAF8B0067BF83 /* libgit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B0ECAB1B23D00100C36380 /* libgit.a */; };
@@ -3100,6 +3101,7 @@
 				557763291B8FBD260067BF83 /* ui_audio_avfoundation.m in Sources */,
 				55A0F93D1B925F6700B405EE /* StoryDetailsController.swift in Sources */,
 				5599DB2A1B8EF30A00B8166E /* main.m in Sources */,
+				556D2A121B96083500FAC094 /* ui_utils.m in Sources */,
 				5599DB2C1B8EF73700B8166E /* StoryBrowser.swift in Sources */,
 				5599DB021B8EEDCA00B8166E /* AppDelegate.swift in Sources */,
 				5599DB2E1B8EF75A00B8166E /* StoryInfo.swift in Sources */,

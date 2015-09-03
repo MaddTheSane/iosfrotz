@@ -31,7 +31,7 @@ extern "C" {
 #include "glkios.h"
 
 #define	QUETZAL_DEF 1
-#define NO_SOUND 1
+//#define NO_SOUND 1
 
 extern bool color_enabled;		/* ui_text */
 

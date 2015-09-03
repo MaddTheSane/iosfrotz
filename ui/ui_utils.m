@@ -12,6 +12,7 @@
 
 static CGContextRef CreateARGBBitmapContext (size_t pixelsWide, size_t pixelsHigh);
 
+#if TARGET_OS_IPHONE
 UIImage *scaledUIImage(UIImage *image, size_t newWidth, size_t newHeight)
 {
     if (!image)
@@ -104,6 +105,7 @@ UIImage *drawUIImageInImage(UIImage *image, int x, int y, size_t scaleWidth, siz
     CGImageRelease(destImageRef);
     return  img;
 }
+#endif
 
 void drawCGImageInCGContext(CGContextRef cgctx, CGImageRef imageRef, int x, int y, size_t scaleWidth, size_t scaleHeight)
 {
@@ -168,6 +170,7 @@ CGImageRef drawCGImageInCGImage(CGImageRef imageRef, int x, int y, size_t scaleW
     return newRef;
 }
 
+#if TARGET_OS_IPHONE
 UIImage *drawRectInUIImage(unsigned int color, CGFloat x, CGFloat y, CGFloat width, CGFloat height, UIImage *destImage) {
     if (!destImage)
         return nil;
@@ -178,6 +181,7 @@ UIImage *drawRectInUIImage(unsigned int color, CGFloat x, CGFloat y, CGFloat wid
     return img;
 
 }
+#endif
 
 void drawRectInCGContext(CGContextRef cgctx, unsigned int color, CGFloat x, CGFloat y, CGFloat width, CGFloat height) {
     //size_t destWidth = CGBitmapContextGetHeight(cgctx);
@@ -230,13 +234,21 @@ CGImageRef drawRectInCGImage(unsigned int color, CGFloat x, CGFloat y, CGFloat w
     return newRef;
 }
 
+#if TARGET_OS_IPHONE
 UIColor *UIColorFromInt(unsigned int color) {
     CGFloat red = ((color >> 16) & 0xff) / 255.0;
     CGFloat green = ((color >> 8) & 0xff) / 255.0;
     CGFloat blue = (color & 0xff) / 255.0;
     return [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
 }
-
+#else
+NSColor *NSColorFromInt(unsigned int color) {
+    CGFloat red = ((color >> 16) & 0xff) / 255.0;
+    CGFloat green = ((color >> 8) & 0xff) / 255.0;
+    CGFloat blue = (color & 0xff) / 255.0;
+    return [NSColor colorWithRed:red green:green blue:blue alpha:1.0];
+}
+#endif
 
 CGContextRef createBlankFilledCGContext(unsigned int bgColor, size_t destWidth, size_t destHeight) {
     CGContextRef cgctx = CreateARGBBitmapContext(destWidth, destHeight);
@@ -266,6 +278,7 @@ CGImageRef createBlankCGImage(unsigned int bgColor, size_t destWidth, size_t des
     return newRef;
 }
 
+#if TARGET_OS_IPHONE
 UIImage *createBlankUIImage(unsigned int bgColor, size_t destWidth, size_t destHeight) {
     // Free image data memory for the context
     CGImageRef imgRef = createBlankCGImage(bgColor, destWidth, destHeight);
@@ -273,6 +286,7 @@ UIImage *createBlankUIImage(unsigned int bgColor, size_t destWidth, size_t destH
     CGImageRelease(imgRef);
     return img;
 }
+#endif
 
 CGContextRef CreateARGBBitmapContext (size_t pixelsWide, size_t pixelsHigh)
 {
@@ -550,8 +564,8 @@ NSData *imageDataFromBlorb(NSString *blorbFile) {
                     fseek(fp, pos, SEEK_SET);
                     continue;
                 }
-            } else if (z[0]=='J' && z[1]=='P' && z[2]=='E' && z[3]=='G'
-                       || z[0]=='P' && z[1]=='N' && z[2]=='G' && z[3]==' ') {
+            } else if ((z[0]=='J' && z[1]=='P' && z[2]=='E' && z[3]=='G')
+                       || (z[0]=='P' && z[1]=='N' && z[2]=='G' && z[3]==' ')) {
                 printf ("Found pict resource\n");
                 char *buf = malloc(chunkSize);
                 int sizePerRead = 0x2000;
