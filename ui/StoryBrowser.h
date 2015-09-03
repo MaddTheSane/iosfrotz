@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,weak,nullable) StoryBrowser *browser;
 @end
 
-@interface StoryBrowser : UITableViewController <UIActionSheetDelegate, UISplitViewControllerDelegate, UIPopoverControllerDelegate,UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource> {
+@interface StoryBrowser : UITableViewController <UIActionSheetDelegate, UISplitViewControllerDelegate, UIPopoverControllerDelegate,UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate> {
     NSMutableArray *m_paths;
 
     int m_numStories;

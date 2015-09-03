@@ -21,6 +21,7 @@
 @interface BookmarkListController : UITableViewController {
     NSMutableArray *m_sites;
     NSMutableArray *m_titles;
+    __weak id<BookmarkDelegate> m_delegate;
     UITableView *m_tableView;
 }
 @property (nonatomic, weak) id<BookmarkDelegate> delegate;

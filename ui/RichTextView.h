@@ -14,7 +14,7 @@
 @property(nonatomic, weak) RichTextView *textView;
 @end
 
-@protocol RTSelected
+@protocol RTSelected <NSObject>
 -(void)textSelected:(NSString*)text animDuration:(CGFloat)duration hilightView:(UIView <WordSelection>*)view;
 @end
 

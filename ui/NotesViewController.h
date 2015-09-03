@@ -22,6 +22,8 @@
     UITextView *m_notesView;
     UIImageView *m_notesBGView;
     UIResponder *m_chainResponder;
+    
+    __weak UIViewController<TextFileBrowser,FileSelected, LockableKeyboard> *m_delegate;
 }
 
 -(instancetype)initWithFrame:(CGRect)frame NS_DESIGNATED_INITIALIZER;

@@ -24,6 +24,7 @@ typedef NS_ENUM(unsigned int, FrotzInputHelperMode) {
 @interface FrotzInputHelper : UITableViewController {
     NSMutableArray *m_history;
     NSArray *m_commonCommands;
+    __weak id<FrotzInputDelegate> m_delegate;
     FrotzWordPicker *m_wordPicker;
     FrotzInputHelperMode m_mode;
     NSInteger m_lastCommonWordPicked;

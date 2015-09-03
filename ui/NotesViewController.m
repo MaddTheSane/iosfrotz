@@ -151,14 +151,6 @@ static const int kNotesTitleHeight = 24;
     [m_notesBGView addSubview: m_notesView];
 }
 
--(void)setDelegate:(UIViewController<TextFileBrowser,FileSelected,LockableKeyboard>*)delegate {
-    m_delegate = delegate;
-}
-
--(UIViewController<TextFileBrowser,FileSelected, LockableKeyboard>*)delegate {
-    return m_delegate;
-}
-
 -(void)notesAction:(id)sender {
     NSInteger seg = [m_notesTitle selectedSegmentIndex];
     if (seg == 1) {

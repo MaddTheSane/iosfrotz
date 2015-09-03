@@ -18,7 +18,7 @@
 @interface URLPromptController : UIViewController <UISearchBarDelegate>
 {
     UISearchBar	*m_textbar;
-    id<URLPromptDelegate> m_delegate;
+    __weak id<URLPromptDelegate> m_delegate;
 }
 -(void)setText:(NSString*)text;
 -(void)setPlaceholder:(NSString*)text;

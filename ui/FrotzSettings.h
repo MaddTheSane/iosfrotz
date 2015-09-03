@@ -43,6 +43,9 @@
     
     BOOL	m_settingsShown, m_subPagePushed;
     BOOL	m_resetting;
+
+    NSObject<FrotzSettingsInfoDelegate> *m_infoDelegate;
+    NSObject<FrotzSettingsStoryDelegate, FrotzFontDelegate>	*m_storyDelegate;
     
     NSInteger m_selectedRow, m_selectedSection;
 

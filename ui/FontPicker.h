@@ -30,6 +30,8 @@
 @interface FontPicker : UITableViewController {
     NSMutableArray *m_fonts;
     NSMutableArray *m_fixedFonts;
+    __weak id<FrotzFontDelegate> m_delegate;
+    BOOL m_fixedFontsOnly;
 }
 @property (nonatomic, weak) id<FrotzFontDelegate> delegate;
 @property (nonatomic, assign) BOOL fixedFontsOnly;

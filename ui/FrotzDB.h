@@ -11,7 +11,7 @@
 
     UITextField *m_textField;
     
-    id m_delegate;
+    __weak id m_delegate;
     BOOL m_hasAppeared;
     BOOL m_isUnlinking;
 }

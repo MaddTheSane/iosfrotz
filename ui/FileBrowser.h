@@ -42,6 +42,7 @@ typedef NS_ENUM(unsigned int, FileBrowserState)  { kFBHidden, kFBShown, kFBDoSho
     NSMutableArray *m_files;
     NSString *m_path;
     NSUInteger m_rowCount;
+    __weak id<FileSelected> m_delegate;
     FileBrowserState m_dialogType;
     UIView *m_backgroundView;
     UITableView *m_tableView;

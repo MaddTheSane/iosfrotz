@@ -39,7 +39,7 @@ void iosif_clear_input(NSString *initStr);
 void iosif_feed_input(NSString *str);
 void iosif_feed_input_line(NSString *str);
 
-@protocol InputHelperDelegate
+@protocol InputHelperDelegate <NSObject>
 -(void)hideInputHelper;
 -(BOOL)inputHelperShown;
 -(UIView*) inputHelperView;
