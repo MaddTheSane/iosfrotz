@@ -41,9 +41,9 @@ static NSInteger sortFontsByFamilyName(id a, id b, void *context) {
 enum { kUIFontItalic=1, kUIFontBold=2 };
 
 - (instancetype)init {
+    self = [super initWithStyle:UITableViewStyleGrouped];
     m_fonts = [[NSMutableArray alloc] initWithCapacity: 50];
     m_fixedFonts = [[NSMutableArray alloc] initWithCapacity: 50];
-    self = [super initWithStyle:UITableViewStyleGrouped];
     return self;
 }
 

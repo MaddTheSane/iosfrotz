@@ -954,6 +954,7 @@ static NSInteger sortPathsByFilename(id a, id b, void *context) {
     NSLog(@"sb viewdidunload!");
     m_tableView = nil;
     m_background = nil;
+    [super viewDidUnload];
 }
 
 - (void)loadView {
@@ -1087,6 +1088,7 @@ static NSInteger sortPathsByFilename(id a, id b, void *context) {
 
 -(void)viewDidAppear:(BOOL)animated {
     self.view.userInteractionEnabled = YES;
+    [super viewDidAppear:animated];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -1095,6 +1097,7 @@ static NSInteger sortPathsByFilename(id a, id b, void *context) {
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
 }
 
 - (StoryMainViewController*)storyMainViewController {
@@ -1107,13 +1110,6 @@ static NSInteger sortPathsByFilename(id a, id b, void *context) {
 
 - (FrotzSettingsController*)settings {
     return m_settings;
-}
-
-- (void) dealloc {
-    NSString *path;
-    for (path in m_paths)
-        path;
-    
 }
 
 - (void)addPath: (NSString *)path {
