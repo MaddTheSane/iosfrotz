@@ -10,10 +10,14 @@
 #import "StoryMainViewController.h"
 #import "FrotzView.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface StatusLine : FrotzView
 {
     NSTimer *m_tapTimer;
 }
 - (BOOL)handleTouch: (UITouch*)touch withEvent: (UIEvent*)event;
 @end
+
+NS_ASSUME_NONNULL_END
 

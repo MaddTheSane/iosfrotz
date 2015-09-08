@@ -17,7 +17,7 @@
         [self setBackgroundColor: [UIColor colorWithWhite:1.0 alpha:0.0]];
         m_label = [[UILabel alloc] init];
         [m_label setFont: font];
-        [self setText: @""];
+        self.text = @"";
         [m_label setTextColor: [UIColor blueColor]];
         [m_label setShadowColor: [UIColor darkGrayColor]];
         [m_label setBackgroundColor: [UIColor whiteColor]];

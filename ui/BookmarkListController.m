@@ -8,7 +8,11 @@
 
 #import "BookmarkListController.h"
 
-@implementation BookmarkListController
+@implementation BookmarkListController {
+    NSMutableArray *m_sites;
+    NSMutableArray *m_titles;
+    UITableView *m_tableView;
+}
 @synthesize delegate = m_delegate;
 
 - (instancetype)initWithStyle:(UITableViewStyle)style {

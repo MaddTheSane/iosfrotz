@@ -8,20 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol BookmarkDelegate <NSObject>
 -(void)enterURL:(NSString*)url;
--(NSString*)currentURL;
--(NSString*)currentURLTitle;
+-(nullable NSString*)currentURL;
+-(nullable NSString*)currentURLTitle;
 -(void)hideBookmarks;
--(void)loadBookmarksWithURLs:(NSArray**)urls andTitles:(NSArray**)titles;
--(void)saveBookmarksWithURLs:(NSArray*)urls andTitles:(NSArray*)titles;
+-(void)loadBookmarksWithURLs:(NSArray<NSString*>*__nullable*__nullable)urls andTitles:(NSArray<NSString*>*__nullable*__nullable)titles;
+-(void)saveBookmarksWithURLs:(NSArray<NSString*>*)urls andTitles:(NSArray<NSString*>*)titles;
 -(NSString*)bookmarkPath;
 @end
 
-@interface BookmarkListController : UITableViewController {
-    NSMutableArray *m_sites;
-    NSMutableArray *m_titles;
-    UITableView *m_tableView;
-}
+@interface BookmarkListController : UITableViewController
 @property (nonatomic, weak) id<BookmarkDelegate> delegate;
 @end
+
+NS_ASSUME_NONNULL_END

@@ -66,7 +66,7 @@ typedef UIImage *__nullable(*RichDataGetImageCallback)(int imageNum);
 - (NSInteger) getTextRunAtPoint:(CGPoint)touchPoint;
 - (int)hyperlinkAtPoint:(CGPoint)point;
 - (void)populateZeroHyperlinks;
-@property (nonatomic, readonly, strong) RichTextTile *dequeueReusableTile;
+- (nullable RichTextTile *)dequeueReusableTile;
 - (void)prepareForKeyboardShowHide;
 - (void)rememberTopLineForReflow;
 @property (nonatomic, getter=getCurrentTextColor, readonly, copy) UIColor *currentTextColor;

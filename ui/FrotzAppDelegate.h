@@ -20,7 +20,7 @@
 	UIActivityIndicatorView *m_activityView;
 	UIView *m_splash;
 }
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOption;
+- (BOOL)application:(nonnull UIApplication *)application didFinishLaunchingWithOptions:(nullable NSDictionary *)launchOption;
 -(void)fadeSplashScreen;
 @end
 

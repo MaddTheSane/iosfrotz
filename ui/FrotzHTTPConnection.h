@@ -6,6 +6,7 @@
 #import <Foundation/Foundation.h>
 #import "HTTPConnection.h"
 
+NS_ASSUME_NONNULL_BEGIN
 
 @interface FrotzHTTPConnection : HTTPConnection
 {
@@ -23,8 +24,10 @@
 - (BOOL)supportsMethod:(NSString *)method atPath:(NSString *)relativePath;
 - (void)prepareForBodyWithSize:(UInt64)contentLength;
 - (void)doneWithBody;
-- (NSObject<HTTPResponse> *)httpResponseForMethod:(NSString *)method URI:(NSString *)path;
+- (nullable NSObject<HTTPResponse> *)httpResponseForMethod:(NSString *)method URI:(NSString *)path;
 //- (void)processDataChunk:(NSData *)postDataChunk;
 - (void)processBodyData:(NSData *)postDataChunk;
 - (void)handlePostMultipartData:(NSData *)data;
 @end
+
+NS_ASSUME_NONNULL_END
