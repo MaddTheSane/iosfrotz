@@ -10,7 +10,7 @@
 #import <UIKit/UIFont.h>
 #import <UIKit/UILabel.h>
 
-@protocol WordSelection
+@protocol WordSelection <NSObject>
 -(void)setFont:(UIFont*)font;
 @end
 

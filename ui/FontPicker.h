@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong) UIFont *font;
 @end
 
-@interface FontPicker : UITableViewController 
+@interface FontPicker : UITableViewController
 @property (nonatomic, weak, nullable) id<FrotzFontDelegate> delegate;
 @property (nonatomic, assign) BOOL fixedFontsOnly;
 
