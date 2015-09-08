@@ -312,6 +312,7 @@ const CGFloat kHistoryLineHeight = 20.0;
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning {

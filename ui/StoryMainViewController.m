@@ -1684,6 +1684,7 @@ extern void gli_ios_set_focus(window_t *winNum);
 }
 
 -(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self checkAccessibility];
     
     self.navigationItem.titleView = [m_frotzInfoController view];
@@ -2035,7 +2036,7 @@ static UIImage *GlkGetImageCallback(int imageNum) {
         NSString *origText = [m_inputLine text];
         //NSLog(@"textsel: %@", text);
         //[text retain];
-        [UIView beginAnimations: @"tsel" context: (void*)CFBridgingRetain(text)];
+        [UIView beginAnimations: @"tsel" context: (__bridge void*)(text)];
         [UIView setAnimationDelay: 0.1];
         CGRect frame = [m_inputLine frame];
         CGRect origViewFrame = [view frame];

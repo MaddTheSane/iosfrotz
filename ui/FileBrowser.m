@@ -305,9 +305,11 @@ static NSString *kSaveExt = @".sav", *kAltSaveExt = @".qut";
         self.edgesForExtendedLayout=UIRectEdgeNone;
     }
 #endif
+    [super viewDidLoad];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     UIBarButtonItem* backItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(didPressCancel:)];
     self.navigationItem.leftBarButtonItem = backItem;
     

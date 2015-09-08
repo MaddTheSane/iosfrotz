@@ -37,6 +37,7 @@
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
 }
 
 - (instancetype)init
@@ -48,20 +49,13 @@
     return self;
 }
 
-- (void)setDelegate:(id)delegate {
-    m_delegate = delegate;
-}
-
-- (id)delegate {
-    return m_delegate;
-}
-
 -(void)viewDidUnload {
     [m_tableView setDelegate: nil];
     m_tableView = nil;
     m_headerLabel = nil;
     m_folderLabel = nil;
     m_textField = nil;
+    [super viewDidUnload];
 }
 
 - (void)dealloc

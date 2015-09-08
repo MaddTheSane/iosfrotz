@@ -167,6 +167,7 @@ const NSString *kBookmarkTitlesKey = @"Titles";
         self.edgesForExtendedLayout=UIRectEdgeNone;
     }
 #endif
+    [super viewDidLoad];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

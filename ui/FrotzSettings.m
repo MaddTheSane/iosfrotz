@@ -144,6 +144,7 @@ enum ControlTableSections
     if (!m_subPagePushed)
         m_settingsShown = NO;
     m_subPagePushed = NO;
+    [super viewDidDisappear:animated];
 }
 
 - (instancetype)init
@@ -252,6 +253,7 @@ enum ControlTableSections
     m_aboutFrotz = nil;
     m_fileTransferInfo = nil;
     m_tableView = nil;
+    [super viewDidUnload];
 }
 
 - (void)loadView

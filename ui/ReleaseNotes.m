@@ -285,7 +285,8 @@
         [[view scrollView] addSubview: m_rateButton];
         CGRect frame = self.view.frame;
         [m_rateButton setFrame: CGRectMake(frame.size.width - 112 , 10, 100, 24)];
-    }    
+    }
+    [super viewDidAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

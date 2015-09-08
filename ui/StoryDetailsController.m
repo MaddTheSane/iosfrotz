@@ -372,6 +372,7 @@ static NSData *pasteboardWebArchiveImageData(UIPasteboard* gpBoard) {
 }
 
 -(void)viewDidLoad {
+    [super viewDidLoad];
     m_artSizePortrait = m_artworkView.bounds.size;
     
     // Originally we let auto-rotate resizing compute the landscape bounds, and cached it.
@@ -507,6 +508,7 @@ static NSData *pasteboardWebArchiveImageData(UIPasteboard* gpBoard) {
 
 -(void)viewDidAppear:(BOOL)animated {
     [self repositionArtwork: [[UIApplication sharedApplication] statusBarOrientation]]; //[[UIDevice currentDevice] orientation]];
+    [super viewDidAppear:animated];
 }
 
 -(void)updateSelectionInstructions:(BOOL)hasPopover {

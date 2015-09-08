@@ -1505,7 +1505,7 @@ static CGFloat RTDrawFixedWidthText(CGContextRef context, NSString *text, CGFloa
 }
 
 -(void)recalcPositionsStartingAt:(NSInteger)index {
-    CGPoint pt, nextPoint;
+    CGPoint pt = CGPointZero, nextPoint = CGPointZero;
     CGRect frame= [self frame];
     if (index >= [m_textPos count])
         return;
