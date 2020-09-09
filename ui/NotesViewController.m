@@ -76,7 +76,7 @@ static const int kNotesTitleHeight = 24;
     [m_scrollView setPagingEnabled: YES];
 
     m_notesBGView = [[UIView alloc] init];
-    m_notesBGView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed: @"parchment2.jpg"]]; // was a UIImageView, now just an image bg color
+    m_notesBGView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed: @"parchment2"]]; // was a UIImageView, now just an image bg color
     [m_notesBGView setFrame: CGRectMake(m_frame.size.width, 0, m_frame.size.width, m_frame.size.height)];
     [m_notesBGView setAutoresizesSubviews: YES];
     [m_notesBGView setAutoresizingMask: UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];

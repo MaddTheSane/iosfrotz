@@ -134,9 +134,7 @@
 - (void)touchesCancelled:(NSSet*)touches withEvent:(UIEvent*)event {
 }
 
-- (UILabel*) textLabel {
-    return m_text;
-}
+@synthesize textLabel=m_text;
 
 - (void) setFrame:(CGRect)frame {
     [super setFrame:frame];
@@ -901,14 +899,8 @@ void HSVtoRGB(CGFloat *r, CGFloat *g, CGFloat *b, CGFloat h, CGFloat s, CGFloat 
         [m_delegate colorPicker: self selectedColor: m_changeTextColor ? m_textColor : m_bgColor];
 }
 
-- (HSVPicker *)hsvPicker {
-    return m_hsvPicker;
-}
-- (HSVValuePicker *)valuePicker {
-    return m_valuePicker;
-}
-- (ColorTile *)colorTile {
-    return m_colorTile;
-}
+@synthesize hsvPicker=m_hsvPicker;
+@synthesize valuePicker=m_valuePicker;
+@synthesize colorTile=m_colorTile;
 
 @end
