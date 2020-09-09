@@ -37,7 +37,7 @@
 }
 - (instancetype) initWithFrame:(CGRect)frame withColorPicker: colorPicker;
 - (void)drawRect:(CGRect)rect;
-- (void)setLeftMargin: (int)margin;
+@property (nonatomic) int leftMargin;
 @property (nonatomic) int barWidth;
 - (void)mousePositionToValue:(CGPoint)point;
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event;
@@ -54,7 +54,7 @@
     unsigned int *m_hsvData;
 }
 - (instancetype) initWithFrame:(CGRect)frame withColorPicker: colorPicker;
-@property (nonatomic, readonly) unsigned int *hsvData;
+@property (nonatomic, readonly) unsigned int *hsvData NS_RETURNS_INNER_POINTER;
 - (void)drawRect:(CGRect)rect;
 - (void)mousePositionToColor:(CGPoint)point;
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event;
@@ -80,13 +80,9 @@
 }
 
 
-- (int)width {
-    return m_width;
-}
+@synthesize width=m_width;
 
-- (int)height {
-    return m_height;
-}
+@synthesize height=m_height;
 @end
 
 
@@ -168,7 +164,7 @@
 
 @end
 
-void RGBtoHSV(CGFloat r, CGFloat g, CGFloat b, CGFloat *h, CGFloat *s, CGFloat *v)
+static void RGBtoHSV(CGFloat r, CGFloat g, CGFloat b, CGFloat *h, CGFloat *s, CGFloat *v)
 {
     CGFloat min, max, delta;
     min = r;
@@ -201,7 +197,7 @@ void RGBtoHSV(CGFloat r, CGFloat g, CGFloat b, CGFloat *h, CGFloat *s, CGFloat *
         *h += 1.0f;
 }
 
-void HSVtoRGB(CGFloat *r, CGFloat *g, CGFloat *b, CGFloat h, CGFloat s, CGFloat v)
+static void HSVtoRGB(CGFloat *r, CGFloat *g, CGFloat *b, CGFloat h, CGFloat s, CGFloat v)
 {
     CGFloat f, p, q, t;
     if(s == 0) { // grey
@@ -253,17 +249,9 @@ void HSVtoRGB(CGFloat *r, CGFloat *g, CGFloat *b, CGFloat h, CGFloat s, CGFloat 
     return self;
 }
 
-- (void)setLeftMargin: (int)margin {
-    m_leftMargin = margin;
-}
+@synthesize leftMargin=m_leftMargin;
 
-- (void)setBarWidth : (int)width {
-    m_barWidth = width;
-}
-
--(int)barWidth {
-    return m_barWidth;
-}
+@synthesize barWidth=m_barWidth;
 
 -(void)mousePositionToValue:(CGPoint)point {
     int y = (int)point.y;
@@ -478,9 +466,7 @@ void HSVtoRGB(CGFloat *r, CGFloat *g, CGFloat *b, CGFloat h, CGFloat s, CGFloat 
     }
 }
 
-- (unsigned int *)hsvData {
-    return m_hsvData;
-}
+@synthesize hsvData=m_hsvData;
 
 - (void)drawRect:(CGRect)rect {
     int x, y, i = 0;
@@ -802,9 +788,7 @@ void HSVtoRGB(CGFloat *r, CGFloat *g, CGFloat *b, CGFloat h, CGFloat s, CGFloat 
     return m_colorSpace;
 }
 
-- (BOOL)isTextColorMode {
-    return m_changeTextColor;
-}
+@synthesize textColorMode=m_changeTextColor;
 
 - (void)toggleMode {
     m_changeTextColor = !m_changeTextColor;
